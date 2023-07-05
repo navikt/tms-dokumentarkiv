@@ -6,8 +6,6 @@ metadata:
   labels:
     team: min-side
 spec:
-  envFrom:
-    - secret: tms-dokumentarkiv-secrets
   image: {{image}}
   port: 8080
   liveness:
