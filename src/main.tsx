@@ -4,9 +4,8 @@ import App from "./App";
 import Authentication from "./components/authentication/Authentication";
 import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler/csr";
 import "./main.css";
-import { getEnvironment } from "./api/environment";
 
-if (getEnvironment() === "development" || "local") {
+if (process.env.NODE_ENV === "development") {
   await injectDecoratorClientSide({
     env: "dev",
     urlLookupTable: false,
