@@ -1,0 +1,13 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--a-bg-default);
+}
+
+.page-wrapper {
+  height: auto;
+  min-height: 70%;
+}

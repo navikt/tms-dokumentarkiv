@@ -1,0 +1,38 @@
+.container {
+  border-bottom: 1px solid #00000030;
+}
+
+.lenke {
+  display: flex;
+  padding: 1rem 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-decoration: none;
+}
+
+.tittel {
+  color: var(--a-text-default);
+  /* Heading/Desktop/Small */
+  font-size: 20px;
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.02px;
+  margin: 0;
+}
+
+.ingress {
+  color: var(--a-text-subtle);
+}
+
+.chevron {
+  color: var(--a-text-default);
+}
+
+.container:hover .chevron {
+  transition-duration: 0.2s;
+  transform: translate(3px, 0);
+}

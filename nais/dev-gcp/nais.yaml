@@ -1,0 +1,37 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: tms-dokumentarkiv
+  namespace: min-side
+  labels:
+    team: min-side
+spec:
+  envFrom:
+    - secret: tms-dokumentarkiv-secrets
+  image: {{image}}
+  port: 8080
+  liveness:
+    path: /dokumentarkiv/internal/isAlive
+    initialDelay: 10
+  readiness:
+    path: /dokumentarkiv/internal/isReady
+    initialDelay: 10
+  replicas:
+    min: 2
+    max: 4
+  ingresses:
+    - "https://www.intern.dev.nav.no/dokumentarkiv"
+  accessPolicy:
+    outbound:
+      external:
+        - host: "https://www.dev.nav.no"
+        - host: "https://www.intern.dev.no"
+        - host: "https://dekoratoren.dev.nav.no"
+        - host: "https://dekoratoren.ekstern.dev.nav.no"
+  resources:
+    limits:
+      cpu: "3"
+      memory: 768Mi
+    requests:
+      cpu: "50m"
+      memory: 256Mi
