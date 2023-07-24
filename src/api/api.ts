@@ -30,7 +30,7 @@ export const fetcher = async ({ path, options }: Props) => {
 export const postUser = async (ident : eventObjectProps) => {
   const response = await fetch(postUserUrl, {
     method: "POST",
-    credentials: "same-origin",
+    credentials: "include",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
