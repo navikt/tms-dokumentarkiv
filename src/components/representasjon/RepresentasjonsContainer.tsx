@@ -26,7 +26,7 @@ const RepresentasjonsContainer = ({ fullmakter, language }: RepresentasjonsConta
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedUser(event.target.value);
 
-    const postUserObj = {event: event.target.value}
+    const postUserObj = {ident: event.target.value}
     postUser(postUserObj)
   }
 
