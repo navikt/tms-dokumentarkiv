@@ -7,7 +7,7 @@ interface Props {
 }
 
 interface eventObjectProps {
-  event: string;
+  ident: string;
 }
 
 export const include = {
