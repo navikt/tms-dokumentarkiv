@@ -17,7 +17,7 @@ export const authenticationUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/login/
 export const getSakstemaerUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/sakstemaer`;
 export const getJournalposterUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/journalposter`;
 export const getFullmaktForhold = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/forhold`;
-export const postUserUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/repesentert`;
+export const postUserUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/representert`;
 
 export const baseUrl = BASE_URL[getEnvironment()];
 
