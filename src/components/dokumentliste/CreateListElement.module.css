@@ -1,8 +1,4 @@
-.liste {
-  margin-top: 2.5rem;
-}
-
-.datoKolonneTittel {
+.ikonOgTittel {
   display: flex;
   align-items: center;
   gap: 0.5rem;

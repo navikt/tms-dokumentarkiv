@@ -14,9 +14,10 @@ if (process.env.NODE_ENV === "development") {
 
 const container = document.getElementById("root") as HTMLElement;
 const root = ReactDOM.createRoot(container);
-//TODO: Add auth
 root.render(
   <React.StrictMode>
+    <Authentication>
       <App />
+    </Authentication>
   </React.StrictMode>
 );

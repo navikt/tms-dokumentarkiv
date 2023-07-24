@@ -1,5 +1,9 @@
-import SakstemaListeElement from "./SakstemaListeElement";
+import useSWRImmutable from "swr/immutable";
+import { fetcher } from "../../api/api";
+import { setIsError } from "../../store/store";
+import { getSakstemaerUrl } from "../../urls";
 import styles from "./SakstemaListe.module.css";
+import SakstemaListeElement from "./SakstemaListeElement";
 
 export interface SakstemaElement {
   navn: string,
@@ -9,37 +13,19 @@ export interface SakstemaElement {
 }
 
 const SakstemaListe = () => {
-  const liste = [
-    {
-      navn: "Arbeidsavklaringspenger",
-      kode: "AAP",
-      sistEndret: "2023-04-13T14:36:13Z",
-      detaljvisningUrl: "https://www.intern.dev.nav.no/mine-saker/tema/AAP",
-    },
-    {
-      navn: "Tilleggsstønad",
-      kode: "TSO",
-      sistEndret: "2023-02-22T11:40:08Z",
-      detaljvisningUrl: "https://www.intern.dev.nav.no/mine-saker/tema/TSO",
-    },
-    {
-      navn: "Dagpenger",
-      kode: "DAG",
-      sistEndret: "2023-02-21T13:36:27Z",
-      detaljvisningUrl: "https://www.intern.dev.nav.no/mine-saker/tema/DAG",
-    },
-    {
-      navn: "Oppfølging",
-      kode: "OPP",
-      sistEndret: "2023-01-16T10:57:06Z",
-      detaljvisningUrl: "https://www.intern.dev.nav.no/mine-saker/tema/OPP",
-    },
-  ];
 
+  const { data: sakstemaer, isLoading } = useSWRImmutable({ path: getSakstemaerUrl }, fetcher, {
+    shouldRetryOnError: false,
+    onError: setIsError,
+  });
+
+  if(isLoading) {
+    return null;
+  }
 
   return (
     <ul className={styles.liste}>
-      {liste.map((sakstema: SakstemaElement) => (
+      {sakstemaer?.map((sakstema: SakstemaElement) => (
         <SakstemaListeElement sakstema={sakstema}/>
       ))}
     </ul>
