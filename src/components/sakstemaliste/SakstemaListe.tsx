@@ -21,7 +21,7 @@ interface Props {
 
 const SakstemaListe = ({isRepresentant, navn}: Props) => {
 
-  const { data: sakstemaer, isLoading } = useSWR({ path: getSakstemaerUrl }, fetcher, {
+  const { data: sakstemaer, mutate, isLoading } = useSWR({ path: getSakstemaerUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
     //revalidateOnMount: true
@@ -30,7 +30,7 @@ const SakstemaListe = ({isRepresentant, navn}: Props) => {
   const user = useStore(selectedUserAtom)
 
   useEffect(() => {
-    mutate(getSakstemaerUrl, sakstemaer)
+    mutate(sakstemaer)
   }, [user]);
 
   if(isLoading) {
