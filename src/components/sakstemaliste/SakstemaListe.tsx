@@ -1,5 +1,5 @@
 import useSWRImmutable from "swr/immutable";
-import useSWR, { mutate, useSWRConfig } from 'swr'
+import useSWR, { mutate } from 'swr'
 import { fetcher } from "../../api/api";
 import { selectedUserAtom, setIsError } from "../../store/store";
 import { getSakstemaerUrl } from "../../urls";
@@ -22,7 +22,7 @@ interface Props {
 
 const SakstemaListe = ({isRepresentant, navn}: Props) => {
 
-  const { data: sakstemaer, isLoading } = useSWRImmutable({ path: getSakstemaerUrl }, fetcher, {
+  const { data: sakstemaer, isLoading } = useSWR({ path: getSakstemaerUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
     //revalidateOnMount: true
