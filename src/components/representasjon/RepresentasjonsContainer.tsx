@@ -1,6 +1,6 @@
 import { Select } from "@navikt/ds-react";
 import styles from "./RepresentasjonsContainer.module.css";
-import { setSelectedUser } from "../../store/store";
+import { selectedUserAtom, setSelectedUser } from "../../store/store";
 import { TextLanguages, text } from "../../language/text";
 import { ChangeEvent } from "react";
 import { postUser } from "../../api/api";
@@ -24,10 +24,8 @@ interface RepresentasjonsContainerProps {
 const RepresentasjonsContainer = ({ fullmakter, language }: RepresentasjonsContainerProps) => {
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedUser(event.target.value);
-
-    const postUserObj = {ident: event.target.value}
-    postUser(postUserObj)
+    setSelectedUser(event.target.options[event.target.selectedIndex].text, event.target.value);
+    postUser({ident: event.target.value});
   }
 
   return (

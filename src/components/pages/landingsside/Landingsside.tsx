@@ -3,7 +3,7 @@ import RepresentasjonsContainer, { fullmakterProps } from "../../representasjon/
 import SakstemaListe from "../../sakstemaliste/SakstemaListe";
 import Disclaimer from "./disclaimer/Disclaimer";
 import { useStore } from "@nanostores/react";
-import { languageAtom, setIsError, setSelectedUser } from "../../../store/store";
+import { languageAtom, selectedUserAtom, setIsError, setSelectedUser } from "../../../store/store";
 import { text } from "../../../language/text";
 import useSWRImmutable from "swr/immutable";
 import { getFullmaktForhold } from "../../../urls";
@@ -13,10 +13,11 @@ const Landingsside = () => {
   const { data: fullmakter, isLoading } = useSWRImmutable<fullmakterProps>({ path: getFullmaktForhold }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
-    onSuccess: (fullmakter) => setSelectedUser(fullmakter.ident),
+    onSuccess: (fullmakter) => setSelectedUser(fullmakter.navn, fullmakter.ident),
   });
 
   const language = useStore(languageAtom);
+  const representert = useStore(selectedUserAtom);
 
   if(isLoading) {
     return null;
@@ -28,7 +29,7 @@ const Landingsside = () => {
     <>
       <Heading level="2" size="xlarge">{text.dokumentarkiv[language]}</Heading>
       {isRepresentant ? <RepresentasjonsContainer fullmakter={fullmakter} language={language}/> : null}
-      <SakstemaListe />
+      <SakstemaListe isRepresentant={isRepresentant} navn={representert.navn}/>
       <Disclaimer />
     </>
   );
