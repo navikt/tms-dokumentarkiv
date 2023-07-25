@@ -6,6 +6,7 @@ import { getSakstemaerUrl } from "../../urls";
 import styles from "./SakstemaListe.module.css";
 import SakstemaListeElement from "./SakstemaListeElement";
 import { useEffect } from "react";
+import { useStore } from "@nanostores/react";
 
 export interface SakstemaElement {
   navn: string,
@@ -27,9 +28,11 @@ const SakstemaListe = ({isRepresentant, navn}: Props) => {
     //revalidateOnMount: true
   });
 
+  const user = useStore(selectedUserAtom)
+
   useEffect(() => {
     mutate(getSakstemaerUrl)
-  }, [selectedUserAtom]);
+  }, [user]);
 
   if(isLoading) {
     return null;
