@@ -4,6 +4,8 @@ import { selectedUserAtom, setSelectedUser } from "../../store/store";
 import { TextLanguages, text } from "../../language/text";
 import { ChangeEvent } from "react";
 import { postUser } from "../../api/api";
+import { getSakstemaerUrl } from "../../urls";
+import { mutate } from "swr";
 
 type fullmaktsGiverConfig = {
   navn: string;
@@ -26,6 +28,7 @@ const RepresentasjonsContainer = ({ fullmakter, language }: RepresentasjonsConta
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedUser(event.target.options[event.target.selectedIndex].text, event.target.value);
     postUser({ident: event.target.value});
+    mutate(getSakstemaerUrl)
   }
 
   return (
