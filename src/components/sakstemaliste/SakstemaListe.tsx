@@ -1,4 +1,3 @@
-import useSWRImmutable from "swr/immutable";
 import useSWR, { mutate } from 'swr'
 import { fetcher } from "../../api/api";
 import { selectedUserAtom, setIsError } from "../../store/store";
@@ -31,7 +30,7 @@ const SakstemaListe = ({isRepresentant, navn}: Props) => {
   const user = useStore(selectedUserAtom)
 
   useEffect(() => {
-    mutate(getSakstemaerUrl)
+    mutate(getSakstemaerUrl, sakstemaer)
   }, [user]);
 
   if(isLoading) {
