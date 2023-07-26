@@ -41,6 +41,4 @@ export const postUser = async (ident : eventObjectProps) => {
   if (!response.ok) {
     throw new Error("Post request failed");
   }
-
-  return await response.json();
 };
