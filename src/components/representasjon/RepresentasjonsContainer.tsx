@@ -24,11 +24,11 @@ interface RepresentasjonsContainerProps {
 }
 
 const RepresentasjonsContainer = ({ fullmakter, language }: RepresentasjonsContainerProps) => {
-
-  const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleSelectChange = async (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedUser(event.target.options[event.target.selectedIndex].text, event.target.value);
-    postUser({ident: event.target.value});
-  }
+    await postUser({ ident: event.target.value });
+    mutate(getSakstemaerUrl);
+  };
 
   return (
     <div className={styles.container}>
