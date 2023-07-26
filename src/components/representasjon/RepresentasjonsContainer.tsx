@@ -28,7 +28,6 @@ const RepresentasjonsContainer = ({ fullmakter, language }: RepresentasjonsConta
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedUser(event.target.options[event.target.selectedIndex].text, event.target.value);
     postUser({ident: event.target.value});
-    mutate(getSakstemaerUrl)
   }
 
   return (

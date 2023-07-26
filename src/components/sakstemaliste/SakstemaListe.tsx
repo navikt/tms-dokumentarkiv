@@ -24,14 +24,14 @@ const SakstemaListe = ({isRepresentant, navn}: Props) => {
   const { data: sakstemaer, isLoading } = useSWR({ path: getSakstemaerUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
-    //revalidateOnMount: true
+    revalidateOnMount: true
   });
 
-  /*const user = useStore(selectedUserAtom)
+  const user = useStore(selectedUserAtom)
 
   useEffect(() => {
-    mutate(sakstemaer)
-  }, [user]);*/
+    mutate(getSakstemaerUrl)
+  }, [user]);
 
   if(isLoading) {
     return null;
