@@ -22,10 +22,6 @@ export interface Fullmakter {
   fullmaktsGivere: Array<fullmaktsGiverConfig>;
 }
 
-export interface Sakstemaer {
-  sakstemaer: Array<SakstemaElement>;
-}
-
 const Landingsside = () => {
   const { data: fullmakter, isLoading: isLoadingFullmakter } = useSWRImmutable<Fullmakter>(
     { path: getFullmaktForhold },
@@ -42,7 +38,7 @@ const Landingsside = () => {
     isLoading: isLoadingSakstemaer,
     mutate,
     isValidating,
-  } = useSWR<Sakstemaer>({ path: getSakstemaerUrl }, fetcher, {
+  } = useSWR<Array<SakstemaElement>>({ path: getSakstemaerUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
   });

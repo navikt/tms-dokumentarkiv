@@ -1,7 +1,5 @@
-import { useStore } from "@nanostores/react";
-import { selectedUserAtom } from "../../store/store";
-import styles from "./SakstemaListe.module.css";
 import SakstemaListeElement from "./SakstemaListeElement";
+import styles from "./SakstemaListe.module.css";
 
 export interface SakstemaElement {
   navn: string;
