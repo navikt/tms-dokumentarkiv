@@ -28,7 +28,7 @@ export interface journalposterProps {
 
 export const CreateListElement = (journalpost: journalposterProps, language: TextLanguages) => {
   const url = `${dokumentUrl}/${journalpost.journalpostId}`;
-  const innsender = journalpost.avsender.innloggetBrukerErSelvKilden ? text.deg[language] : text.tredjepart[language];
+  const innsender = journalpost.avsender ? (journalpost.avsender.innloggetBrukerErSelvKilden ? text.deg[language] : text.tredjepart[language]) : text.tredjepart[language];
   const listeElement = journalpost;
 
 
