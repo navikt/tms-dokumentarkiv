@@ -23,9 +23,9 @@ export const text = {
     en: "Document",
   },
   sendtInnAv: {
-    nb: "Dokument",
-    nn: "Dokument",
-    en: "Document",
+    nb: "Sendt inn av",
+    nn: "Sendt inn av",
+    en: "Sent by",
   },
   deg: {
     nb: "Deg",
