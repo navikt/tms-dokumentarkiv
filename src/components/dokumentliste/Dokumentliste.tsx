@@ -18,17 +18,16 @@ interface Props extends Array<journalposterProps>{
 
 
 const Dokumentliste = () => {
-  //const { temakode } = useParams();
-  //console.log(temakode)
-  //const dokumentlisteUrl = `${journalposterUrl}?sakstemakode=AAP`;
-  const dokumentlisteUrl = `${getJournalposterUrl}/sakstemakode`;
+  const { temakode } = useParams();
+  const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
 
   const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
   });
+
   const language = useStore(languageAtom);
-  
+
   if(isLoading) {
     return null;
   }

@@ -23,7 +23,7 @@ export default [
                   tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i utlandet ",
                   dokumentInfoId: "624882104",
                   dokumenttype: "HOVED",
-                  brukerHarTilgang: true,
+                  brukerHarTilgang: false,
                   eventuelleGrunnerTilManglendeTilgang: [],
                   variant: "ARKIV",
                 },

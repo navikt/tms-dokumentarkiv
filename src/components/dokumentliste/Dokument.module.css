@@ -1,0 +1,27 @@
+.dokumentlenke {
+  cursor: pointer;
+  color: black;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+}
+
+.dokumentIngenTilgang {
+  color: black;
+}
+
+.lenke {
+  text-decoration: none;
+}
+
+.ikonOgTittel {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: black;
+}
+
+.ikonOgTittelIngenTilgang {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--a-text-subtle);
+}
