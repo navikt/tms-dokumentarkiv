@@ -30,7 +30,7 @@ export const text = {
   dokumentArkivIngress: {
     nb: "Her finner du alle journalførte dokumenter relatert til",
     nn: "Her finner du alle journalførte dokumenter relatert til",
-    en: "Here you will find all archived dokuments related to ",
+    en: "Here you will find all archived documents related to",
   },
   sendtInnAvDeg: {
     nb: "Sendt inn av deg",
