@@ -22,6 +22,7 @@ export const postUserUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/rep
 
 export const baseUrl = BASE_URL[getEnvironment()];
 export const minSideUrl = `${BASE_URL[getEnvironment()]}/minside`
+export const dokumentArkivUrl = `${BASE_URL[getEnvironment()]}/dokumentarkiv`
 
 export const baseUrlWithLanguage = {
   nb: `${baseUrl}/dokumentarkiv`,

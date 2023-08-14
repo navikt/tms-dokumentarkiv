@@ -172,4 +172,14 @@ export const text = {
     nn: "Gå til Mi Side",
     en: "Go to My Page",
   },
+  tilbakeKnapp: {
+    nb: "Tilbake til forside dokumentarkiv",
+    nn: "Tilbake til forside dokumentarkiv",
+    en: "Back to document archive front page",
+  },
+  ingenDokumenter: {
+    nb: "Ingen dokumenter registrert",
+    nn: "Ingen dokumenter registrert",
+    en: "No documents registered",
+  },
 };
