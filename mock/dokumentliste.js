@@ -24,14 +24,14 @@ export default [
                   dokumentInfoId: "624882104",
                   dokumenttype: "HOVED",
                   brukerHarTilgang: false,
-                  eventuelleGrunnerTilManglendeTilgang: [],
+                  eventuelleGrunnerTilManglendeTilgang: ["skannet_dokument"],
                   variant: "ARKIV",
                 },
                 {
                   tittel: "Kvitteringsside for dokumentinnsending",
                   dokumentInfoId: "624882105",
                   dokumenttype: "VEDLEGG",
-                  brukerHarTilgang: true,
+                  brukerHarTilgang: false,
                   eventuelleGrunnerTilManglendeTilgang: [],
                   variant: "ARKIV",
                 },
@@ -41,7 +41,7 @@ export default [
             {
               tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i utlandet ",
               journalpostId: "598134456",
-              journalposttype: "INNGAAENDE",
+              journalposttype: "UTGAAENDE",
               avsender: {
                 innloggetBrukerErSelvKilden: true,
                 type: "PERSON",

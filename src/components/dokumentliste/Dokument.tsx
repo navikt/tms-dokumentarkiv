@@ -1,5 +1,5 @@
 import { EyeSlashIcon, FilePdfIcon } from "@navikt/aksel-icons";
-import { Table } from "@navikt/ds-react";
+import { BodyShort } from "@navikt/ds-react";
 import { format } from "date-fns";
 import styles from "./Dokument.module.css";
 
@@ -8,7 +8,7 @@ export interface dokumentProps {
   dokumentInfoId: string;
   dokumenttype: string;
   brukerHarTilgang: boolean;
-  eventuelleGrunnerTilManglendeTilgang: [];
+  eventuelleGrunnerTilManglendeTilgang: Array<string>;
   variant: string;
 }
 
@@ -23,25 +23,25 @@ const Dokument = ({ dokument, innsender, sisteEndret, url }: Props) => {
   const tilgang = dokument.brukerHarTilgang;
 
   return (
-    <Table.Row key={Math.random.toString()}>
-      <Table.HeaderCell scope="row" className={tilgang ? styles.dokumentlenke : styles.dokumentIngenTilgang}>
+      <>
         {tilgang ? (
-          <a href={url} className={styles.lenke}>
-            <div className={styles.ikonOgTittel}>
-              <FilePdfIcon />
+          <a href={url} className={styles.dokumentlenke}>
+           <FilePdfIcon fontSize="2rem"/> 
+           <div className={styles.textWrapper}>
               {dokument.tittel}
+              <BodyShort className={styles.datoOgInnsender}>{format(new Date(sisteEndret), "dd.MM.yyyy") + "  |  " + innsender}</BodyShort>
             </div>
           </a>
         ) : (
-          <div className={styles.ikonOgTittelIngenTilgang}>
-            <EyeSlashIcon />
-            {dokument.tittel}
+          <div className={styles.ikkeKlikkbar}>
+            <EyeSlashIcon fontSize="2rem"/>
+            <div className={styles.textWrapper}>
+              {dokument.tittel}
+              <BodyShort className={styles.datoOgInnsender}>{format(new Date(sisteEndret), "dd.MM.yyyy") + "  |  " + innsender}</BodyShort>
+            </div>
           </div>
-        )}
-      </Table.HeaderCell>
-      <Table.DataCell>{innsender}</Table.DataCell>
-      <Table.DataCell>{format(new Date(sisteEndret), "dd.MM.yyyy")}</Table.DataCell>
-    </Table.Row>
+        )}   
+      </>
   );
 };
 

@@ -1,9 +1,8 @@
-.liste {
-  margin-top: 2.5rem;
+.container {
+  margin: 3.25rem 0;
 }
 
-.datoKolonneTittel {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.dokumentliste {
+  list-style: none;
+  padding: 0;
 }

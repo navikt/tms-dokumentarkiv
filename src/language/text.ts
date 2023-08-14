@@ -12,30 +12,40 @@ export const text = {
     nn: "Dokumentarkiv",
     en: "Document archive",
   },
-  dato: {
-    nb: "Dato",
-    nn: "Dato",
-    en: "Date",
+  antallVedlegg: {
+    nb: (antall: number) => `Dokumentet har ${antall} vedlegg`,
+    nn: (antall: number) => `Dokumentet har ${antall} vedlegg`,
+    en: (antall: number) => `The document has ${antall} attachments`,
   },
-  dokument: {
-    nb: "Dokument",
-    nn: "Dokument",
-    en: "Document",
+  dokumentArkivTittel: {
+    nb: "Dokumentarkiv",
+    nn: "Dokumentarkiv",
+    en: "Document archive",
   },
-  sendtInnAv: {
-    nb: "Sendt inn av",
-    nn: "Sendt inn av",
-    en: "Sent by",
+  dokumentTittel: {
+    nb: "Dokumenter",
+    nn: "Dokumenter",
+    en: "Documents",
   },
-  deg: {
-    nb: "Deg",
-    nn: "Deg",
-    en: "You",
+  dokumentArkivIngress: {
+    nb: "Her finner du alle journalførte dokumenter relatert til",
+    nn: "Her finner du alle journalførte dokumenter relatert til",
+    en: "Here you will find all archived dokuments related to ",
   },
-  tredjepart: {
-    nb: "Tredjepart",
-    nn: "Tredjepart",
-    en: "Third party",
+  sendtInnAvDeg: {
+    nb: "Sendt inn av deg",
+    nn: "Sendt inn av deg",
+    en: "Sent by you",
+  },
+  fraNav: {
+    nb: "Fra NAV",
+    nn: "Fra NAV",
+    en: "From NAV",
+  },
+  avTredjepart: {
+    nb: "Fra tredjepart",
+    nn: "Fra tredjepart",
+    en: "By third party",
   },
   lasterInn: {
     nb: "Tredjepart",
@@ -121,5 +131,15 @@ export const text = {
     nb: "Ta kontakt dersom det er noe du lurer på.",
     nn: "Ta kontakt dersom det er noe du lurer på.",
     en: "Ta kontakt dersom det er noe du lurer på.",
+  },
+  ingenSaker: {
+    nb: "",
+    nn: "",
+    en: "",
+  },
+  ingenSakerTittel: {
+    nb: "Du har foreløpig ingen registrerte saker",
+    nn: "Du har foreløpig ingen registrerte saker",
+    en: "You have no registered cases",
   },
 };

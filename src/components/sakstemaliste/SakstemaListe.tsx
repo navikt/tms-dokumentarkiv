@@ -1,5 +1,7 @@
 import SakstemaListeElement from "./SakstemaListeElement";
 import styles from "./SakstemaListe.module.css";
+import IngenSaker from "./IngenSaker";
+import Disclaimer from "../pages/landingsside/disclaimer/Disclaimer";
 
 export interface SakstemaElement {
   navn: string;
@@ -20,14 +22,23 @@ const SakstemaListe = ({ isRepresentant, navn, sakstemaer, isLoading }: Props) =
     return null;
   }
 
+  const tomListe = sakstemaer?.length == 0;
+
   return (
     <>
       {isRepresentant && <h2>Du bruker nå dokumentarkivet på vegne av {navn}</h2>}
-      <ul className={styles.liste}>
-        {sakstemaer?.map((sakstema: SakstemaElement) => (
-          <SakstemaListeElement sakstema={sakstema} />
-        ))}
-      </ul>
+      {tomListe ? (
+        <IngenSaker />
+      ) : (
+        <div>
+          <ul className={styles.liste}>
+            {sakstemaer?.map((sakstema: SakstemaElement) => (
+              <SakstemaListeElement sakstema={sakstema} />
+            ))}
+          </ul>
+          <Disclaimer />
+        </div>
+      )}
     </>
   );
 };

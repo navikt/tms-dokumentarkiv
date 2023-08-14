@@ -9,10 +9,6 @@ export const selectedUserAtom = atom<{ navn: string | undefined; ident: string |
   navn: undefined,
   ident: undefined,
 });
-export const originalUserAtom = atom<{ navn: string | undefined; ident: string | undefined }>({
-  navn: undefined,
-  ident: undefined,
-});
 export const sakstemalisteAtom = atom<Array<SakstemaElement>>([]);
 
 export function setIsError() {
@@ -25,10 +21,6 @@ export function setLanguage(locale: Locale) {
 
 export function setSelectedUser(navn: string | undefined, ident: string | undefined) {
   selectedUserAtom.set({ navn, ident });
-}
-
-export function setOriginalUser(navn: string | undefined, ident: string | undefined) {
-  originalUserAtom.set({ navn, ident });
 }
 
 export function setSakstemaliste(liste: Array<SakstemaElement>) {

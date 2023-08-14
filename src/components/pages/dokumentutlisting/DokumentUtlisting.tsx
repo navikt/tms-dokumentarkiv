@@ -2,35 +2,42 @@ import { BodyShort, Heading, Ingress } from "@navikt/ds-react";
 import { useParams } from "react-router-dom";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../../api/api";
-import { setIsError } from "../../../store/store";
+import { languageAtom, setIsError } from "../../../store/store";
 import { getJournalposterUrl } from "../../../urls";
 import Dokumentliste from "../../dokumentliste/Dokumentliste";
 import Snarveier from "../../snarveier/Snarveier";
 import styles from "./DokumentUtlisting.module.css";
 import Disclaimer from "./disclaimer/Disclaimer";
+import { useStore } from "@nanostores/react";
+import { text } from "../../../language/text";
+import { format } from "date-fns";
 
 const DokumentUtlisting = () => {
   const { temakode } = useParams();
   const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
-
   const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
   });
 
+  const language = useStore(languageAtom);
+
   if (isLoading) {
     return null;
   }
 
+  const temaNavn = dokumentliste && dokumentliste[0].navn;
+  const dato = dokumentliste && format(new Date(dokumentliste[0].journalposter[0].sisteEndret), "dd.MM.yyyy")
+
   return (
     <>
       <Heading level="2" size="xlarge">
-        {dokumentliste ? dokumentliste[0].navn : "Dokumentliste"}
-      </Heading>
+        {dokumentliste ? dokumentliste[0].navn : text.dokumentArkivTittel[language]}
+      </Heading>      
+      <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
       <Ingress className={styles.ingress}>
-        Her finner du alle journalførte dokumenter. For endringer og informasjon om status, se foreldrepengene mine.
+        {text.dokumentArkivIngress[language] + " " +  temaNavn}
       </Ingress>
-      <BodyShort className={styles.sistEndret}>Sist endret 25.05.2020</BodyShort>
       <Dokumentliste />
       <Snarveier />
       <Disclaimer />

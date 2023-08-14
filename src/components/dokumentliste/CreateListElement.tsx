@@ -1,6 +1,7 @@
 import { TextLanguages, text } from "../../language/text";
 import { dokumentUrl } from "../../urls";
-import Dokument, { dokumentProps } from "./Dokument";
+import Dokument from "./Dokument";
+import Vedlegg from "./Vedlegg";
 
 export interface journalposterProps {
   tittel: string;
@@ -18,30 +19,34 @@ export interface journalposterProps {
       dokumentInfoId: string;
       dokumenttype: string;
       brukerHarTilgang: boolean;
-      eventuelleGrunnerTilManglendeTilgang: [];
+      eventuelleGrunnerTilManglendeTilgang: Array<string>;
       variant: string;
     }
   ];
   harVedlegg: boolean;
 }
 
-
 export const CreateListElement = (journalpost: journalposterProps, language: TextLanguages) => {
   const url = `${dokumentUrl}/${journalpost.journalpostId}`;
-  const innsender = journalpost.avsender ? (journalpost.avsender.innloggetBrukerErSelvKilden ? text.deg[language] : text.tredjepart[language]) : text.tredjepart[language];
-  const listeElement = journalpost;
 
+  const innsender =
+    journalpost.journalposttype === "UTGAAENDE"
+      ? text.fraNav[language]
+      : journalpost.dokumenter[0].eventuelleGrunnerTilManglendeTilgang[0] === "skannet_dokument"
+      ? text.avTredjepart[language]
+      : text.sendtInnAvDeg[language];
+
+  const hasVedlegg = journalpost.dokumenter.length > 1;
 
   return (
-    <>
-      {listeElement && listeElement?.dokumenter?.map((dokument: dokumentProps) => (
-        <Dokument 
-          dokument={dokument} 
-          innsender={innsender} 
-          sisteEndret={journalpost.sisteEndret}
-          url={`${url}/${dokument.dokumentInfoId}`}
-        />
-      ))}
-    </>
+    <li key={Math.random()}>
+      <Dokument
+        dokument={journalpost.dokumenter[0]}
+        innsender={innsender}
+        sisteEndret={journalpost.sisteEndret}
+        url={`${url}/${journalpost.dokumenter[0].dokumentInfoId}`}
+      />
+      {hasVedlegg && <Vedlegg dokumenter={journalpost.dokumenter} language={language} baseUrl={url} />}
+    </li>
   );
 };

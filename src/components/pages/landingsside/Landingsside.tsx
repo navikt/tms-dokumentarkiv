@@ -1,9 +1,8 @@
 import { Heading } from "@navikt/ds-react";
 import RepresentasjonsContainer from "../../representasjon/RepresentasjonsContainer";
 import SakstemaListe, { SakstemaElement } from "../../sakstemaliste/SakstemaListe";
-import Disclaimer from "./disclaimer/Disclaimer";
 import { useStore } from "@nanostores/react";
-import { languageAtom, selectedUserAtom, setIsError, setOriginalUser, setSelectedUser } from "../../../store/store";
+import { languageAtom, selectedUserAtom, setIsError, setSelectedUser } from "../../../store/store";
 import { text } from "../../../language/text";
 import useSWRImmutable from "swr/immutable";
 import { getFullmaktForhold, getSakstemaerUrl } from "../../../urls";
@@ -68,7 +67,6 @@ const Landingsside = () => {
           isLoading={isLoadingSakstemaer}
         />
       )}
-      <Disclaimer />
     </>
   );
 };
