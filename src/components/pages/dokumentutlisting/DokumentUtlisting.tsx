@@ -38,21 +38,26 @@ const DokumentUtlisting = () => {
     return null;
   }
 
+  const isContent = dokumentliste?.length > 0;
   const temaNavn = dokumentliste && dokumentliste[0].navn;
-  const dato = dokumentliste && format(new Date(dokumentliste[0].journalposter[0].sisteEndret), "dd.MM.yyyy")
+  const dato = dokumentliste && format(new Date(dokumentliste[0].journalposter[0].sisteEndret), "dd.MM.yyyy");
 
   return (
     <>
-      <Heading level="2" size="xlarge">
-        {dokumentliste ? dokumentliste[0].navn : text.dokumentArkivTittel[language]}
-      </Heading>      
-      <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
-      <Ingress className={styles.ingress}>
-        {text.dokumentArkivIngress[language] + " " +  temaNavn}
-      </Ingress>
-      <Dokumentliste />
-      <Snarveier />
-      <Disclaimer />
+      {isContent ? (
+        <div>
+          <Heading level="2" size="xlarge">
+            {dokumentliste ? dokumentliste[0].navn : text.dokumentArkivTittel[language]}
+          </Heading>
+          <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
+          <Ingress className={styles.ingress}>{text.dokumentArkivIngress[language] + " " + temaNavn}</Ingress>
+          <Dokumentliste />
+          <Snarveier />
+          <Disclaimer />
+        </div>
+      ) : (
+        <p>test</p>
+      )}
     </>
   );
 };
