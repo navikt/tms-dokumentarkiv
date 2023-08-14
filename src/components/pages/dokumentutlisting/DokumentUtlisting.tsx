@@ -22,12 +22,14 @@ const DokumentUtlisting = () => {
   });
 
   const language = useStore(languageAtom);
+  const isContent = dokumentliste?.length > 0;
+
 
   useBreadcrumbs(
     [
       {
         url: `/dokumentarkiv/tema/${temakode}`,
-        title: dokumentliste ? dokumentliste[0].navn : "...",
+        title: isContent ? dokumentliste[0].navn : "...",
         handleInApp: true,
       },
     ],
@@ -38,7 +40,6 @@ const DokumentUtlisting = () => {
     return null;
   }
 
-  const isContent = dokumentliste?.length > 0;
   const temaNavn = isContent && dokumentliste[0]?.navn;
   const dato = isContent && format(new Date(dokumentliste[0]?.journalposter[0].sisteEndret), "dd.MM.yyyy");
 
