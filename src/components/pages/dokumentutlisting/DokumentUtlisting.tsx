@@ -46,7 +46,7 @@ const DokumentUtlisting = () => {
   return (
     <>
       <Heading level="2" size="xlarge">
-        {dokumentliste ? dokumentliste[0]?.navn : text.dokumentArkivTittel[language]}
+        {isContent ? dokumentliste[0]?.navn : text.dokumentArkivTittel[language]}
       </Heading>
       {isContent ? (
         <div>
