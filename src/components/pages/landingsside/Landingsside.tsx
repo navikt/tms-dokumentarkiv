@@ -48,7 +48,7 @@ const Landingsside = () => {
   if (isLoadingFullmakter) {
     return null;
   }
-
+  
   const isRepresentant = fullmakter?.fullmaktsGivere?.length;
 
   return (
