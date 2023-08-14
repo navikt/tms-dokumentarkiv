@@ -39,8 +39,8 @@ const DokumentUtlisting = () => {
   }
 
   const isContent = dokumentliste?.length > 0;
-  const temaNavn = dokumentliste && dokumentliste[0]?.navn;
-  const dato = dokumentliste && format(new Date(dokumentliste[0]?.journalposter[0].sisteEndret), "dd.MM.yyyy");
+  const temaNavn = isContent && dokumentliste[0]?.navn;
+  const dato = isContent && format(new Date(dokumentliste[0]?.journalposter[0].sisteEndret), "dd.MM.yyyy");
 
   return (
     <>
