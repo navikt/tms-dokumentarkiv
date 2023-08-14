@@ -4,7 +4,7 @@ import { languageAtom } from "../../store/store";
 import { useStore } from "@nanostores/react";
 import styles from "./IngenSaker.module.css";
 
-const IngenSaker = (isRepresentant: boolean) => {
+const IngenSaker = (isRepresentant: number | undefined) => {
   const language = useStore(languageAtom);
 
   return (
