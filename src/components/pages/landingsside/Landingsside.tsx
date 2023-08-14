@@ -9,6 +9,7 @@ import { getFullmaktForhold, getSakstemaerUrl } from "../../../urls";
 import { fetcher } from "../../../api/api";
 import useSWR from "swr";
 import ContentLoader from "../../loader/ContentLoader";
+import { useBreadcrumbs } from "../../../hooks/useBreadcrumbs";
 
 type fullmaktsGiverConfig = {
   navn: string;
@@ -45,10 +46,12 @@ const Landingsside = () => {
   const language = useStore(languageAtom);
   const representert = useStore(selectedUserAtom);
 
+  useBreadcrumbs([], language);
+
   if (isLoadingFullmakter) {
     return null;
   }
-  
+
   const isRepresentant = fullmakter?.fullmaktsGivere?.length;
 
   return (

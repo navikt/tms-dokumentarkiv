@@ -11,6 +11,7 @@ import Disclaimer from "./disclaimer/Disclaimer";
 import { useStore } from "@nanostores/react";
 import { text } from "../../../language/text";
 import { format } from "date-fns";
+import { useBreadcrumbs } from "../../../hooks/useBreadcrumbs";
 
 const DokumentUtlisting = () => {
   const { temakode } = useParams();
@@ -21,6 +22,17 @@ const DokumentUtlisting = () => {
   });
 
   const language = useStore(languageAtom);
+
+  useBreadcrumbs(
+    [
+      {
+        url: `/dokumentarkiv/tema/${temakode}`,
+        title: dokumentliste ? dokumentliste[0].navn : "...",
+        handleInApp: true,
+      },
+    ],
+    language
+  );
 
   if (isLoading) {
     return null;
