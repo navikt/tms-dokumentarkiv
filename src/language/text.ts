@@ -142,4 +142,9 @@ export const text = {
     nn: "Du har foreløpig ingen registrerte saker",
     en: "You have no registered cases",
   },
+  representantIngenSakerTittel: {
+    nb: "Denne brukeren har foreløpig ingen registrerte saker",
+    nn: "Denne brukeren har foreløpig ingen registrerte saker",
+    en: "This user has no registered cases",
+  },
 };

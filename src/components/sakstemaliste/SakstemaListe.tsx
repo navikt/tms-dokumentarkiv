@@ -28,7 +28,7 @@ const SakstemaListe = ({ isRepresentant, navn, sakstemaer, isLoading }: Props) =
     <>
       {isRepresentant && <h2>Du bruker nå dokumentarkivet på vegne av {navn}</h2>}
       {tomListe ? (
-        <IngenSaker />
+        <IngenSaker isRepresentant={isRepresentant}/>
       ) : (
         <div>
           <ul className={styles.liste}>
