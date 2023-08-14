@@ -2,6 +2,9 @@ import SakstemaListeElement from "./SakstemaListeElement";
 import styles from "./SakstemaListe.module.css";
 import IngenSaker from "./IngenSaker";
 import Disclaimer from "../pages/landingsside/disclaimer/Disclaimer";
+import { text } from "../../language/text";
+import { useStore } from "@nanostores/react";
+import { languageAtom } from "../../store/store";
 
 export interface SakstemaElement {
   navn: string;
@@ -21,12 +24,12 @@ const SakstemaListe = ({ isRepresentant, navn, sakstemaer, isLoading }: Props) =
   if (isLoading) {
     return null;
   }
-
+  const language = useStore(languageAtom);
   const tomListe = sakstemaer?.length == 0;
 
   return (
     <>
-      {isRepresentant && <h2>Du bruker nå dokumentarkivet på vegne av {navn}</h2>}
+      {isRepresentant && <h2>{text.representasjonValgtBruker[language] + navn}</h2>}
       {tomListe ? (
         <IngenSaker isRepresentant={isRepresentant}/>
       ) : (

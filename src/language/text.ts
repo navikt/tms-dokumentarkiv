@@ -62,6 +62,11 @@ export const text = {
     nn: "Velg mellom dine representerte for å se dokumentarkivet deres.",
     en: "Choose between the people you represent to view their documents.",
   },
+  representasjonValgtBruker: {
+    nb: "Du bruker nå dokumentarkivet på vegne av ",
+    nn: "Du bruker nå dokumentarkivet på vegne av ",
+    en: "You are now viewing the document archive on behalf of ",
+  },
   sistEndret: {
     nb: "Sist endret",
     nn: "Sist endret",
@@ -80,47 +85,47 @@ export const text = {
   sendKlage: {
     nb: "Send klage på vedtak",
     nn: "Send klage på vedtak",
-    en: "send an appeal against the decision",
+    en: "Send an appeal against the decision",
   },
   dokumentDisclaimerTittel: {
     nb: "Derfor kan du ikke se alle dokumentene",
     nn: "Derfor kan du ikke se alle dokumentene",
-    en: "Derfor kan du ikke se alle dokumentene",
+    en: "Not all types of documents are able to be viewed",
   },
   dokumentDisclaimerIngress: {
     nb: "Det er to typer dokumenter vi foreløpig ikke kan vise deg:",
     nn: "Det er to typer dokumenter vi foreløpig ikke kan vise deg:",
-    en: "Det er to typer dokumenter vi foreløpig ikke kan vise deg:",
+    en: "There are two types of documents we currently can not present:",
   },
   documentDisclaimerListepunktEn: {
     nb: "Papirer du har sendt til NAV i posten",
     nn: "Papirer du har sendt til NAV i posten",
-    en: "Papirer du har sendt til NAV i posten",
+    en: "Documents sent to NAV by mail",
   },
   documentDisclaimerListepunktTo: {
     nb: "Dokumenter som gjelder saken din, men som er sendt av andre på vegne av deg. Det kan for eksempel være en lege, advokat, verge eller fullmektig.",
     nn: "Dokumenter som gjelder saken din, men som er sendt av andre på vegne av deg. Det kan for eksempel være en lege, advokat, verge eller fullmektig.",
-    en: "Dokumenter som gjelder saken din, men som er sendt av andre på vegne av deg. Det kan for eksempel være en lege, advokat, verge eller fullmektig.",
+    en: "Documents regarding your case, sent by others on your behalf. This could mean that it was sent by a doctor, laywer or legal guardian.",
   },
   landingssideDisclaimerTittel: {
     nb: "Finner du ikke det du leter etter?",
     nn: "Finner du ikke det du leter etter?",
-    en: "Finner du ikke det du leter etter?",
+    en: "Do you not find what you were looking for?",
   },
   landingssideDisclaimerListepunktEn: {
     nb: "Har du sendt inn en søknad per post tar det litt tid før saken vises her.",
     nn: "Har du sendt inn en søknad per post tar det litt tid før saken vises her.",
-    en: "Har du sendt inn en søknad per post tar det litt tid før saken vises her.",
+    en: "If you have sent an application by mail it will take some time before it is shown here",
   },
   landingssideDisclaimerListepunktTo: {
     nb: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
     nn: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
-    en: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
+    en: "If you have sent an application on behalf of someone else, it will not be shown here.",
   },
   landingssideDisclaimerListepunktTre: {
     nb: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
     nn: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
-    en: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
+    en: "For contribution matters, we are only able to present documents starting from 2022",
   },
   landingssideDisclaimerListepunktFire: {
     nb: "Finner du ikke dokumentet det du leter etter under sykepenger eller sykmelding kan du sjekke Sykefravær. Ta kontakt dersom det er noe du lurer på.",
@@ -130,12 +135,7 @@ export const text = {
   landingssideDisclaimerTaKontakt: {
     nb: "Ta kontakt dersom det er noe du lurer på.",
     nn: "Ta kontakt dersom det er noe du lurer på.",
-    en: "Ta kontakt dersom det er noe du lurer på.",
-  },
-  ingenSaker: {
-    nb: "",
-    nn: "",
-    en: "",
+    en: "Contact us if you have any questions.",
   },
   ingenSakerTittel: {
     nb: "Du har foreløpig ingen registrerte saker",
@@ -146,5 +146,30 @@ export const text = {
     nb: "Denne brukeren har foreløpig ingen registrerte saker",
     nn: "Denne brukeren har foreløpig ingen registrerte saker",
     en: "This user has no registered cases",
+  },
+  ingenSakerListe1: {
+    nb: "Har du sendt inn en søknad per post tar det litt tid før saken vises her. Du kan likevel ettersende dokumenter.",
+    nn: "Har du sendt inn en søknad per post tar det litt tid før saken vises her. Du kan likevel ettersende dokumenter.",
+    en: "Har du sendt inn en søknad per post tar det litt tid før saken vises her. Du kan likevel ettersende dokumenter.",
+  },
+  ingenSakerListe2: {
+    nb: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
+    nn: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
+    en: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
+  },
+  ingenSakerListe3: {
+    nb: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
+    nn: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
+    en: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
+  },
+  ingenSakerTaKontakt: {
+    nb: "Ta kontakt dersom det er noe du lurer på.",
+    nn: "Ta kontakt dersom det er noe du lurer på.",
+    en: "Ta kontakt dersom det er noe du lurer på.",
+  },
+  minSideKnapp: {
+    nb: "Gå til Min Side",
+    nn: "Gå til Mi Side",
+    en: "Go to My Page",
   },
 };

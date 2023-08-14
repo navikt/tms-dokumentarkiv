@@ -14,7 +14,7 @@ export const useBreadcrumbs = (breadcrumb: Breadcrumb[], language: TextLanguages
       {
         url: "/dokumentarkiv",
         title: text.dokumentarkiv[language],
-        handleInApp: false,
+        handleInApp: true,
       },
     ];
 

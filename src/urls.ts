@@ -21,6 +21,7 @@ export const getFullmaktForhold = `${MINE_SAKER_API_URL[getEnvironment()]}/fullm
 export const postUserUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/representert`;
 
 export const baseUrl = BASE_URL[getEnvironment()];
+export const minSideUrl = `${BASE_URL[getEnvironment()]}/minside`
 
 export const baseUrlWithLanguage = {
   nb: `${baseUrl}/dokumentarkiv`,
