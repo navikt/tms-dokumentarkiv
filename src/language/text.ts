@@ -150,22 +150,22 @@ export const text = {
   ingenSakerListe1: {
     nb: "Har du sendt inn en søknad per post tar det litt tid før saken vises her. Du kan likevel ettersende dokumenter.",
     nn: "Har du sendt inn en søknad per post tar det litt tid før saken vises her. Du kan likevel ettersende dokumenter.",
-    en: "Har du sendt inn en søknad per post tar det litt tid før saken vises her. Du kan likevel ettersende dokumenter.",
+    en: "If you have sent an application by mail it will take some time before it is shown on this page. You can still send additional documentation.",
   },
   ingenSakerListe2: {
     nb: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
     nn: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
-    en: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
+    en: "If you have sent an application on behalf of someone else, it will not be shown here. Sorry for any inconvenience this might lead to.",
   },
   ingenSakerListe3: {
     nb: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
     nn: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
-    en: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
+    en: "For contribution matters, we are only able to present documents starting from 2022.",
   },
   ingenSakerTaKontakt: {
     nb: "Ta kontakt dersom det er noe du lurer på.",
     nn: "Ta kontakt dersom det er noe du lurer på.",
-    en: "Ta kontakt dersom det er noe du lurer på.",
+    en: "Contact us if you have any questions.",
   },
   minSideKnapp: {
     nb: "Gå til Min Side",
