@@ -5,6 +5,7 @@ import Disclaimer from "../pages/landingsside/disclaimer/Disclaimer";
 import { text } from "../../language/text";
 import { useStore } from "@nanostores/react";
 import { languageAtom } from "../../store/store";
+import { Heading } from "@navikt/ds-react";
 
 export interface SakstemaElement {
   navn: string;
@@ -29,7 +30,7 @@ const SakstemaListe = ({ isRepresentant, navn, sakstemaer, isLoading }: Props) =
 
   return (
     <>
-      {isRepresentant && <h2>{text.representasjonValgtBruker[language] + navn}</h2>}
+      {isRepresentant && <Heading size="large" level="3">{text.representasjonValgtBruker[language] + navn}</Heading>}
       {tomListe ? (
         <IngenSaker isRepresentant={isRepresentant}/>
       ) : (

@@ -56,7 +56,7 @@ const Landingsside = () => {
 
   return (
     <>
-      <Heading level="2" size="xlarge">
+      <Heading level="2" size="large">
         {text.dokumentarkiv[language]}
       </Heading>
       {isRepresentant ? <RepresentasjonsContainer fullmakter={fullmakter} language={language} mutate={mutate} /> : null}
