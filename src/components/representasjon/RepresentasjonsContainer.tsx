@@ -23,11 +23,11 @@ const RepresentasjonsContainer = ({ fullmakter, language, mutate }: Representasj
     <div className={styles.container}>
       <Select
         className={styles.select}
-        label={text.dokumentarkiv[language]}
+        label={text.representasjonLabel[language]}
         description={text.representasjonDescription[language]}
         onChange={handleSelectChange}
       >
-        <option value={fullmakter.ident}>{fullmakter.navn}</option>
+        <option className={styles.option} value={fullmakter.ident}>{fullmakter.navn}</option>
         {fullmakter?.fullmaktsGivere?.map((fullmaktsGiver) => (
           <option value={fullmaktsGiver.ident}>{fullmaktsGiver.navn}</option>
         ))}

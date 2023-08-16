@@ -30,7 +30,7 @@ const SakstemaListe = ({ isRepresentant, navn, sakstemaer, isLoading }: Props) =
 
   return (
     <>
-      {isRepresentant && <Heading size="large" level="3">{text.representasjonValgtBruker[language] + navn}</Heading>}
+      {isRepresentant && <Heading size="large" level="3" className={styles.heading}>{text.representasjonValgtBruker[language] + navn}</Heading>}
       {tomListe ? (
         <IngenSaker isRepresentant={isRepresentant}/>
       ) : (

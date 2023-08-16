@@ -11,3 +11,7 @@
 .select {
   max-width: fit-content;
 }
+
+.option {
+  text-transform: capitalize;
+}
