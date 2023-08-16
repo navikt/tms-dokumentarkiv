@@ -6,7 +6,7 @@ import styles from "./IngenSaker.module.css";
 import { minSideUrl } from "../../urls";
 
 interface Props {
-  isRepresentant: number | undefined;
+  isRepresentant: boolean | undefined;
 }
 
 const IngenSaker = (isRepresentant: Props) => {

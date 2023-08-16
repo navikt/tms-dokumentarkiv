@@ -14,7 +14,7 @@ export interface SakstemaElement {
 }
 
 interface Props {
-  isRepresentant: number | undefined;
+  isRepresentant: boolean | undefined;
   navn: string | undefined;
   sakstemaer: Array<SakstemaElement> | undefined;
   isLoading: boolean;
