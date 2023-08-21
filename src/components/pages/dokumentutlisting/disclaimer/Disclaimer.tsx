@@ -1,4 +1,4 @@
-import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import styles from "./Disclaimer.module.css";
 import { useStore } from "@nanostores/react";
 import { languageAtom } from "../../../../store/store";
