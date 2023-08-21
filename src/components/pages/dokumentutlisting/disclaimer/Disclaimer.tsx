@@ -10,7 +10,6 @@ const Disclaimer = () => {
   return(
     <div className={styles.container}>
       <Heading level="3" size="small">{text.dokumentDisclaimerTittel[language]}</Heading>
-      <BodyShort>{text.dokumentDisclaimerIngress[language]}</BodyShort>
       <ul className={styles.liste}>
         <li><BodyLong>{text.documentDisclaimerListepunktEn[language]}</BodyLong></li>
         <li><BodyLong>{text.documentDisclaimerListepunktTo[language]}</BodyLong></li>

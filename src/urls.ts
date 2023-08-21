@@ -12,6 +12,7 @@ const BASE_URL = {
     production: "https://www.nav.no",
   };
 
+
 export const mineSakerApiUrl = MINE_SAKER_API_URL[getEnvironment()];
 export const authenticationUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/login/status`;
 export const getSakstemaerUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/sakstemaer`;
@@ -23,6 +24,7 @@ export const postUserUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/rep
 export const baseUrl = BASE_URL[getEnvironment()];
 export const minSideUrl = `${BASE_URL[getEnvironment()]}/minside`
 export const dokumentArkivUrl = `${BASE_URL[getEnvironment()]}/dokumentarkiv`
+export const kontaktOssUrl = `${BASE_URL[getEnvironment()]}/kontaktoss`
 
 export const baseUrlWithLanguage = {
   nb: `${baseUrl}/dokumentarkiv`,

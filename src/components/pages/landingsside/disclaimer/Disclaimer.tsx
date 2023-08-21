@@ -3,6 +3,7 @@ import styles from "./Disclaimer.module.css";
 import { useStore } from "@nanostores/react";
 import { languageAtom } from "../../../../store/store";
 import { text } from "../../../../language/text";
+import { kontaktOssUrl } from "../../../../urls";
 
 const Disclaimer = () => {
   const language = useStore(languageAtom);
@@ -14,10 +15,12 @@ const Disclaimer = () => {
       <ul>
         <li><BodyLong>{text.landingssideDisclaimerListepunktEn[language]}</BodyLong></li>
         <li><BodyLong>{text.landingssideDisclaimerListepunktTo[language]}</BodyLong></li>
-        <li><BodyLong>{text.landingssideDisclaimerListepunktTre[language]}</BodyLong></li>
-        <li><BodyLong>{text.landingssideDisclaimerListepunktFire[language]}</BodyLong></li>
       </ul>
-      <BodyLong>{text.landingssideDisclaimerTaKontakt[language]}</BodyLong>
+      <BodyLong>
+        {text.landingssideDisclaimerTekstDel1[language]}
+        <span><a href={kontaktOssUrl}>{text.landingssideDisclaimerLenketekst[language]}</a></span>
+        {text.landingssideDisclaimerTekstDel2[language]}
+      </BodyLong>
     </div>
   );
 };

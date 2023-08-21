@@ -4,9 +4,15 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   color: var(--a-text-default);
   font-family: "Source Sans Pro", Arial, sans-serif;
+  text-decoration: none;
+}
+
+.dokumentlenke:hover {
+  background-color: var(--a-surface-hover);
 }
 
 .ikkeKlikkbar {
@@ -16,10 +22,6 @@
   gap: 1rem;
   padding: 1rem;
   color: var(--a-text-subtle);
-}
-
-.dokumentlenke {
-  text-decoration: none;
 }
 
 .textWrapper {

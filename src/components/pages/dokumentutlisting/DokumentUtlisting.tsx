@@ -1,18 +1,17 @@
+import { useStore } from "@nanostores/react";
 import { BodyShort, Heading, Ingress } from "@navikt/ds-react";
+import { format } from "date-fns";
 import { useParams } from "react-router-dom";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../../api/api";
-import { languageAtom, setIsError } from "../../../store/store";
+import { useBreadcrumbs } from "../../../hooks/useBreadcrumbs";
+import { text } from "../../../language/text";
+import { languageAtom, selectedUserAtom, setIsError } from "../../../store/store";
 import { getJournalposterUrl } from "../../../urls";
 import Dokumentliste from "../../dokumentliste/Dokumentliste";
-import Snarveier from "../../snarveier/Snarveier";
 import styles from "./DokumentUtlisting.module.css";
-import Disclaimer from "./disclaimer/Disclaimer";
-import { useStore } from "@nanostores/react";
-import { text } from "../../../language/text";
-import { format } from "date-fns";
-import { useBreadcrumbs } from "../../../hooks/useBreadcrumbs";
 import IngenDokumenter from "./IngenDokumenter";
+import Disclaimer from "./disclaimer/Disclaimer";
 
 const DokumentUtlisting = () => {
   const { temakode } = useParams();
@@ -23,6 +22,8 @@ const DokumentUtlisting = () => {
   });
 
   const language = useStore(languageAtom);
+  const user = useStore(selectedUserAtom);
+
   const isContent = dokumentliste?.length > 0;
 
   useBreadcrumbs(
@@ -51,13 +52,12 @@ const DokumentUtlisting = () => {
       {isContent ? (
         <div>
           <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
-          <Ingress className={styles.ingress}>{text.dokumentArkivIngress[language] + " " + temaNavn}</Ingress>
+          <Ingress className={styles.ingress}>{text.dokumentArkivIngress[language] + " " + temaNavn + " for " + user.navn}</Ingress>
           <Dokumentliste />{" "}
         </div>
       ) : (
         <IngenDokumenter />
       )}
-      <Snarveier />
       <Disclaimer />
     </>
   );

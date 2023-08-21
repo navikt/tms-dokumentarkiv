@@ -5,10 +5,6 @@
   margin-bottom: 0;
 }
 
-.liste > li:first-of-type {
-  border-top: 1px solid #00000030;
-}
-
 .heading {
   margin-top: 2rem;
 }

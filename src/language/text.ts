@@ -88,14 +88,9 @@ export const text = {
     en: "Send an appeal against the decision",
   },
   dokumentDisclaimerTittel: {
-    nb: "Derfor kan du ikke se alle dokumentene",
-    nn: "Derfor kan du ikke se alle dokumentene",
+    nb: "Dokumenter vi foreløpig ikke kan vise deg:",
+    nn: "Dokumenter vi foreløpig ikke kan vise deg:",
     en: "Not all types of documents are able to be viewed",
-  },
-  dokumentDisclaimerIngress: {
-    nb: "Det er to typer dokumenter vi foreløpig ikke kan vise deg:",
-    nn: "Det er to typer dokumenter vi foreløpig ikke kan vise deg:",
-    en: "There are two types of documents we currently can not present:",
   },
   documentDisclaimerListepunktEn: {
     nb: "Papirer du har sendt til NAV i posten",
@@ -118,24 +113,24 @@ export const text = {
     en: "If you have sent an application by mail it will take some time before it is shown here",
   },
   landingssideDisclaimerListepunktTo: {
-    nb: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
-    nn: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
-    en: "If you have sent an application on behalf of someone else, it will not be shown here.",
-  },
-  landingssideDisclaimerListepunktTre: {
     nb: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
     nn: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
     en: "For contribution matters, we are only able to present documents starting from 2022",
   },
-  landingssideDisclaimerListepunktFire: {
-    nb: "Finner du ikke dokumentet det du leter etter under sykepenger eller sykmelding kan du sjekke Sykefravær. Ta kontakt dersom det er noe du lurer på.",
-    nn: "Finner du ikke dokumentet det du leter etter under sykepenger eller sykmelding kan du sjekke Sykefravær. Ta kontakt dersom det er noe du lurer på.",
-    en: "Finner du ikke dokumentet det du leter etter under sykepenger eller sykmelding kan du sjekke Sykefravær. Ta kontakt dersom det er noe du lurer på.",
+  landingssideDisclaimerTekstDel1: {
+    nb: "Ta ",
+    nn: "Ta ",
+    en: "",
   },
-  landingssideDisclaimerTaKontakt: {
-    nb: "Ta kontakt dersom det er noe du lurer på.",
-    nn: "Ta kontakt dersom det er noe du lurer på.",
-    en: "Contact us if you have any questions.",
+  landingssideDisclaimerLenketekst: {
+    nb: "kontakt",
+    nn: "kontakt",
+    en: "Contact",
+  },
+  landingssideDisclaimerTekstDel2: {
+    nb: " dersom det er noe du lurer på.",
+    nn: " dersom det er noe du lurer på.",
+    en: " us if you have any questions.",
   },
   ingenSakerTittel: {
     nb: "Du har foreløpig ingen registrerte saker",

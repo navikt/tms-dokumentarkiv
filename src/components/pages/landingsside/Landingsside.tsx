@@ -1,15 +1,15 @@
+import { useStore } from "@nanostores/react";
 import { Heading } from "@navikt/ds-react";
+import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
+import { fetcher } from "../../../api/api";
+import { useBreadcrumbs } from "../../../hooks/useBreadcrumbs";
+import { text } from "../../../language/text";
+import { languageAtom, selectedUserAtom, setIsError, setSelectedUser } from "../../../store/store";
+import { getFullmaktForhold, getSakstemaerUrl } from "../../../urls";
+import ContentLoader from "../../loader/ContentLoader";
 import RepresentasjonsContainer from "../../representasjon/RepresentasjonsContainer";
 import SakstemaListe, { SakstemaElement } from "../../sakstemaliste/SakstemaListe";
-import { useStore } from "@nanostores/react";
-import { languageAtom, selectedUserAtom, setIsError, setSelectedUser } from "../../../store/store";
-import { text } from "../../../language/text";
-import useSWRImmutable from "swr/immutable";
-import { getFullmaktForhold, getSakstemaerUrl } from "../../../urls";
-import { fetcher } from "../../../api/api";
-import useSWR from "swr";
-import ContentLoader from "../../loader/ContentLoader";
-import { useBreadcrumbs } from "../../../hooks/useBreadcrumbs";
 
 type fullmaktsGiverConfig = {
   navn: string;
