@@ -1,16 +1,20 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-items: center;
   margin-top: 2rem;
+}
+
+.background {
+  background-color: var(--a-surface-hover);
+  border-radius: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tekst {
+  padding: 1rem;
 }
 
 .heading {
   color: var(--a-text-default);
 }
 
-.button {
-  width: 14rem;
-  margin-top: 2rem;
-  border-radius: 0.5rem;
-}

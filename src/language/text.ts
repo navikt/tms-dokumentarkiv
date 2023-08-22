@@ -142,15 +142,15 @@ export const text = {
     nn: "Denne brukeren har foreløpig ingen registrerte saker",
     en: "This user has no registered cases",
   },
+  ingenSakerListeTittel: {
+    nb: "Finner du ikke det du leter etter?",
+    nn: "Finner du ikke det du leter etter?",
+    en: "Can't find what you're looking for?",
+  },
   ingenSakerListe1: {
     nb: "Har du sendt inn en søknad per post tar det litt tid før saken vises her. Du kan likevel ettersende dokumenter.",
     nn: "Har du sendt inn en søknad per post tar det litt tid før saken vises her. Du kan likevel ettersende dokumenter.",
     en: "If you have sent an application by mail it will take some time before it is shown on this page. You can still send additional documentation.",
-  },
-  ingenSakerListe2: {
-    nb: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
-    nn: "Dersom du har sendt inn en søknad på vegne av en annen person, vil ikke saken vises her. Vi beklager ulempene dette medfører.",
-    en: "If you have sent an application on behalf of someone else, it will not be shown here. Sorry for any inconvenience this might lead to.",
   },
   ingenSakerListe3: {
     nb: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
@@ -173,8 +173,8 @@ export const text = {
     en: "Back to document archive front page",
   },
   ingenDokumenter: {
-    nb: "Ingen dokumenter registrert",
-    nn: "Ingen dokumenter registrert",
-    en: "No documents registered",
+    nb: "Du har foreløpig ingen dokumenter vi kan vise",
+    nn: "Du har foreløpig ingen dokumenter vi kan vise",
+    en: "You currently have no documents to show",
   },
 };
