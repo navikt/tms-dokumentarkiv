@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import { useParams } from "react-router-dom";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../../api/api";
-import { useBreadcrumbs } from "../../../hooks/useBreadcrumbs";
+import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, selectedUserAtom, setIsError } from "../../../store/store";
 import { getJournalposterUrl } from "../../../urls";
@@ -27,14 +27,11 @@ const DokumentUtlisting = () => {
   const isContent = dokumentliste?.length > 0;
 
   useBreadcrumbs(
-    [
       {
         url: `/dokumentarkiv/tema/${temakode}`,
         title: isContent ? dokumentliste[0].navn : "...",
         handleInApp: true,
       },
-    ],
-    language
   );
 
   if (isLoading) {

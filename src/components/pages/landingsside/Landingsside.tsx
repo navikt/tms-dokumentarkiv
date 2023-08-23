@@ -3,7 +3,7 @@ import { Heading } from "@navikt/ds-react";
 import useSWR from "swr";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../../api/api";
-import { useBreadcrumbs } from "../../../hooks/useBreadcrumbs";
+import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, selectedUserAtom, setIsError, setSelectedUser } from "../../../store/store";
 import { getFullmaktForhold, getSakstemaerUrl } from "../../../urls";
@@ -46,7 +46,7 @@ const Landingsside = () => {
   const language = useStore(languageAtom);
   const representert = useStore(selectedUserAtom);
 
-  useBreadcrumbs([], language);
+  useBreadcrumbs();
 
   if (isLoadingFullmakter) {
     return null;

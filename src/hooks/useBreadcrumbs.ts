@@ -1,24 +1,39 @@
+import { onBreadcrumbClick, setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import { useEffect } from "react";
-import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
-import { TextLanguages, text } from "../language/text";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useStore } from "@nanostores/react";
+import { languageAtom } from "../store/store";
+import { text } from "../language/text";
 
 type Breadcrumb = {
   url: string;
   title: string;
-  handleInApp?: boolean;
+  handleInApp: boolean;
 };
 
-export const useBreadcrumbs = (breadcrumb: Breadcrumb[], language: TextLanguages) => {
+
+const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const language = useStore(languageAtom);
+
+  onBreadcrumbClick((breadcrumb) => {
+    navigate(breadcrumb.url);
+  });
+
   useEffect(() => {
-    const baseBreadcrumbs: Breadcrumb[] = [
-      {
-        url: "/dokumentarkiv",
-        title: text.dokumentarkiv[language],
-        handleInApp: false,
-      },
-    ];
+  const baseBreadcrumbs: Breadcrumb[] = [
+    {
+      url: "/dokumentarkiv",
+      title: text.dokumentarkiv[language],
+      handleInApp: true,
+    },
+  ];
 
-    const breadcrumbs = baseBreadcrumbs.concat(breadcrumb);
+
+    const breadcrumbs = breadcrumb ? baseBreadcrumbs.concat(breadcrumb) : baseBreadcrumbs;
     setBreadcrumbs(breadcrumbs);
-  }, []);
+  }, [location, breadcrumb]);
 };
+
+export default useBreadcrumbs;
