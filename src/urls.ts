@@ -20,6 +20,7 @@ export const getJournalposterUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/jour
 export const dokumentUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/dokument`;
 export const getFullmaktForhold = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/forhold`;
 export const postUserUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/representert`;
+export const getFullmaktInfoUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/info`;
 
 export const baseUrl = BASE_URL[getEnvironment()];
 export const minSideUrl = `${BASE_URL[getEnvironment()]}/minside`

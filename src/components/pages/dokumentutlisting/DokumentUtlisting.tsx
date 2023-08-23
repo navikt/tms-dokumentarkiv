@@ -2,16 +2,22 @@ import { useStore } from "@nanostores/react";
 import { BodyShort, Heading, Ingress } from "@navikt/ds-react";
 import { format } from "date-fns";
 import { useParams } from "react-router-dom";
+import useSWR from "swr";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../../api/api";
 import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
-import { languageAtom, selectedUserAtom, setIsError } from "../../../store/store";
-import { getJournalposterUrl } from "../../../urls";
+import { languageAtom, setIsError } from "../../../store/store";
+import { getFullmaktInfoUrl, getJournalposterUrl } from "../../../urls";
 import Dokumentliste from "../../dokumentliste/Dokumentliste";
 import styles from "./DokumentUtlisting.module.css";
 import IngenDokumenter from "./IngenDokumenter";
 import Disclaimer from "./disclaimer/Disclaimer";
+
+interface FullmaktInfoProps {
+  viserRepresentertesData: boolean;
+  representertNavn: string | null;
+}
 
 const DokumentUtlisting = () => {
   const { temakode } = useParams();
@@ -21,18 +27,24 @@ const DokumentUtlisting = () => {
     onError: setIsError,
   });
 
+  const { data: fullmaktInfo } = useSWR<FullmaktInfoProps>(
+    { path: getFullmaktInfoUrl },
+    fetcher,
+    {
+      shouldRetryOnError: false,
+      onError: setIsError,
+    }
+  );
+
   const language = useStore(languageAtom);
-  const user = useStore(selectedUserAtom);
 
   const isContent = dokumentliste?.length > 0;
 
-  useBreadcrumbs(
-      {
-        url: `/dokumentarkiv/tema/${temakode}`,
-        title: isContent ? dokumentliste[0].navn : "...",
-        handleInApp: true,
-      },
-  );
+  useBreadcrumbs({
+    url: `/dokumentarkiv/tema/${temakode}`,
+    title: isContent ? dokumentliste[0].navn : "...",
+    handleInApp: true,
+  });
 
   if (isLoading) {
     return null;
@@ -49,7 +61,10 @@ const DokumentUtlisting = () => {
       {isContent ? (
         <div>
           <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
-          <Ingress className={styles.ingress}>{text.dokumentArkivIngress[language] + " " + temaNavn + " for " + user.navn}</Ingress>
+          <Ingress className={styles.ingress}>
+            {text.dokumentArkivIngress[language] + " " + temaNavn}
+            {fullmaktInfo?.viserRepresentertesData ? <span>{" for " + fullmaktInfo.representertNavn}</span> : null}
+          </Ingress>
           <Dokumentliste />{" "}
         </div>
       ) : (
