@@ -65,7 +65,7 @@ const DokumentUtlisting = () => {
             {text.dokumentArkivIngress[language] + " " + temaNavn}
             {fullmaktInfo?.viserRepresentertesData ? <span>{" for " + fullmaktInfo.representertNavn}</span> : null}
           </Ingress>
-          <Dokumentliste />{" "}
+          <Dokumentliste />
         </div>
       ) : (
         <IngenDokumenter />
