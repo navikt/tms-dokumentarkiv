@@ -177,4 +177,24 @@ export const text = {
     nn: "Du har foreløpig ingen dokumenter vi kan vise",
     en: "You currently have no documents to show",
   },
+  nyttigOgVite: {
+    nb: "Nyttig å vite",
+    nn: "Nyttig å vite",
+    en: "Useful information",
+  },
+  lenke1: {
+    nb: "Saksbehandlingstider",
+    nn: "Saksbehandlingstider",
+    en: "Processing times",
+  },
+  lenke2: {
+    nb: "Klage på vedtak",
+    nn: "Klage på vedtak",
+    en: "Appeal against decisions",
+  },
+  lenke3: {
+    nb: "Kontakt oss",
+    nn: "Kontakt oss",
+    en: "Contact us",
+  },
 };

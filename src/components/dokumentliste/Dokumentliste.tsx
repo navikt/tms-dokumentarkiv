@@ -18,7 +18,8 @@ interface Props extends Array<journalposterProps>{
 
 const Dokumentliste = () => {
   const { temakode } = useParams();
-  const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
+  //const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
+  const dokumentlisteUrl = `${getJournalposterUrl}/sakstemakode`;
 
   const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
     shouldRetryOnError: false,

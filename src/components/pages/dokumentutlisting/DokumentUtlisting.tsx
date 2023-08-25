@@ -13,6 +13,7 @@ import Dokumentliste from "../../dokumentliste/Dokumentliste";
 import styles from "./DokumentUtlisting.module.css";
 import IngenDokumenter from "./IngenDokumenter";
 import Disclaimer from "./disclaimer/Disclaimer";
+import Lenkepanel from "../../nyttig-og-vite/Lenkepanel";
 
 interface FullmaktInfoProps {
   viserRepresentertesData: boolean;
@@ -21,7 +22,8 @@ interface FullmaktInfoProps {
 
 const DokumentUtlisting = () => {
   const { temakode } = useParams();
-  const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
+  //const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
+  const dokumentlisteUrl = `${getJournalposterUrl}/sakstemakode`;
   const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
@@ -66,6 +68,7 @@ const DokumentUtlisting = () => {
             {fullmaktInfo?.viserRepresentertesData ? <span>{" for " + fullmaktInfo.representertNavn}</span> : null}
           </Ingress>
           <Dokumentliste />
+          <Lenkepanel />
         </div>
       ) : (
         <IngenDokumenter />

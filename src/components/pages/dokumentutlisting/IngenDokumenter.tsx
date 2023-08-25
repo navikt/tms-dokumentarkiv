@@ -9,12 +9,9 @@ const IngenDokumenter = () => {
 
   return (
     <div className={styles.container}>
-    <Heading level="4" size="small">{text.dokumentTittel[language]}</Heading>
-    <div className={styles.background}>
       <BodyShort className={styles.tekst}>
         {text.ingenDokumenter[language]}
       </BodyShort>
-    </div>
     </div>
   );
 };
