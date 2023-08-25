@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { BodyShort, Heading } from "@navikt/ds-react";
+import { BodyShort } from "@navikt/ds-react";
 import { text } from "../../../language/text";
 import { languageAtom } from "../../../store/store";
 import styles from "./IngenDokumenter.module.css";
