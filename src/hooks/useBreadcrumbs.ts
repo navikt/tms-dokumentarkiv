@@ -24,6 +24,11 @@ const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   useEffect(() => {
   const baseBreadcrumbs: Breadcrumb[] = [
     {
+      url: "https://www.nav.no/minside",
+      title: "Min side",
+      handleInApp: false,
+    },
+    {
       url: "/dokumentarkiv",
       title: text.dokumentarkiv[language],
       handleInApp: true,
