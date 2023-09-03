@@ -67,6 +67,11 @@ export const text = {
     nn: "Du bruker nå dokumentarkivet på vegne av ",
     en: "You are now viewing the document archive on behalf of ",
   },
+  representasjonLenkeTekst: {
+    nb: "Se dine fullmakter",
+    nn: "Se dine fullmakter",
+    en: "See your powers of attorney",
+  },
   sistEndret: {
     nb: "Sist endret",
     nn: "Sist endret",
@@ -173,9 +178,9 @@ export const text = {
     en: "Back to document archive front page",
   },
   ingenDokumenter: {
-    nb: "Du har foreløpig ingen dokumenter vi kan vise",
-    nn: "Du har foreløpig ingen dokumenter vi kan vise",
-    en: "You currently have no documents to show",
+    nb: "Ingen dokumenterer å vise",
+    nn: "Ingen dokumenterer å vise",
+    en: "No documents to show",
   },
   nyttigOgVite: {
     nb: "Nyttig å vite",

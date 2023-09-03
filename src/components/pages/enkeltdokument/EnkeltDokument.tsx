@@ -8,38 +8,31 @@ import { fetcher } from "../../../api/api";
 import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, setIsError } from "../../../store/store";
-import { getFullmaktInfoUrl, getJournalposterUrl } from "../../../urls";
+import { getFullmaktInfoUrl, mineSakerApiUrl } from "../../../urls";
 import Dokumentliste from "../../dokumentliste/Dokumentliste";
-import styles from "./DokumentUtlisting.module.css";
-import IngenDokumenter from "./IngenDokumenter";
-import Disclaimer from "./disclaimer/Disclaimer";
 import Lenkepanel from "../../nyttig-og-vite/Lenkepanel";
+import IngenDokumenter from "../dokumentutlisting/IngenDokumenter";
+import Disclaimer from "../dokumentutlisting/disclaimer/Disclaimer";
+import styles from "./EnkeltDokument.module.css";
 
 export interface FullmaktInfoProps {
   viserRepresentertesData: boolean;
-  representertNavn: string;
-  representertIdent: string;
+  representertNavn: string | null;
 }
 
-const DokumentUtlisting = () => {
-  const { temakode } = useParams();
-  //const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
-  const dokumentlisteUrl = `${getJournalposterUrl}/sakstemakode`;
+const EnkeltDokument = () => {
+  const { temakode, journalpostId } = useParams();
+  const dokumentUrl = `${mineSakerApiUrl}/sakstema/${temakode}/journalpost/${journalpostId}`;
 
-  
-  const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
+  const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
   });
 
-  const { data: fullmaktInfo } = useSWR<FullmaktInfoProps>(
-    { path: getFullmaktInfoUrl },
-    fetcher,
-    {
-      shouldRetryOnError: false,
-      onError: setIsError,
-    }
-  );
+  const { data: fullmaktInfo } = useSWR<FullmaktInfoProps>({ path: getFullmaktInfoUrl }, fetcher, {
+    shouldRetryOnError: false,
+    onError: setIsError,
+  });
 
   const language = useStore(languageAtom);
 
@@ -81,4 +74,4 @@ const DokumentUtlisting = () => {
   );
 };
 
-export default DokumentUtlisting;
+export default EnkeltDokument;
