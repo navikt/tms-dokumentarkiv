@@ -23,8 +23,7 @@ export interface FullmaktInfoProps {
 
 const DokumentUtlisting = () => {
   const { temakode } = useParams();
-  //const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
-  const dokumentlisteUrl = `${getJournalposterUrl}/sakstemakode`;
+  const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
 
   
   const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
