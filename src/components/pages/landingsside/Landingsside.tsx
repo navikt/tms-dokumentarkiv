@@ -69,7 +69,7 @@ const Landingsside = () => {
       <Heading level="2" size="large">
         {text.dokumentarkiv[language]}
       </Heading>
-      {isRepresentant ? <RepresentasjonsContainer fullmakter={fullmakter} language={language} mutateSakstemaer={mutateSakstemaer}, mutateUser={mutateUser} /> : null}
+      {isRepresentant ? <RepresentasjonsContainer fullmakter={fullmakter} language={language} mutateSakstemaer={mutateSakstemaer} mutateUser={mutateUser} /> : null}
       {isValidating ? (
         <ContentLoader />
       ) : (
