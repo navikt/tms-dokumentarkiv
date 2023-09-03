@@ -30,11 +30,11 @@ const RepresentasjonsContainer = ({ fullmakter, language, mutateSakstemaer, muta
   };
 
   const genererListe = () => {
-    const originalUser = {navn: fullmakter.navn, ident: fullmakter.ident}
+    const originalUser = {navn: fullmakter.navn + " (Deg)", ident: fullmakter.ident}
     let nedtrekksliste = [originalUser];
 
     fullmakter?.fullmaktsGivere?.map((fullmaktsGiver) => {
-      const user = { navn: fullmaktsGiver.navn + " (Deg)", ident: fullmaktsGiver.ident };
+      const user = { navn: fullmaktsGiver.navn, ident: fullmaktsGiver.ident };
         nedtrekksliste = [...nedtrekksliste, user]
     })
 
