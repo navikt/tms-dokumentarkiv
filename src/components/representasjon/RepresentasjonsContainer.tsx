@@ -28,7 +28,7 @@ const RepresentasjonsContainer = ({ fullmakter, language, mutate }: Representasj
   };
 
   const genererListe = () => {
-    let selected;
+    let selected: { ident: string; navn?: string; };
     if(fullmaktInfo?.viserRepresentertesData) {
       selected = { navn: fullmaktInfo.representertNavn, ident: fullmaktInfo.representertIdent };
     } else {
@@ -38,7 +38,9 @@ const RepresentasjonsContainer = ({ fullmakter, language, mutate }: Representasj
 
     fullmakter?.fullmaktsGivere?.map((fullmaktsGiver) => {
       const user = { navn: fullmaktsGiver.navn, ident: fullmaktsGiver.ident };
-      nedtrekksliste = [...nedtrekksliste, user]
+      if(user.ident !== selected.ident) {
+        nedtrekksliste = [...nedtrekksliste, user]
+      }
     })
 
     return nedtrekksliste;
