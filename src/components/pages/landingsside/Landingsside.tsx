@@ -61,7 +61,8 @@ const Landingsside = () => {
   }
 
   const isRepresentant = fullmakter && fullmakter.fullmaktsGivere.length > 0;
-  const navn = fullmaktInfo?.viserRepresentertesData ? fullmaktInfo.representertNavn : fullmakter?.navn;
+  
+  fullmaktInfo?.viserRepresentertesData ? setSelectedUser(fullmaktInfo.representertNavn, fullmaktInfo.representertIdent) : setSelectedUser(fullmakter?.navn, fullmakter?.ident);
 
   return (
     <>
@@ -74,9 +75,9 @@ const Landingsside = () => {
       ) : (
         <SakstemaListe
           isRepresentant={isRepresentant}
-          navn={navn}
           sakstemaer={sakstemaer}
           isLoading={isLoadingSakstemaer}
+          viserRepresentertesData = {fullmaktInfo?.viserRepresentertesData}
         />
       )}
     </>
