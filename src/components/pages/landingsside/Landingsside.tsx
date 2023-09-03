@@ -36,14 +36,14 @@ const Landingsside = () => {
   const {
     data: sakstemaer,
     isLoading: isLoadingSakstemaer,
-    mutate,
+    mutate: mutateSakstemaer,
     isValidating,
   } = useSWR<Array<SakstemaElement>>({ path: getSakstemaerUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
   });
 
-  const { data: fullmaktInfo } = useSWR<FullmaktInfoProps>(
+  const { data: fullmaktInfo, mutate: mutateUser } = useSWR<FullmaktInfoProps>(
     { path: getFullmaktInfoUrl },
     fetcher,
     {
@@ -69,7 +69,7 @@ const Landingsside = () => {
       <Heading level="2" size="large">
         {text.dokumentarkiv[language]}
       </Heading>
-      {isRepresentant ? <RepresentasjonsContainer fullmakter={fullmakter} language={language} mutate={mutate} /> : null}
+      {isRepresentant ? <RepresentasjonsContainer fullmakter={fullmakter} language={language} mutateSakstemaer={mutateSakstemaer}, mutateUser={mutateUser} /> : null}
       {isValidating ? (
         <ContentLoader />
       ) : (
