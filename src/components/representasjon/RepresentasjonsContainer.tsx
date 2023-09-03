@@ -34,7 +34,7 @@ const RepresentasjonsContainer = ({ fullmakter, language, mutateSakstemaer, muta
     let nedtrekksliste = [originalUser];
 
     fullmakter?.fullmaktsGivere?.map((fullmaktsGiver) => {
-      const user = { navn: fullmaktsGiver.navn, ident: fullmaktsGiver.ident };
+      const user = { navn: fullmaktsGiver.navn + " (Deg)", ident: fullmaktsGiver.ident };
         nedtrekksliste = [...nedtrekksliste, user]
     })
 
