@@ -6,10 +6,11 @@ import { fetcher } from "../../../api/api";
 import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, selectedUserAtom, setIsError, setSelectedUser } from "../../../store/store";
-import { getFullmaktForhold, getSakstemaerUrl } from "../../../urls";
+import { getFullmaktForhold, getFullmaktInfoUrl, getSakstemaerUrl } from "../../../urls";
 import ContentLoader from "../../loader/ContentLoader";
 import RepresentasjonsContainer from "../../representasjon/RepresentasjonsContainer";
 import SakstemaListe, { SakstemaElement } from "../../sakstemaliste/SakstemaListe";
+import { FullmaktInfoProps } from "../dokumentutlisting/DokumentUtlisting";
 
 type fullmaktsGiverConfig = {
   navn: string;
@@ -29,7 +30,6 @@ const Landingsside = () => {
     {
       shouldRetryOnError: false,
       onError: setIsError,
-      onSuccess: (o) => setSelectedUser(o.navn, o.ident),
     }
   );
 
@@ -43,8 +43,16 @@ const Landingsside = () => {
     onError: setIsError,
   });
 
+  const { data: fullmaktInfo } = useSWR<FullmaktInfoProps>(
+    { path: getFullmaktInfoUrl },
+    fetcher,
+    {
+      shouldRetryOnError: false,
+      onError: setIsError,
+    }
+  );
+
   const language = useStore(languageAtom);
-  const representert = useStore(selectedUserAtom);
 
   useBreadcrumbs();
 
@@ -53,6 +61,7 @@ const Landingsside = () => {
   }
 
   const isRepresentant = fullmakter && fullmakter.fullmaktsGivere.length > 0;
+  const navn = fullmaktInfo?.viserRepresentertesData ? fullmaktInfo.representertNavn : fullmakter?.navn;
 
   return (
     <>
@@ -65,7 +74,7 @@ const Landingsside = () => {
       ) : (
         <SakstemaListe
           isRepresentant={isRepresentant}
-          navn={representert.navn}
+          navn={navn}
           sakstemaer={sakstemaer}
           isLoading={isLoadingSakstemaer}
         />
