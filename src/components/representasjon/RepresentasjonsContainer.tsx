@@ -1,26 +1,22 @@
-import { Select } from "@navikt/ds-react";
+import { Heading, Select } from "@navikt/ds-react";
 import { ChangeEvent } from "react";
-import { fetcher, postUser } from "../../api/api";
+import { postUser } from "../../api/api";
 import { TextLanguages, text } from "../../language/text";
-import { setIsError, setSelectedUser } from "../../store/store";
+import { selectedUserAtom, setSelectedUser } from "../../store/store";
 import { Fullmakter } from "../pages/landingsside/Landingsside";
 import styles from "./RepresentasjonsContainer.module.css";
-import useSWR from "swr";
-import { FullmaktInfoProps } from "../pages/dokumentutlisting/DokumentUtlisting";
-import { getFullmaktInfoUrl, pdlFullmaktUrl } from "../../urls";
+import {  pdlFullmaktUrl } from "../../urls";
+import { useStore } from "@nanostores/react";
 
 interface RepresentasjonsContainerProps {
   fullmakter: Fullmakter;
   language: TextLanguages;
   mutateSakstemaer: () => void;
   mutateUser: () => void;
+  viserRepresentertesData: boolean | undefined;
 }
 
-const RepresentasjonsContainer = ({ fullmakter, language, mutateSakstemaer, mutateUser }: RepresentasjonsContainerProps) => {
-  const { data: fullmaktInfo } = useSWR<FullmaktInfoProps>({ path: getFullmaktInfoUrl }, fetcher, {
-    shouldRetryOnError: false,
-    onError: setIsError,
-  });
+const RepresentasjonsContainer = ({ fullmakter, language, mutateSakstemaer, mutateUser, viserRepresentertesData }: RepresentasjonsContainerProps) => {
 
   const handleSelectChange = async (event: ChangeEvent<HTMLSelectElement>) => {
     setSelectedUser(event.target.options[event.target.selectedIndex].text, event.target.value);
@@ -42,20 +38,24 @@ const RepresentasjonsContainer = ({ fullmakter, language, mutateSakstemaer, muta
   };
 
   const nedtrekksliste = genererListe();
+  const currentUser = useStore(selectedUserAtom);
 
   return (
-    <div className={styles.container}>
-      <Select
-        className={styles.select}
-        label={text.representasjonLabel[language]}
-        onChange={handleSelectChange}
-      >
-        {fullmakter && nedtrekksliste?.map((fullmaktsGiver) => (
-          <option value={fullmaktsGiver.ident}>{fullmaktsGiver.navn}</option>
-        ))}
-      </Select>
-      <a href={pdlFullmaktUrl} className={styles.lenke}>{text.representasjonLenkeTekst[language]}</a>
-    </div>
+    <>
+      <div className={styles.container}>
+        <Select
+          className={styles.select}
+          label={text.representasjonLabel[language]}
+          onChange={handleSelectChange}
+        >
+          {fullmakter && nedtrekksliste?.map((fullmaktsGiver) => (
+            <option value={fullmaktsGiver.ident}>{fullmaktsGiver.navn}</option>
+          ))}
+        </Select>
+        <a href={pdlFullmaktUrl} className={styles.lenke}>{text.representasjonLenkeTekst[language]}</a>
+      </div>
+      {viserRepresentertesData && <Heading size="large" level="3" className={styles.heading}>{text.representasjonValgtBruker[language] + currentUser.navn}</Heading>}
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../../api/api";
 import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
-import { languageAtom, selectedUserAtom, setIsError, setSelectedUser } from "../../../store/store";
+import { languageAtom, setIsError, setSelectedUser } from "../../../store/store";
 import { getFullmaktForhold, getFullmaktInfoUrl, getSakstemaerUrl } from "../../../urls";
 import ContentLoader from "../../loader/ContentLoader";
 import RepresentasjonsContainer from "../../representasjon/RepresentasjonsContainer";
@@ -43,14 +43,10 @@ const Landingsside = () => {
     onError: setIsError,
   });
 
-  const { data: fullmaktInfo, mutate: mutateUser } = useSWR<FullmaktInfoProps>(
-    { path: getFullmaktInfoUrl },
-    fetcher,
-    {
-      shouldRetryOnError: false,
-      onError: setIsError,
-    }
-  );
+  const { data: fullmaktInfo, mutate: mutateUser } = useSWR<FullmaktInfoProps>({ path: getFullmaktInfoUrl }, fetcher, {
+    shouldRetryOnError: false,
+    onError: setIsError,
+  });
 
   const language = useStore(languageAtom);
 
@@ -61,24 +57,29 @@ const Landingsside = () => {
   }
 
   const isRepresentant = fullmakter && fullmakter.fullmaktsGivere.length > 0;
-  
-  fullmaktInfo?.viserRepresentertesData ? setSelectedUser(fullmaktInfo.representertNavn, fullmaktInfo.representertIdent) : setSelectedUser(fullmakter?.navn, fullmakter?.ident);
+
+  fullmaktInfo?.viserRepresentertesData
+    ? setSelectedUser(fullmaktInfo.representertNavn, fullmaktInfo.representertIdent)
+    : setSelectedUser(fullmakter?.navn, fullmakter?.ident);
 
   return (
     <>
       <Heading level="2" size="large">
         {text.dokumentarkiv[language]}
       </Heading>
-      {isRepresentant ? <RepresentasjonsContainer fullmakter={fullmakter} language={language} mutateSakstemaer={mutateSakstemaer} mutateUser={mutateUser} /> : null}
+      {isRepresentant ? (
+        <RepresentasjonsContainer
+          fullmakter={fullmakter}
+          language={language}
+          mutateSakstemaer={mutateSakstemaer}
+          mutateUser={mutateUser}
+          viserRepresentertesData={fullmaktInfo?.viserRepresentertesData}
+        />
+      ) : null}
       {isValidating ? (
         <ContentLoader />
       ) : (
-        <SakstemaListe
-          isRepresentant={isRepresentant}
-          sakstemaer={sakstemaer}
-          isLoading={isLoadingSakstemaer}
-          viserRepresentertesData = {fullmaktInfo?.viserRepresentertesData}
-        />
+        <SakstemaListe isRepresentant={isRepresentant} sakstemaer={sakstemaer} isLoading={isLoadingSakstemaer} />
       )}
     </>
   );
