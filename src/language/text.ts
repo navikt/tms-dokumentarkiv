@@ -22,6 +22,16 @@ export const text = {
     nn: "Dokumentarkiv",
     en: "Document archive",
   },
+  dokumentTittelEntall: {
+    nb: "Dokument",
+    nn: "Dokument",
+    en: "Document",
+  },
+  seAlleDokumenter: {
+    nb: "Se alle dokumenter",
+    nn: "Se alle dokumentar",
+    en: "See all documents",
+  },
   dokumentTittel: {
     nb: "Dokumenter",
     nn: "Dokumenter",
@@ -181,6 +191,11 @@ export const text = {
     nb: "Ingen dokumenterer å vise",
     nn: "Ingen dokumenterer å vise",
     en: "No documents to show",
+  },
+  kanIkkeViseDokument: {
+    nb: "Kan ikke vise dokument",
+    nn: "Kan ikke vise dokument",
+    en: "Can not show document",
   },
   nyttigOgVite: {
     nb: "Nyttig å vite",

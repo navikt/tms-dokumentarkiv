@@ -1,3 +1,7 @@
+.pageContainer {
+  padding-bottom: 3rem;
+}
+
 .ingress {
   margin-top: 1.75rem;
 }
@@ -6,4 +10,37 @@
   margin-top: 1.25rem;
   color: var(--a-text-subtle);
   font-size: 1rem;
+}
+
+.container {
+  margin-top: 3rem;
+}
+
+.lenke {
+  padding-top: 2rem;
+}
+
+.lenke:hover {
+  text-decoration: none;
+}
+
+.dokumentliste {
+  list-style: none;
+  padding: 2rem 0;
+  border-top: 1px solid var(--a-border-divider);
+  border-bottom: 1px solid var(--a-border-divider);
+}
+
+.ingenDokumenter {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 2rem 0;
+  color: var(--a-text-default);
+  border-radius: 0.1rem;
+  border: 1px dotted var(--a-border-divider);
+}
+
+.ingenDokumenterTekst {
+  padding: 2rem;
 }

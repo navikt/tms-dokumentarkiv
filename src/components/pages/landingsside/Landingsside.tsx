@@ -79,7 +79,11 @@ const Landingsside = () => {
       {isValidating ? (
         <ContentLoader />
       ) : (
-        <SakstemaListe isRepresentant={isRepresentant} sakstemaer={sakstemaer} isLoading={isLoadingSakstemaer} />
+        <SakstemaListe
+          isRepresentant={isRepresentant}
+          sakstemaer={sakstemaer}
+          isLoading={isLoadingSakstemaer}
+        />
       )}
     </>
   );
