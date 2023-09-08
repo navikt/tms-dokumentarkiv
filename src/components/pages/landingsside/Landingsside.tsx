@@ -64,7 +64,7 @@ const Landingsside = () => {
 
   return (
     <>
-      <Heading level="2" size="large">
+      <Heading level="1" size="large">
         {text.dokumentarkiv[language]}
       </Heading>
       {isRepresentant ? (

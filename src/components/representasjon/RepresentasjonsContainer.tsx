@@ -54,7 +54,7 @@ const RepresentasjonsContainer = ({ fullmakter, language, mutateSakstemaer, muta
         </Select>
         <a href={pdlFullmaktUrl} className={styles.lenke}>{text.representasjonLenkeTekst[language]}</a>
       </div>
-      {viserRepresentertesData && <Heading size="large" level="3" className={styles.heading}>{text.representasjonValgtBruker[language] + currentUser.navn}</Heading>}
+      {viserRepresentertesData && <Heading size="large" level="2" className={styles.heading}>{text.representasjonValgtBruker[language] + currentUser.navn}</Heading>}
     </>
   );
 };

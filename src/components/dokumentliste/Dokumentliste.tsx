@@ -33,7 +33,7 @@ const Dokumentliste = () => {
 
   return (
     <div className={styles.container}>
-      <Heading level="3" size="medium" className={styles.heading}>{text.dokumentTittel[language]}</Heading>
+      <Heading level="2" size="medium" className={styles.heading}>{text.dokumentTittel[language]}</Heading>
       <ul className={styles.dokumentliste}>
         {dokumentliste?.map(({ journalposter }: Props) =>
           journalposter.map((journalpost) => {
