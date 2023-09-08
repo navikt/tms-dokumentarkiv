@@ -26,7 +26,7 @@ const RepresentasjonsContainer = ({ fullmakter, language, mutateSakstemaer, muta
   };
 
   const genererListe = () => {
-    const originalUser = {navn: fullmakter.navn + " (Deg)", ident: fullmakter.ident}
+    const originalUser = {navn: fullmakter.navn + text.representasjonDeg[language], ident: fullmakter.ident}
     let nedtrekksliste = [originalUser];
 
     fullmakter?.fullmaktsGivere?.map((fullmaktsGiver) => {

@@ -1,18 +1,13 @@
 import { useStore } from "@nanostores/react";
-import { BodyShort, Heading, Ingress } from "@navikt/ds-react";
+import { BodyShort, Heading } from "@navikt/ds-react";
 import { format } from "date-fns";
 import { Link, useParams } from "react-router-dom";
-import useSWR from "swr";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../../api/api";
 import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, setIsError } from "../../../store/store";
-import { getFullmaktInfoUrl, mineSakerApiUrl } from "../../../urls";
-import Dokumentliste from "../../dokumentliste/Dokumentliste";
-import Lenkepanel from "../../nyttig-og-vite/Lenkepanel";
-import IngenDokumenter from "../dokumentutlisting/IngenDokumenter";
-import Disclaimer from "../dokumentutlisting/disclaimer/Disclaimer";
+import { mineSakerApiUrl } from "../../../urls";
 import styles from "./EnkeltDokument.module.css";
 import { CreateListElement, journalposterProps } from "../../dokumentliste/CreateListElement";
 
@@ -31,6 +26,7 @@ const EnkeltDokument = () => {
   const { temakode, journalpostId } = useParams();
   const dokumentUrl = `${mineSakerApiUrl}/sakstema/${temakode}/journalpost/${journalpostId}`;
 
+
   const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
@@ -38,11 +34,11 @@ const EnkeltDokument = () => {
 
   const language = useStore(languageAtom);
 
-  const isContent = dokumentliste?.length > 0;
+  const isContent = dokumentliste?.journalposter.length > 0;
 
   useBreadcrumbs({
     url: `/dokumentarkiv/tema/${temakode}`,
-    title: isContent ? dokumentliste[0].navn : "...",
+    title: isContent ? dokumentliste.navn : "...",
     handleInApp: true,
   });
 
@@ -50,8 +46,8 @@ const EnkeltDokument = () => {
     return null;
   }
 
-  const temaNavn = isContent && dokumentliste[0]?.navn;
-  const dato = isContent && format(new Date(dokumentliste[0]?.journalposter[0].sisteEndret), "dd.MM.yyyy");
+  const temaNavn = isContent && dokumentliste?.navn;
+  const dato = isContent && format(new Date(dokumentliste?.journalposter[0].sisteEndret), "dd.MM.yyyy");
   const nivaaEnUrl = `/dokumentarkiv`;
 
   return (
@@ -67,11 +63,7 @@ const EnkeltDokument = () => {
           <div>
             <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
             <ul className={styles.dokumentliste}>
-              {dokumentliste?.map(({ journalposter }: JournalpostProps) =>
-                journalposter.map((journalpost) => {
-                  return CreateListElement(journalpost, language);
-                })
-              )}
+              {dokumentliste && CreateListElement(dokumentliste?.journalposter[0], language)}
             </ul>
           </div>
         ) : (

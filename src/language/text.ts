@@ -77,10 +77,15 @@ export const text = {
     nn: "Du bruker nå dokumentarkivet på vegne av ",
     en: "You are now viewing the document archive on behalf of ",
   },
+  representasjonDeg: {
+    nb: " (Deg)",
+    nn: " (Deg)",
+    en: " (You)",
+  },
   representasjonLenkeTekst: {
-    nb: "Se dine fullmakter",
-    nn: "Se dine fullmakter",
-    en: "See your powers of attorney",
+    nb: "Se digitale fullmakter",
+    nn: "Se digitale fullmakter",
+    en: "See your digital powers of attorney",
   },
   sistEndret: {
     nb: "Sist endret",
