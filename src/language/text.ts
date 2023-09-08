@@ -153,14 +153,14 @@ export const text = {
     en: " us if you have any questions.",
   },
   ingenSakerTittel: {
-    nb: "Du har foreløpig ingen registrerte saker",
-    nn: "Du har foreløpig ingen registrerte saker",
-    en: "You have no registered cases",
+    nb: "Ingen saker eller dokumenter å vise",
+    nn: "Ingen saker eller dokumenter å vise",
+    en: "No cases or documents to show",
   },
   representantIngenSakerTittel: {
-    nb: "Denne brukeren har foreløpig ingen registrerte saker",
-    nn: "Denne brukeren har foreløpig ingen registrerte saker",
-    en: "This user has no registered cases",
+    nb: "Ingen saker eller dokumenter å vise",
+    nn: "Ingen saker eller dokumenter å vise",
+    en: "No cases or documents to show",
   },
   ingenSakerListeTittel: {
     nb: "Finner du ikke det du leter etter?",

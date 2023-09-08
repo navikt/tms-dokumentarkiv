@@ -16,12 +16,6 @@ export interface FullmaktInfoProps {
   representertNavn: string | null;
 }
 
-interface JournalpostProps extends Array<journalposterProps> {
-  navn: string;
-  kode: string;
-  journalposter: Array<journalposterProps>;
-}
-
 const EnkeltDokument = () => {
   const { temakode, journalpostId } = useParams();
   const dokumentUrl = `${mineSakerApiUrl}/sakstema/${temakode}/journalpost/${journalpostId}`;
