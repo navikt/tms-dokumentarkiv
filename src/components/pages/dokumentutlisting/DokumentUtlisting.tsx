@@ -14,6 +14,7 @@ import styles from "./DokumentUtlisting.module.css";
 import IngenDokumenter from "./IngenDokumenter";
 import Disclaimer from "./disclaimer/Disclaimer";
 import Lenkepanel from "../../nyttig-og-vite/Lenkepanel";
+import TemaLenke from "../../temaside-lenke/TemaLenke";
 
 export interface FullmaktInfoProps {
   viserRepresentertesData: boolean;
@@ -69,6 +70,7 @@ const DokumentUtlisting = () => {
             {text.dokumentArkivIngress[language] + " " + temaNavn}
             {fullmaktInfo?.viserRepresentertesData ? <span>{" for " + fullmaktInfo.representertNavn}</span> : null}
           </Ingress>
+          <TemaLenke lenketekst={temaNavn}/>
           <Dokumentliste />
           <Lenkepanel />
         </div>

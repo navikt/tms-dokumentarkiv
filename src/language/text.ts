@@ -222,4 +222,9 @@ export const text = {
     nn: "Kontakt oss",
     en: "Contact us",
   },
+  temaLenkeIntro: {
+    nb: "Endringer og status: ",
+    nn: "Endringer og status: ",
+    en: "Corrections and status",
+  },
 };

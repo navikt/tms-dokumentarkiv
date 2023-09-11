@@ -4,7 +4,7 @@ export default [
     method: "get",
     response: () => {
       return {
-        navn: "DAG HELGE DAGHELGESEN",
+        navn: "Dag Helge Daghelgesen",
         ident: "123456789",
         fullmaktsGivere: [
           { navn: "Sergio Sergiosen", ident: "234567890" },
