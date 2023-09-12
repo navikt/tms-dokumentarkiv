@@ -58,9 +58,9 @@ const Landingsside = () => {
 
   const isRepresentant = fullmakter && fullmakter.fullmaktsGivere.length > 0;
 
-  fullmaktInfo?.viserRepresentertesData
-    ? setSelectedUser(fullmaktInfo.representertNavn, fullmaktInfo.representertIdent)
-    : setSelectedUser(fullmakter?.navn, fullmakter?.ident);
+  const user = fullmaktInfo?.viserRepresentertesData
+    ? { navn: fullmaktInfo.representertNavn, ident: fullmaktInfo.representertIdent }
+    : { navn: fullmakter?.navn, ident: fullmakter?.ident };
 
   return (
     <>
@@ -74,16 +74,13 @@ const Landingsside = () => {
           mutateSakstemaer={mutateSakstemaer}
           mutateUser={mutateUser}
           viserRepresentertesData={fullmaktInfo?.viserRepresentertesData}
+          user={user}
         />
       ) : null}
       {isValidating ? (
         <ContentLoader />
       ) : (
-        <SakstemaListe
-          isRepresentant={isRepresentant}
-          sakstemaer={sakstemaer}
-          isLoading={isLoadingSakstemaer}
-        />
+        <SakstemaListe isRepresentant={isRepresentant} sakstemaer={sakstemaer} isLoading={isLoadingSakstemaer} />
       )}
     </>
   );
