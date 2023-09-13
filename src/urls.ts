@@ -12,6 +12,12 @@ const BASE_URL = {
     production: "https://www.nav.no",
 };
 
+const BASE_URL_INTERN = {
+  local: "http://localhost:3000",
+  development: "https://www.intern.dev.nav.no",
+  production: "https://www.intern.nav.no",
+};
+
 const DIGISOS_REDIRECT_URL = {
   local: "http://localhost:3000/sosialhjelp/innsyn",
   development: "https://www-q0.dev.nav.no/sosialhjelp/innsyn/",
@@ -31,7 +37,7 @@ export const getFullmaktInfoUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullm
 
 export const baseUrl = BASE_URL[getEnvironment()];
 export const minSideUrl = `${BASE_URL[getEnvironment()]}/minside`
-export const dokumentArkivUrl = `${BASE_URL[getEnvironment()]}/dokumentarkiv`
+export const dokumentArkivUrl = `${BASE_URL_INTERN[getEnvironment()]}/dokumentarkiv`
 export const kontaktOssUrl = `${BASE_URL[getEnvironment()]}/kontaktoss`
 export const pdlFullmaktUrl = `${BASE_URL[getEnvironment()]}/person/pdl-fullmakt-ui/`
 export const saksbehandlingstiderUrl = "https://www.nav.no/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav";
