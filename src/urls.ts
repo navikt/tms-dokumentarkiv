@@ -36,8 +36,9 @@ export const postUserUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/rep
 export const getFullmaktInfoUrl = `${MINE_SAKER_API_URL[getEnvironment()]}/fullmakt/info`;
 
 export const baseUrl = BASE_URL[getEnvironment()];
+export const internBaseUrl = BASE_URL_INTERN[getEnvironment()];
 export const minSideUrl = `${BASE_URL[getEnvironment()]}/minside`
-export const dokumentArkivUrl = `${BASE_URL_INTERN[getEnvironment()]}/dokumentarkiv`
+export const dokumentArkivUrl = `${BASE_URL[getEnvironment()]}/dokumentarkiv`
 export const kontaktOssUrl = `${BASE_URL[getEnvironment()]}/kontaktoss`
 export const pdlFullmaktUrl = `${BASE_URL[getEnvironment()]}/person/pdl-fullmakt-ui/`
 export const saksbehandlingstiderUrl = "https://www.nav.no/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav";
