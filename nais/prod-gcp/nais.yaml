@@ -9,10 +9,10 @@ spec:
   image: {{image}}
   port: 8080
   liveness:
-    path: /minside/internal/isAlive
+    path: /dokumentarkiv/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /minside/internal/isReady
+    path: /dokumentarkiv/internal/isReady
     initialDelay: 10
   replicas:
     min: 2
