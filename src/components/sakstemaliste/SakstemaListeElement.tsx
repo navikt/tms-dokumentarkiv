@@ -7,12 +7,14 @@ import { languageAtom } from "../../store/store";
 import { SakstemaElement } from "./SakstemaListe";
 import styles from "./SakstemaListeElement.module.css";
 import { Link } from "react-router-dom";
+import { digisosRedirectUrl } from "../../urls";
 
 const SakstemaListeElement = ({sakstema} : {sakstema: SakstemaElement}) => {
 
   const language = useStore(languageAtom);
 
-  const url = `/dokumentarkiv/tema/${sakstema.kode}`
+  const isDigisosRedirect = sakstema.kode === "KOM";
+  const url =  isDigisosRedirect ? digisosRedirectUrl : `/dokumentarkiv/tema/${sakstema.kode}`;
 
   return(
     <li className={styles.container} key={Math.random.toString()}>
