@@ -8,8 +8,8 @@ import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, setIsError } from "../../../store/store";
 import { mineSakerApiUrl } from "../../../urls";
+import { CreateListElement } from "../../dokumentliste/CreateListElement";
 import styles from "./EnkeltDokument.module.css";
-import { CreateListElement, journalposterProps } from "../../dokumentliste/CreateListElement";
 
 export interface FullmaktInfoProps {
   viserRepresentertesData: boolean;
@@ -19,7 +19,6 @@ export interface FullmaktInfoProps {
 const EnkeltDokument = () => {
   const { temakode, journalpostId } = useParams();
   const dokumentUrl = `${mineSakerApiUrl}/sakstema/${temakode}/journalpost/${journalpostId}`;
-
 
   const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentUrl }, fetcher, {
     shouldRetryOnError: false,

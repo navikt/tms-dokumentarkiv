@@ -22,6 +22,9 @@ const App = () => {
                   <Route path={basePath} element={<Landingsside />} />
                   <Route path={`${basePath}/tema/:temakode`} element={<DokumentUtlisting />} />
                   <Route path={`${basePath}/tema/:temakode/:journalpostId`} element={<EnkeltDokument />} />
+                  <Route path="/mine-saker" element={<Landingsside />} />
+                  <Route path="/mine-saker/tema/:temakode" element={<DokumentUtlisting />} />                  
+                  <Route path="/mine-saker/tema/:temakode/:journalpostId" element={<EnkeltDokument />} />
                 </>
               );
             })}
