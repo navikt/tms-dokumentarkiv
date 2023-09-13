@@ -5,12 +5,7 @@ metadata:
   namespace: min-side
   labels:
     team: min-side
-  annotations:
-    config.linkerd.io/proxy-memory-limit: "512Mi"
-    config.linkerd.io/proxy-memory-request: "128Mi"
 spec:
-  envFrom:
-    - secret: tms-dokumentarkiv-secrets
   image: {{image}}
   port: 8080
   liveness:
@@ -21,19 +16,18 @@ spec:
     initialDelay: 10
   replicas:
     min: 2
-    max: 6
+    max: 4
   ingresses:
-    - "https://www.intern.nav.no/minside"
-    - "https://www.nav.no/minside"
+    - "https://www.intern.nav.no/dokumentarkiv"
   accessPolicy:
     outbound:
       external:
-        - host: "https://appres.nav.no"
-        - host: "https://www.nav.no"
+        - host: "person.nav.no"
+        - host: "www.nav.no"
   resources:
     limits:
       cpu: "3"
-      memory: 1268Mi
+      memory: 768Mi
     requests:
-      cpu: "500m"
-      memory: 1024Mi
+      cpu: "50m"
+      memory: 256Mi
