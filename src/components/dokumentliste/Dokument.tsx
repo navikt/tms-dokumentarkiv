@@ -29,7 +29,7 @@ const Dokument = ({ dokument, innsender, sisteEndret, url }: Props) => {
            <FilePdfIcon fontSize="2rem"/> 
            <div className={styles.textWrapper}>
               {dokument.tittel}
-              <BodyShort className={styles.datoOgInnsender}>{format(new Date(sisteEndret), "dd.MM.yyyy") + "  |  " + innsender}</BodyShort>
+              <BodyShort className={styles.datoOgInnsender}>{format(new Date(sisteEndret), "dd.MM.yyyy")}</BodyShort>
             </div>
           </a>
         ) : (
@@ -37,7 +37,7 @@ const Dokument = ({ dokument, innsender, sisteEndret, url }: Props) => {
             <EyeSlashIcon fontSize="2rem"/>
             <div className={styles.textWrapper}>
               {dokument.tittel}
-              <BodyShort className={styles.datoOgInnsender}>{format(new Date(sisteEndret), "dd.MM.yyyy") + "  |  " + innsender}</BodyShort>
+              <BodyShort className={styles.datoOgInnsender}>{format(new Date(sisteEndret), "dd.MM.yyyy")}</BodyShort>
             </div>
           </div>
         )}   
