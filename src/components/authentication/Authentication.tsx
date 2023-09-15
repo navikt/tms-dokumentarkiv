@@ -13,7 +13,7 @@ const Authentication = ({ children }: Props) => {
   const { data, isLoading, error } = useSWRImmutable({ path: authenticationUrl, options: include }, fetcher, {
     shouldRetryOnError: false,
   });
-  const redirectUrl = baseUrl + window.location.pathname;
+  const redirectUrl = window.location.origin + window.location.pathname;
 
   if (isLoading) {
     return <ContentLoader />;
