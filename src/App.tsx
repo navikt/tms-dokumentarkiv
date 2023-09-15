@@ -4,14 +4,14 @@ import DokumentUtlisting from "./components/pages/dokumentutlisting/DokumentUtli
 import EnkeltDokument from "./components/pages/enkeltdokument/EnkeltDokument";
 import Landingsside from "./components/pages/landingsside/Landingsside";
 import { useLanguage } from "./hooks/useLanguage";
-import { initAmplitude } from "./utils/amplitude";
+import { initializeAmplitude } from "./utils/amplitude";
 
 const App = () => {
   const BASEPATH = "/dokumentarkiv";
   const basePathWithLocales = [`${BASEPATH}`, `${BASEPATH}/en`, `${BASEPATH}/nn`];
 
   useLanguage();
-  initAmplitude();
+  initializeAmplitude();
 
   return (
     <div className={styles.pageContainer}>

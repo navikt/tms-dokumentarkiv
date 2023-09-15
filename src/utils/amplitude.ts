@@ -1,14 +1,21 @@
-import { init, track } from "@amplitude/analytics-browser";
+import amplitude from "amplitude-js";
 
-export const initAmplitude = () => {
-  init("default", undefined, {
-    serverUrl: "https://amplitude.nav.no/collect-auto",
-    ingestionMetadata: {
-      sourceName: window.location.toString(),
-    },
+
+export const initializeAmplitude = () => {
+  amplitude.getInstance().init("default", "", {
+    apiEndpoint: "amplitude.nav.no/collect-auto",
+    saveEvents: false,
+    includeUtm: true,
+    includeReferrer: true,
+    platform: window.location.toString(),
   });
 };
 
-export const logNavigereEvent = (komponent: string, kategori?: string, lenketekst?: string) => {
-  track("navigere", { app: "tms-dokumentarkiv", komponent: komponent, kategori: kategori, lenketekst: lenketekst });
-};
+export function logNavigereEvent(komponent: string, kategori?: string, lenketekst?: string) {
+  amplitude.getInstance().logEvent("navigere", {
+    app: "tms-dokumentarkiv",
+    komponent: komponent,
+    kategori: kategori,
+    lenketekst: lenketekst,
+  });
+}
