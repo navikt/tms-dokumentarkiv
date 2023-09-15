@@ -10,5 +10,5 @@ export const initAmplitude = () => {
 };
 
 export const logNavigereEvent = (komponent: string, kategori?: string, lenketekst?: string) => {
-  track("navigere", { app: "tms-min-side", komponent: komponent, kategori: kategori, lenketekst: lenketekst });
+  track("navigere", { app: "tms-dokumentarkiv", komponent: komponent, kategori: kategori, lenketekst: lenketekst });
 };
