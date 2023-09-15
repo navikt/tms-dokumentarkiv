@@ -19,6 +19,7 @@ spec:
     max: 4
   ingresses:
     - "https://www.nav.no/dokumentarkiv"
+    - "https://person.nav.no/mine-saker"
   accessPolicy:
     outbound:
       external:
