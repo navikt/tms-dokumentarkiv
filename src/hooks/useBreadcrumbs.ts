@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useStore } from "@nanostores/react";
 import { languageAtom } from "../store/store";
 import { text } from "../language/text";
+import { minSideUrl } from "../urls";
 
 type Breadcrumb = {
   url: string;
@@ -24,7 +25,7 @@ const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   useEffect(() => {
   const baseBreadcrumbs: Breadcrumb[] = [
     {
-      url: "https://www.nav.no/minside",
+      url: minSideUrl,
       title: "Min side",
       handleInApp: false,
     },
