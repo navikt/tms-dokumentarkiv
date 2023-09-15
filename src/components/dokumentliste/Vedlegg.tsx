@@ -3,6 +3,7 @@ import styles from "./Vedlegg.module.css";
 import { dokumentProps } from "./Dokument";
 import { BodyShort } from "@navikt/ds-react";
 import { TextLanguages, text } from "../../language/text";
+import { logNavigereEvent } from "../../utils/amplitude";
 
 interface Props {
   dokumenter: Array<dokumentProps>;
@@ -22,7 +23,7 @@ const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
 
   const VedleggsLenke = ({ url, tittel, brukerHarTilgang }: VedleggslenkeProps) => {
     return brukerHarTilgang ? (
-      <a href={url} className={styles.vedlegg}>
+      <a href={url} className={styles.vedlegg} onClick={() => logNavigereEvent("Dokumentlenke", "Vedlegg")}>
           <PaperclipIcon fontSize="1.5rem"/>
           {tittel}
       </a>

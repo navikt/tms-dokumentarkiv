@@ -8,6 +8,7 @@ import { SakstemaElement } from "./SakstemaListe";
 import styles from "./SakstemaListeElement.module.css";
 import { Link } from "react-router-dom";
 import { digisosRedirectUrl } from "../../urls";
+import { logNavigereEvent } from "../../utils/amplitude";
 
 const SakstemaListeElement = ({sakstema} : {sakstema: SakstemaElement}) => {
 
@@ -18,7 +19,7 @@ const SakstemaListeElement = ({sakstema} : {sakstema: SakstemaElement}) => {
 
   return(
     <li className={styles.container} key={Math.random.toString()}>
-      <Link to={url} className={styles.lenke}>
+      <Link to={url} className={styles.lenke} onClick={() => logNavigereEvent("Sakstemalenke", "Sakstemaliste", sakstema.navn)}>
         <FolderFillIcon fontSize="1.75rem"/>
         <div>
         <BodyShort className={styles.tittel}>{sakstema.navn}</BodyShort>

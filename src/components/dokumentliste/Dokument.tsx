@@ -2,6 +2,7 @@ import { EyeSlashIcon, FilePdfIcon } from "@navikt/aksel-icons";
 import { BodyShort } from "@navikt/ds-react";
 import { format } from "date-fns";
 import styles from "./Dokument.module.css";
+import { logNavigereEvent } from "../../utils/amplitude";
 
 export interface dokumentProps {
   tittel: string;
@@ -25,7 +26,7 @@ const Dokument = ({ dokument, innsender, sisteEndret, url }: Props) => {
   return (
       <>
         {tilgang ? (
-          <a href={url} className={styles.dokumentlenke}>
+          <a href={url} className={styles.dokumentlenke} onClick={() => logNavigereEvent("Dokumentlenke", "Hoveddokument")}>
            <FilePdfIcon fontSize="2rem"/> 
            <div className={styles.textWrapper}>
               {dokument.tittel}

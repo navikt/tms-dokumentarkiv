@@ -6,6 +6,7 @@ import {  setSelectedUser } from "../../store/store";
 import { Fullmakter } from "../pages/landingsside/Landingsside";
 import styles from "./RepresentasjonsContainer.module.css";
 import { pdlFullmaktUrl } from "../../urls";
+import { logNavigereEvent } from "../../utils/amplitude";
 
 interface RepresentasjonsContainerProps {
   fullmakter: Fullmakter;
@@ -46,6 +47,11 @@ const RepresentasjonsContainer = ({
 
   const nedtrekksliste = genererListe();
 
+  /*const log = (user: {navn: string, ident: string}) => {
+    const isInnloggetBruker = user.ident === fullmakter.ident;
+    logNavigereEvent("Option", "Nedtrekksliste", isInnloggetBruker ? "Representant" : "Representert");
+  }*/
+
   return (
     <>
       <div className={styles.container}>
@@ -54,13 +60,14 @@ const RepresentasjonsContainer = ({
           label={text.representasjonLabel[language]}
           defaultValue={user.ident}
           onChange={handleSelectChange}
+          onClick={() => logNavigereEvent("Nedtrekksliste", "Representasjon")}
         >
           {fullmakter &&
-            nedtrekksliste?.map((fullmaktsGiver) => (
-              <option value={fullmaktsGiver.ident}>{fullmaktsGiver.navn}</option>
+            nedtrekksliste?.map((user) => (
+              <option value={user.ident}>{user.navn}</option>
             ))}
         </Select>
-        <a href={pdlFullmaktUrl} className={styles.lenke}>
+        <a href={pdlFullmaktUrl} className={styles.lenke} onClick={() => logNavigereEvent("Lenke", "Digital fullmakt innsynslenke", text.representasjonLenkeTekst["nb"])}>
           {text.representasjonLenkeTekst[language]}
         </a>
       </div>

@@ -10,6 +10,7 @@ import { languageAtom, setIsError } from "../../../store/store";
 import { mineSakerApiUrl } from "../../../urls";
 import { CreateListElement } from "../../dokumentliste/CreateListElement";
 import styles from "./EnkeltDokument.module.css";
+import { logNavigereEvent } from "../../../utils/amplitude";
 
 export interface FullmaktInfoProps {
   viserRepresentertesData: boolean;
@@ -64,7 +65,7 @@ const EnkeltDokument = () => {
             <BodyShort className={styles.ingenDokumenterTekst}>{text.kanIkkeViseDokument[language]}</BodyShort>
           </div>
         )}
-        <Link to={nivaaEnUrl} className={styles.lenke}>
+        <Link to={nivaaEnUrl} className={styles.lenke} onClick={() => logNavigereEvent("Lenke", "Se alle", text.seAlleDokumenter["nb"])}>
           {text.seAlleDokumenter[language]}
         </Link>
       </div>
