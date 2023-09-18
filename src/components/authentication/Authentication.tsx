@@ -1,7 +1,7 @@
 import React from "react";
 import useSWRImmutable from "swr/immutable";
 import redirectToIdPorten from "../../api/redirect";
-import { authenticationUrl, baseUrl } from "../../urls";
+import { authenticationUrl } from "../../urls";
 import { fetcher, include } from "../../api/api";
 import ContentLoader from "../loader/ContentLoader";
 
