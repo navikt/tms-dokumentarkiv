@@ -225,7 +225,7 @@ export const text = {
   temaLenkeIntro: {
     nb: "Endringer og status: ",
     nn: "Endringer og status: ",
-    en: "Corrections and status",
+    en: "Corrections and status: ",
   },
   sykOgSymLenke: {
     nb: "Ditt sykefravær",
