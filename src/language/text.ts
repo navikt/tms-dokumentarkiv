@@ -227,4 +227,9 @@ export const text = {
     nn: "Endringer og status: ",
     en: "Corrections and status",
   },
+  sykOgSymLenke: {
+    nb: "Ditt sykefravær",
+    nn: "Ditt sjukefravær",
+    en: "Sickness benefit",
+  },
 };

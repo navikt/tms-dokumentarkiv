@@ -15,6 +15,7 @@ const TemaLenke = ({ lenketekst }: { lenketekst: string }) => {
 
   const unntaksKoder = ["DAG", "HJE", "FOR", "KOM", "AAP", "SYK", "SYM", "PEN", "UFO", "OMS"];
   const isUnntak = unntaksKoder.includes(type);
+  const isSykOrSym = type === "SYM" || type === "SYK";
 
   const language = useStore(languageAtom);
 
@@ -25,7 +26,7 @@ const TemaLenke = ({ lenketekst }: { lenketekst: string }) => {
         <span className={styles.intro}>
           {text.temaLenkeIntro[language]}
           <a href={lenker[type]} className={styles.lenke} onClick={() => logNavigereEvent("Lenke", "Temalenke", lenketekst)}>
-            {lenketekst}
+            {isSykOrSym ? text.sykOgSymLenke[language] : lenketekst}
           </a>
         </span>
       </div>
