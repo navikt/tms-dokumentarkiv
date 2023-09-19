@@ -9,8 +9,14 @@ type Props = {
   children?: React.ReactNode;
 };
 
+interface AuthenticationProps {
+  authenticated: boolean;
+  level: number;
+  levelOfAssurance: string;
+}
+
 const Authentication = ({ children }: Props) => {
-  const { data, isLoading, error } = useSWRImmutable({ path: authenticationUrl, options: include }, fetcher, {
+  const { data, isLoading, error } = useSWRImmutable<AuthenticationProps>({ path: authenticationUrl, options: include }, fetcher, {
     shouldRetryOnError: false,
   });
   const redirectUrl = window.location.origin + window.location.pathname;
@@ -19,7 +25,7 @@ const Authentication = ({ children }: Props) => {
     return <ContentLoader />;
   }
 
-  if (!data?.authenticated || error) {
+  if (!data?.authenticated || data?.levelOfAssurance != "High" || error) {
     redirectToIdPorten(redirectUrl);
     return null;
   }
