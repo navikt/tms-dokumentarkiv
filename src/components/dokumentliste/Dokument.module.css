@@ -4,7 +4,6 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-  border-radius: 0.5rem;
   cursor: pointer;
   color: var(--a-text-default);
   font-family: "Source Sans Pro", Arial, sans-serif;
@@ -13,6 +12,10 @@
 
 .dokumentlenke:hover {
   background-color: var(--a-surface-hover);
+}
+
+.dokumentlenke:hover .lenketekst {
+  text-decoration: underline;
 }
 
 .ikkeKlikkbar {
@@ -27,6 +30,7 @@
 .textWrapper {
   display: flex;
   flex-direction: column;
+  gap: 0.25rem;
 }
 
 .datoOgInnsender {

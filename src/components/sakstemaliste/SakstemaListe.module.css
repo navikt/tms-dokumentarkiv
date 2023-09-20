@@ -8,3 +8,7 @@
 .heading {
   margin-top: 2rem;
 }
+
+.liste li:first-of-type {
+  border-top: 1px solid var(--a-border-divider);
+}

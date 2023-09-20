@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { BodyShort, Heading, Ingress } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import { format } from "date-fns";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
@@ -25,7 +25,6 @@ export interface FullmaktInfoProps {
 const DokumentUtlisting = () => {
   const { temakode } = useParams();
   const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
-
   
   const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
     shouldRetryOnError: false,
@@ -66,10 +65,10 @@ const DokumentUtlisting = () => {
       {isContent ? (
         <div>
           <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
-          <Ingress className={styles.ingress}>
+          <BodyLong size="medium" className={styles.ingress}>
             {text.dokumentArkivIngress[language] + " " + temaNavn}
             {fullmaktInfo?.viserRepresentertesData ? <span>{" for " + fullmaktInfo.representertNavn}</span> : null}
-          </Ingress>
+          </BodyLong>
           <TemaLenke lenketekst={temaNavn}/>
           <Dokumentliste />
           <Lenkepanel />

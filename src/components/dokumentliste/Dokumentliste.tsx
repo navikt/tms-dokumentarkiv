@@ -20,6 +20,7 @@ const Dokumentliste = () => {
   const { temakode } = useParams();
   const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
 
+
   const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,

@@ -1,11 +1,11 @@
 .container {
-  border-radius: 0.5rem;
+  border-bottom: 1px solid var(--a-border-divider);
 }
 
 .lenke {
   display: flex;
+  flex-direction: column;
   padding: 1.5rem 0.5rem;
-  align-items: center;
   gap: 1rem;
   width: 100%;
   text-decoration: none;
@@ -14,7 +14,7 @@
 
 .tittel {
   color: var(--a-text-default);
-  font-weight: 600;
+  text-decoration: underline;
 }
 
 .ingress {
@@ -26,5 +26,5 @@
 }
 
 .container:hover .tittel{
-  text-decoration: underline;
+  text-decoration: none;
 }
