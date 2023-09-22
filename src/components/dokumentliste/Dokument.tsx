@@ -27,7 +27,7 @@ const Dokument = ({ dokument, innsender, sisteEndret, url }: Props) => {
       <>
         {tilgang ? (
           <a href={url} className={styles.dokumentlenke} onClick={() => logNavigereEvent("Dokumentlenke", "Hoveddokument")}>
-           <FilePdfIcon fontSize="2rem"/> 
+           <FilePdfIcon fontSize="1.75rem" className={styles.ikon}/> 
            <div className={styles.textWrapper}>
               <Heading level="3" size="xsmall" className={styles.lenketekst}>{dokument.tittel}</Heading>
               <BodyShort size="small" className={styles.datoOgInnsender}>{format(new Date(sisteEndret), "dd.MM.yyyy")}</BodyShort>
@@ -35,7 +35,7 @@ const Dokument = ({ dokument, innsender, sisteEndret, url }: Props) => {
           </a>
         ) : (
           <div className={styles.ikkeKlikkbar}>
-            <EyeSlashIcon fontSize="2rem"/>
+            <EyeSlashIcon fontSize="1.75rem" className={styles.ikon}/>
             <div className={styles.textWrapper}>
               <Heading level="3" size="xsmall">{dokument.tittel}</Heading>
               <BodyShort size="small" className={styles.datoOgInnsender}>{format(new Date(sisteEndret), "dd.MM.yyyy")}</BodyShort>
