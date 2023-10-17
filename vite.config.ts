@@ -19,6 +19,11 @@ export default defineConfig(({ command }) => ({
     },
     terser(),
   ],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./vitest-setup.ts",
+  },
   css: {
     modules: {
       generateScopedName: "[name]__[local]___[hash:base64:5]",
