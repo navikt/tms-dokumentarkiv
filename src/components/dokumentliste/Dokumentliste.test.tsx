@@ -1,25 +1,21 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { expect, test } from 'vitest';
+import { screen } from '@testing-library/react';
 import Dokumentliste from './Dokumentliste';
-import App from '../../App';
+import { render } from '../../../vitest-setup.tsx';
 
-describe('something truthy and falsy', () => {
-  it('true to be true', () => {
-    expect(true).toBe(true);
-  });
+test("Dokumenter og vedlegg blir rendret som de skal", async () => {
+  render(<Dokumentliste />);
 
-  it('false to be false', () => {
-    expect(false).toBe(false);
-  });
-});
+  expect(
+    await screen.findByRole("heading", {
+      name: "Søknad om å beholde arbeidsavklaringspenger under opphold i utlandet",
+      level: 3,
+    })
+  ).toBeInTheDocument();
 
-
-describe('App', () => {
-  it('renders headline', () => {
-    render(<App />);
-
-    screen.debug();
-
-    // check if App components renders headline
-  });
+  expect(
+    await screen.findByRole("link", {
+      name: "Kvitteringsside for dokumentinnsending",
+    })
+  ).toBeInTheDocument();
 });
