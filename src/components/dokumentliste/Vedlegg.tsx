@@ -19,17 +19,17 @@ interface VedleggslenkeProps {
 
 const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
   const antallVedlegg = dokumenter.length - 1;
-  const vedleggsListe = dokumenter.filter((d) => d.dokumenttype === "VEDLEGG")
+  const vedleggsListe = dokumenter.filter((d) => d.dokumenttype === "VEDLEGG");
 
   const VedleggsLenke = ({ url, tittel, brukerHarTilgang }: VedleggslenkeProps) => {
     return brukerHarTilgang ? (
       <a href={url} className={styles.vedlegg} onClick={() => logNavigereEvent("Dokumentlenke", "Vedlegg")}>
-          <PaperclipIcon fontSize="1.5rem"/>
-          {tittel}
+        <PaperclipIcon fontSize="1.5rem" />
+        {tittel}
       </a>
     ) : (
       <div className={styles.vedleggIngenTilgang}>
-        <EyeSlashIcon fontSize="1.5rem"/>
+        <EyeSlashIcon fontSize="1.5rem" />
         {tittel}
       </div>
     );
@@ -39,11 +39,12 @@ const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
     <div className={styles.veddleggsListe}>
       <BodyShort className={styles.tittel}>{text.antallVedlegg[language](antallVedlegg)}</BodyShort>
       {vedleggsListe.map((vedlegg: dokumentProps) => (
-          <VedleggsLenke
-            url={`${baseUrl}/${vedlegg.dokumentInfoId}`}
-            tittel={vedlegg.tittel}
-            brukerHarTilgang={vedlegg.brukerHarTilgang}
-          />
+        <VedleggsLenke
+          url={`${baseUrl}/${vedlegg.dokumentInfoId}`}
+          tittel={vedlegg.tittel}
+          brukerHarTilgang={vedlegg.brukerHarTilgang}
+          key={vedlegg.dokumentInfoId}
+        />
       ))}
     </div>
   );
