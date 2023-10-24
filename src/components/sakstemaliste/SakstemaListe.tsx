@@ -25,12 +25,12 @@ const SakstemaListe = ({ isRepresentant, sakstemaer, isLoading }: Props) => {
   return (
     <>
       {tomListe ? (
-        <IngenSaker isRepresentant={isRepresentant}/>
+        <IngenSaker isRepresentant={isRepresentant} />
       ) : (
         <div>
           <ul className={styles.liste}>
             {sakstemaer?.map((sakstema: SakstemaElement) => (
-              <SakstemaListeElement sakstema={sakstema} />
+              <SakstemaListeElement sakstema={sakstema} key={sakstema.navn} />
             ))}
           </ul>
           <Disclaimer />
