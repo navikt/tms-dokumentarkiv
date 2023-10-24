@@ -8,7 +8,7 @@
     "dev": "vite --port 3000",
     "build": "tsc && vite build --base=https://cdn.nav.no/min-side/tms-dokumentarkiv/ --outDir dist",
     "preview": "vite preview",
-    "prepare": "husky install",
+    "prepare": "husky install && chmod +x .husky/scripts/check-no-a11y-ignored.sh ",
     "lint": "eslint --ext .ts,.tsx .",
     "test": "vitest"
   },
@@ -37,6 +37,7 @@
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-react": "7.33.2",
+    "@typescript-eslint/parser": "6.8.0",
     "husky": "8.0.3",
     "jsdom": "^22.1.0",
     "lint-staged": "15.0.1",
@@ -53,17 +54,28 @@
   },
   "eslintConfig": {
     "extends": [
-      "plugin:jsx-a11y/recommended",
-      "plugin:@typescript-eslint/recommended"
-    ]
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:react/jsx-runtime",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:jsx-a11y/recommended"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-explicit-any": "warn"
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
   },
   "prettier": {
     "printWidth": 120
   },
   "lint-staged": {
     "*.{ts,tsx,css,md,html,json}": [
-      "prettier --cache --write",
-      "git add"
+      "prettier --cache --write"
     ]
   },
   "engines": {
