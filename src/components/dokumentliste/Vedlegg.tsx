@@ -49,7 +49,7 @@ const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
         <Button
           className={styles.btn}
           variant="secondary-neutral"
-          size="small"
+          size="xsmall"
           icon={<ChevronDownIcon fontSize="1.5rem" aria-hidden />}
           onClick={() => handleOnClick()}
         >
