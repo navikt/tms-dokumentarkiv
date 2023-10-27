@@ -21,7 +21,7 @@ export interface journalposterProps {
       brukerHarTilgang: boolean;
       eventuelleGrunnerTilManglendeTilgang: Array<string>;
       variant: string;
-    }
+    },
   ];
   harVedlegg: boolean;
 }
@@ -39,7 +39,7 @@ export const CreateListElement = (journalpost: journalposterProps, language: Tex
   const hasVedlegg = journalpost.dokumenter.length > 1;
 
   return (
-    <li key={Math.random()}>
+    <li key={journalpost.journalpostId}>
       <Dokument
         dokument={journalpost.dokumenter[0]}
         innsender={innsender}

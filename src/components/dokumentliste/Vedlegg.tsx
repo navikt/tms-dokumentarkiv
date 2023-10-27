@@ -1,9 +1,10 @@
-import { EyeSlashIcon, PaperclipIcon } from "@navikt/aksel-icons";
-import styles from "./Vedlegg.module.css";
-import { dokumentProps } from "./Dokument";
-import { BodyShort } from "@navikt/ds-react";
+import { ChevronDownIcon, ChevronUpIcon, EyeSlashIcon, PaperclipIcon } from "@navikt/aksel-icons";
+import { BodyShort, Button } from "@navikt/ds-react";
+import { useState } from "react";
 import { TextLanguages, text } from "../../language/text";
 import { logNavigereEvent } from "../../utils/amplitude";
+import { dokumentProps } from "./Dokument";
+import styles from "./Vedlegg.module.css";
 
 interface Props {
   dokumenter: Array<dokumentProps>;
@@ -18,8 +19,14 @@ interface VedleggslenkeProps {
 }
 
 const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
+  const [hideVedlegg, setHideVedlegg] = useState(true);
   const antallVedlegg = dokumenter.length - 1;
   const vedleggsListe = dokumenter.filter((d) => d.dokumenttype === "VEDLEGG");
+  const grupperVedlegg = antallVedlegg > 1;
+
+  const handleOnClick = () => {
+    setHideVedlegg(!hideVedlegg);
+  };
 
   const VedleggsLenke = ({ url, tittel, brukerHarTilgang }: VedleggslenkeProps) => {
     return brukerHarTilgang ? (
@@ -34,6 +41,39 @@ const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
       </div>
     );
   };
+
+  if (grupperVedlegg) {
+    return (
+      <div className={styles.veddleggsListe}>
+        <BodyShort className={styles.tittel}>{text.antallVedlegg[language](antallVedlegg)}</BodyShort>
+        <Button
+          className={styles.btn}
+          variant="secondary-neutral"
+          size="xsmall"
+          icon={
+            hideVedlegg ? (
+              <ChevronDownIcon fontSize="1.5rem" aria-hidden />
+            ) : (
+              <ChevronUpIcon fontSize="1.5rem" aria-hidden />
+            )
+          }
+          onClick={() => handleOnClick()}
+        >
+          {hideVedlegg ? text.visVedlegg[language] : text.skjulVedlegg[language]}
+        </Button>
+        <div className={hideVedlegg ? styles.visuallyHidden : null}>
+          {vedleggsListe.map((vedlegg: dokumentProps) => (
+            <VedleggsLenke
+              url={`${baseUrl}/${vedlegg.dokumentInfoId}`}
+              tittel={vedlegg.tittel}
+              brukerHarTilgang={vedlegg.brukerHarTilgang}
+              key={vedlegg.dokumentInfoId}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.veddleggsListe}>

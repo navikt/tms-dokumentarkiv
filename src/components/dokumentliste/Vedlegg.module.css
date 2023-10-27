@@ -23,7 +23,6 @@
   text-decoration: none;
   padding: 0.75rem;
   padding-left: 4rem;
-
 }
 
 .veddleggsListe {
@@ -37,4 +36,26 @@
   padding-bottom: 0.5rem;
   font-size: 1rem;
   font-weight: 600;
+}
+
+.btn {
+  margin-left: 4rem;
+}
+
+.chevron {
+  overflow: visible;
+}
+
+.show {
+  display: flex;
+}
+
+.visuallyHidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

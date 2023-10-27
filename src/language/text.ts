@@ -1,8 +1,8 @@
 type Languages = {
-  nb: string,
-  nn: string,
-  en: string,
-}
+  nb: string;
+  nn: string;
+  en: string;
+};
 
 export type TextLanguages = keyof Languages;
 
@@ -231,5 +231,15 @@ export const text = {
     nb: "Ditt sykefravær",
     nn: "Ditt sjukefravær",
     en: "Sickness benefit",
+  },
+  visVedlegg: {
+    nb: "Vis vedlegg",
+    nn: "Vis vedlegg",
+    en: "Show attachments",
+  },
+  skjulVedlegg: {
+    nb: "Skjul vedlegg",
+    nn: "Skjul vedlegg",
+    en: "Hide attachments",
   },
 };
