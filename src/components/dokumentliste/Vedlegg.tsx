@@ -1,4 +1,4 @@
-import { ChevronDownIcon, EyeSlashIcon, PaperclipIcon } from "@navikt/aksel-icons";
+import { ChevronDownIcon, ChevronUpIcon, EyeSlashIcon, PaperclipIcon } from "@navikt/aksel-icons";
 import { BodyShort, Button } from "@navikt/ds-react";
 import { useState } from "react";
 import { TextLanguages, text } from "../../language/text";
@@ -50,10 +50,16 @@ const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
           className={styles.btn}
           variant="secondary-neutral"
           size="xsmall"
-          icon={<ChevronDownIcon fontSize="1.5rem" aria-hidden />}
+          icon={
+            hideVedlegg ? (
+              <ChevronDownIcon fontSize="1.5rem" aria-hidden />
+            ) : (
+              <ChevronUpIcon fontSize="1.5rem" aria-hidden />
+            )
+          }
           onClick={() => handleOnClick()}
         >
-          {text.visVedlegg[language]}
+          {hideVedlegg ? text.visVedlegg[language] : text.skjulVedlegg[language]}
         </Button>
         <div className={hideVedlegg ? styles.visuallyHidden : null}>
           {vedleggsListe.map((vedlegg: dokumentProps) => (

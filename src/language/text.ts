@@ -237,4 +237,9 @@ export const text = {
     nn: "Vis vedlegg",
     en: "Show attachments",
   },
+  skjulVedlegg: {
+    nb: "Skjul vedlegg",
+    nn: "Skjul vedlegg",
+    en: "Hide attachments",
+  },
 };
