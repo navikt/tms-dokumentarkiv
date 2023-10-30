@@ -20,6 +20,7 @@ spec:
   ingresses:
     - "https://www.nav.no/dokumentarkiv"
     - "https://person.nav.no/mine-saker"
+    - "https://person.nav.no/dokumentarkiv"
   accessPolicy:
     outbound:
       external:
