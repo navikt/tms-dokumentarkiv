@@ -223,9 +223,9 @@ export const text = {
     en: "Contact us",
   },
   temaLenkeIntro: {
-    nb: "Endringer og status: ",
-    nn: "Endringer og status: ",
-    en: "Corrections and status: ",
+    nb: "For endring og status se ",
+    nn: "For endring og status se ",
+    en: "For corrections and status go to ",
   },
   sykOgSymLenke: {
     nb: "Ditt sykefravær",

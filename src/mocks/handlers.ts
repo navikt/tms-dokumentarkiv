@@ -1,117 +1,115 @@
 import { rest } from "msw";
-import { authenticationUrl, getFullmaktForhold, getFullmaktInfoUrl, getJournalposterUrl, getSakstemaerUrl, mineSakerApiUrl } from "../urls";
+import { authenticationUrl, getFullmaktForhold, getFullmaktInfoUrl, getSakstemaerUrl, mineSakerApiUrl } from "../urls";
 
 const journalpostHandler = () => {
   return [
-    rest.get(getJournalposterUrl, (_, res, ctx) => {
+    rest.get(`${mineSakerApiUrl}/sakstema`, (_, res, ctx) => {
       return res(
         ctx.status(200),
-        ctx.json([
-          {
-            navn: "Arbeidsavklaringspenger",
-            kode: "AAP",
-            journalposter: [
-              {
-                tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i innlandet ",
-                journalpostId: "598134457",
-                journalposttype: "INNGAAENDE",
-                avsender: {
-                  innloggetBrukerErSelvKilden: true,
-                  type: "PERSON",
-                },
-                mottaker: null,
-                sisteEndret: "2023-04-13T14:36:13Z",
-                dokumenter: [
-                  {
-                    tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i innlandet ",
-                    dokumentInfoId: "624882104",
-                    dokumenttype: "HOVED",
-                    brukerHarTilgang: false,
-                    eventuelleGrunnerTilManglendeTilgang: ["skannet_dokument"],
-                    variant: "ARKIV",
-                  },
-                  {
-                    tittel: "Kvitteringsside for dokumentinnsending",
-                    dokumentInfoId: "624882105",
-                    dokumenttype: "VEDLEGG",
-                    brukerHarTilgang: false,
-                    eventuelleGrunnerTilManglendeTilgang: [],
-                    variant: "ARKIV",
-                  },
-                ],
-                harVedlegg: true,
+        ctx.json({
+          navn: "Arbeidsavklaringspenger",
+          kode: "AAP",
+          journalposter: [
+            {
+              tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i innlandet ",
+              journalpostId: "598134457",
+              journalposttype: "INNGAAENDE",
+              avsender: {
+                innloggetBrukerErSelvKilden: true,
+                type: "PERSON",
               },
-              {
-                tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i utlandet ",
-                journalpostId: "598134456",
-                journalposttype: "UTGAAENDE",
-                avsender: {
-                  innloggetBrukerErSelvKilden: true,
-                  type: "PERSON",
+              mottaker: null,
+              sisteEndret: "2023-04-13T14:36:13Z",
+              dokumenter: [
+                {
+                  tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i innlandet ",
+                  dokumentInfoId: "624882104",
+                  dokumenttype: "HOVED",
+                  brukerHarTilgang: false,
+                  eventuelleGrunnerTilManglendeTilgang: ["skannet_dokument"],
+                  variant: "ARKIV",
                 },
-                mottaker: null,
-                sisteEndret: "2023-04-13T14:35:07Z",
-                dokumenter: [
-                  {
-                    tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i utlandet ",
-                    dokumentInfoId: "624882102",
-                    dokumenttype: "HOVED",
-                    brukerHarTilgang: true,
-                    eventuelleGrunnerTilManglendeTilgang: [],
-                    variant: "ARKIV",
-                  },
-                  {
-                    tittel: "Kvitteringsside for dokumentinnsending",
-                    dokumentInfoId: "624882103",
-                    dokumenttype: "VEDLEGG",
-                    brukerHarTilgang: true,
-                    eventuelleGrunnerTilManglendeTilgang: [],
-                    variant: "ARKIV",
-                  },
-                ],
-                harVedlegg: true,
-              },
-              {
-                tittel: "Søknad om reisestønad (AAP)",
-                journalpostId: "598120912",
-                journalposttype: "INNGAAENDE",
-                avsender: {
-                  innloggetBrukerErSelvKilden: true,
-                  type: "PERSON",
+                {
+                  tittel: "Kvitteringsside for dokumentinnsending",
+                  dokumentInfoId: "624882105",
+                  dokumenttype: "VEDLEGG",
+                  brukerHarTilgang: false,
+                  eventuelleGrunnerTilManglendeTilgang: [],
+                  variant: "ARKIV",
                 },
-                mottaker: null,
-                sisteEndret: "2023-02-10T10:27:01Z",
-                dokumenter: [
-                  {
-                    tittel: "Søknad om reisestønad (AAP)",
-                    dokumentInfoId: "624868436",
-                    dokumenttype: "HOVED",
-                    brukerHarTilgang: true,
-                    eventuelleGrunnerTilManglendeTilgang: [],
-                    variant: "ARKIV",
-                  },
-                  {
-                    tittel: "Legeerklæring",
-                    dokumentInfoId: "624868437",
-                    dokumenttype: "VEDLEGG",
-                    brukerHarTilgang: true,
-                    eventuelleGrunnerTilManglendeTilgang: [],
-                    variant: "ARKIV",
-                  },
-                  {
-                    tittel: "Kvitteringsside for dokumenttest",
-                    dokumentInfoId: "624868438",
-                    dokumenttype: "VEDLEGG",
-                    brukerHarTilgang: true,
-                    eventuelleGrunnerTilManglendeTilgang: [],
-                    variant: "ARKIV",
-                  },
-                ],
-                harVedlegg: true,
+              ],
+              harVedlegg: true,
+            },
+            {
+              tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i utlandet ",
+              journalpostId: "598134456",
+              journalposttype: "UTGAAENDE",
+              avsender: {
+                innloggetBrukerErSelvKilden: true,
+                type: "PERSON",
               },
-            ],
-          },
-        ])
+              mottaker: null,
+              sisteEndret: "2023-04-13T14:35:07Z",
+              dokumenter: [
+                {
+                  tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i utlandet ",
+                  dokumentInfoId: "624882102",
+                  dokumenttype: "HOVED",
+                  brukerHarTilgang: true,
+                  eventuelleGrunnerTilManglendeTilgang: [],
+                  variant: "ARKIV",
+                },
+                {
+                  tittel: "Kvitteringsside for dokumentinnsending",
+                  dokumentInfoId: "624882103",
+                  dokumenttype: "VEDLEGG",
+                  brukerHarTilgang: true,
+                  eventuelleGrunnerTilManglendeTilgang: [],
+                  variant: "ARKIV",
+                },
+              ],
+              harVedlegg: true,
+            },
+            {
+              tittel: "Søknad om reisestønad (AAP)",
+              journalpostId: "598120912",
+              journalposttype: "INNGAAENDE",
+              avsender: {
+                innloggetBrukerErSelvKilden: true,
+                type: "PERSON",
+              },
+              mottaker: null,
+              sisteEndret: "2023-02-10T10:27:01Z",
+              dokumenter: [
+                {
+                  tittel: "Søknad om reisestønad (AAP)",
+                  dokumentInfoId: "624868436",
+                  dokumenttype: "HOVED",
+                  brukerHarTilgang: true,
+                  eventuelleGrunnerTilManglendeTilgang: [],
+                  variant: "ARKIV",
+                },
+                {
+                  tittel: "Legeerklæring",
+                  dokumentInfoId: "624868437",
+                  dokumenttype: "VEDLEGG",
+                  brukerHarTilgang: true,
+                  eventuelleGrunnerTilManglendeTilgang: [],
+                  variant: "ARKIV",
+                },
+                {
+                  tittel: "Kvitteringsside for dokumenttest",
+                  dokumentInfoId: "624868438",
+                  dokumenttype: "VEDLEGG",
+                  brukerHarTilgang: true,
+                  eventuelleGrunnerTilManglendeTilgang: [],
+                  variant: "ARKIV",
+                },
+              ],
+              harVedlegg: true,
+            },
+          ],
+        }),
       );
     }),
   ];
@@ -155,7 +153,7 @@ const sakstemaHandler = () => {
             sistEndret: "2023-01-16T10:57:06Z",
             detaljvisningUrl: "https://www.intern.dev.nav.no/mine-saker/tema/OPP",
           },
-        ])
+        ]),
       );
     }),
   ];
@@ -173,7 +171,7 @@ const fullmaktsForholdHandler = () => {
             { navn: "Sergio Sergiozen", ident: "12345" },
             { navn: "Amir Amiresen", ident: "345678901" },
           ],
-        })
+        }),
       );
     }),
   ];
@@ -188,7 +186,7 @@ const fullmaktsInfoHandler = () => {
           viserRepresentertesData: true,
           representertNavn: "Sergio Sergiozen",
           representertIdent: "12345",
-        })
+        }),
       );
     }),
   ];
@@ -234,7 +232,7 @@ const enkeltDokumentHandler = () => {
               harVedlegg: true,
             },
           ],
-        })
+        }),
       );
     }),
   ];
@@ -246,5 +244,5 @@ export const handlers = [
   ...sakstemaHandler(),
   ...fullmaktsForholdHandler(),
   ...fullmaktsInfoHandler(),
-  ...enkeltDokumentHandler()
+  ...enkeltDokumentHandler(),
 ];

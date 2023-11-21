@@ -21,15 +21,16 @@ const TemaLenke = ({ lenketekst }: { lenketekst: string }) => {
 
   if (isUnntak) {
     return (
-      <div className={styles.wrapper}>
-        <ChevronRightCircleFillIcon className={styles.ikon} fontSize="1.5rem" />
-        <span className={styles.intro}>
-          {text.temaLenkeIntro[language]}
-          <a href={lenker[type]} className={styles.lenke} onClick={() => logNavigereEvent("Lenke", "Temalenke", lenketekst)}>
-            {isSykOrSym ? text.sykOgSymLenke[language] : lenketekst}
-          </a>
-        </span>
-      </div>
+      <span>
+        {text.temaLenkeIntro[language]}
+        <a
+          href={lenker[type]}
+          className={styles.lenke}
+          onClick={() => logNavigereEvent("Lenke", "Temalenke", lenketekst)}
+        >
+          {isSykOrSym ? text.sykOgSymLenke[language] : lenketekst}
+        </a>
+      </span>
     );
   } else {
     return null;

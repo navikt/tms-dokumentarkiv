@@ -1,0 +1,16 @@
+.container {
+  margin: 3.25rem 0 0 0;
+}
+
+.dokumentliste {
+  list-style: none;
+  padding: 0;
+}
+
+.dokumentliste li:first-of-type {
+  border-top: 1px solid var(--a-border-divider);
+}
+
+.dokumentliste li {
+  border-bottom: 1px solid var(--a-border-divider);
+}
