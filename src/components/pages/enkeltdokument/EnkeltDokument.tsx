@@ -8,9 +8,10 @@ import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, setIsError } from "../../../store/store";
 import { mineSakerApiUrl } from "../../../urls";
-import { CreateListElement } from "../../dokumentliste/CreateListElement";
-import styles from "./EnkeltDokument.module.css";
 import { logNavigereEvent } from "../../../utils/amplitude";
+import { DokumentlisteProps } from "../../dokumentliste/DokumentInterfaces";
+import Journalpost from "../../dokumentliste/Journalpost";
+import styles from "./EnkeltDokument.module.css";
 
 export interface FullmaktInfoProps {
   viserRepresentertesData: boolean;
@@ -21,7 +22,7 @@ const EnkeltDokument = () => {
   const { temakode, journalpostId } = useParams();
   const dokumentUrl = `${mineSakerApiUrl}/sakstema/${temakode}/journalpost/${journalpostId}`;
 
-  const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentUrl }, fetcher, {
+  const { data: dokumentliste, isLoading } = useSWRImmutable<DokumentlisteProps>({ path: dokumentUrl }, fetcher, {
     shouldRetryOnError: false,
     onError: setIsError,
   });
@@ -40,8 +41,10 @@ const EnkeltDokument = () => {
     return null;
   }
 
+  const journalpost = dokumentliste?.journalposter[0];
+
   const temaNavn = isContent && dokumentliste?.navn;
-  const dato = isContent && format(new Date(dokumentliste?.journalposter[0].sisteEndret), "dd.MM.yyyy");
+  const dato = isContent && format(new Date(journalpost.sisteEndret), "dd.MM.yyyy");
   const nivaaEnUrl = `/dokumentarkiv`;
 
   return (
@@ -57,7 +60,7 @@ const EnkeltDokument = () => {
           <div>
             <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
             <ul className={styles.dokumentliste}>
-              {dokumentliste && CreateListElement(dokumentliste?.journalposter[0], language)}
+              <Journalpost key={journalpost.journalpostId} journalpost={journalpost} language={language} />;
             </ul>
           </div>
         ) : (
@@ -65,7 +68,11 @@ const EnkeltDokument = () => {
             <BodyShort className={styles.ingenDokumenterTekst}>{text.kanIkkeViseDokument[language]}</BodyShort>
           </div>
         )}
-        <Link to={nivaaEnUrl} className={styles.lenke} onClick={() => logNavigereEvent("Lenke", "Se alle", text.seAlleDokumenter["nb"])}>
+        <Link
+          to={nivaaEnUrl}
+          className={styles.lenke}
+          onClick={() => logNavigereEvent("Lenke", "Se alle", text.seAlleDokumenter["nb"])}
+        >
           {text.seAlleDokumenter[language]}
         </Link>
       </div>

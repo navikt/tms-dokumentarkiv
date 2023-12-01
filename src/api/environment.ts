@@ -7,9 +7,8 @@ export const getEnvironment = () => {
   }
 
   if (isDevelopment) {
-    console.log("dev");
     return "development";
   }
-  console.log("local");
+
   return "local";
 };

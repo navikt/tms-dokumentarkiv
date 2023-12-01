@@ -1,0 +1,43 @@
+.dokumentElement {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  color: var(--a-text-default);
+  text-decoration: none;
+  margin-top: 1.25rem;
+}
+
+.hover:hover .lenketekst {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.hover:hover .ikonWrapper {
+  background-color: var(--a-surface-active);
+}
+
+.ikonWrapper {
+  display: flex;
+  border-radius: 0.25rem;
+  background-color: var(--a-surface-neutral-subtle);
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.ikkeTilgang {
+  color: var(--a-text-subtle);
+}
+
+.dokumentKanIkkeVises {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.border {
+  margin-left: 3.75rem;
+  border-bottom: 1px solid var(--a-border-divider);
+}

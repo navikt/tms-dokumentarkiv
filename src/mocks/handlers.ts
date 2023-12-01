@@ -1,5 +1,12 @@
 import { rest } from "msw";
-import { authenticationUrl, getFullmaktForhold, getFullmaktInfoUrl, getSakstemaerUrl, mineSakerApiUrl } from "../urls";
+import {
+  authenticationUrl,
+  getFullmaktForhold,
+  getFullmaktInfoUrl,
+  getJournalposterUrl,
+  getSakstemaerUrl,
+  mineSakerApiUrl,
+} from "../urls";
 
 const journalpostHandler = () => {
   return [
