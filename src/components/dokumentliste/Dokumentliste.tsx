@@ -33,14 +33,9 @@ const Dokumentliste = () => {
     return null;
   }
 
-  const getSisteDate = () => {
-    const sortertJournalpostListe = journalpostListe?.journalposter.sort((a, b) => {
-      return new Date(a.sisteEndret).getTime() - new Date(b.sisteEndret).getTime();
-    });
-    return format(new Date(sortertJournalpostListe[0].sisteEndret), "dd.MM.yyyy");
-  };
-
-  const sisteDato = getSisteDate();
+  const sistEndret =
+    journalpostListe?.journalposter.length > 0 &&
+    format(new Date(journalpostListe?.journalposter[0].sisteEndret), "dd.MM.yyyy");
 
   return (
     <div className={styles.container}>
@@ -48,7 +43,7 @@ const Dokumentliste = () => {
         {text.dokumentListeTittel[language]}
       </Heading>
       <BodyShort size="small" className={styles.dato}>
-        {text.sistEndret[language] + " " + sisteDato}
+        {text.sistEndret[language] + " " + sistEndret}
       </BodyShort>
       <ul className={styles.dokumentliste}>
         {journalpostListe?.journalposter.map((journalpost) => {

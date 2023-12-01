@@ -8,12 +8,12 @@ import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, setIsError } from "../../../store/store";
 import { getFullmaktInfoUrl, mineSakerApiUrl } from "../../../urls";
-import Dokumentliste from "../../dokumentliste/Dokumentliste";
 import styles from "./DokumentUtlisting.module.css";
 import IngenDokumenter from "./IngenDokumenter";
 import Disclaimer from "./disclaimer/Disclaimer";
 import Lenkepanel from "../../nyttig-og-vite/Lenkepanel";
 import TemaLenke from "../../temaside-lenke/TemaLenke";
+import Dokumentliste from "../../dokumentliste/Dokumentliste";
 
 export interface FullmaktInfoProps {
   viserRepresentertesData: boolean;

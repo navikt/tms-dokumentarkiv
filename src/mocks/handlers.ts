@@ -10,7 +10,7 @@ import {
 
 const journalpostHandler = () => {
   return [
-    rest.get(`${mineSakerApiUrl}/sakstema`, (_, res, ctx) => {
+    rest.get(`${mineSakerApiUrl}/sakstema/*`, (_, res, ctx) => {
       return res(
         ctx.status(200),
         ctx.json({
@@ -199,7 +199,7 @@ const fullmaktsInfoHandler = () => {
   ];
 };
 
-const enkeltDokumentHandler = () => {
+/*const enkeltDokumentHandler = () => {
   return [
     rest.get(mineSakerApiUrl, (_, res, ctx) => {
       return res(
@@ -243,7 +243,7 @@ const enkeltDokumentHandler = () => {
       );
     }),
   ];
-};
+};*/
 
 export const handlers = [
   ...journalpostHandler(),
@@ -251,5 +251,5 @@ export const handlers = [
   ...sakstemaHandler(),
   ...fullmaktsForholdHandler(),
   ...fullmaktsInfoHandler(),
-  ...enkeltDokumentHandler(),
+  //...enkeltDokumentHandler(),
 ];
