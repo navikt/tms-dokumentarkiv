@@ -8,8 +8,12 @@
   margin-top: 1.25rem;
 }
 
-.hover:hover .lenketekst {
+.lenketekst {
   text-decoration: underline;
+}
+
+.hover:hover .lenketekst {
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -17,24 +21,47 @@
   background-color: var(--a-surface-active);
 }
 
+.hover:hover .ikonFarge {
+  background-color: var(--a-surface-action-subtle-hover);
+}
+
 .ikonWrapper {
   display: flex;
   border-radius: 0.25rem;
-  background-color: var(--a-surface-neutral-subtle);
   height: 2.75rem;
   width: 2.75rem;
   align-items: center;
   justify-content: center;
 }
 
+.ikonFarge {
+  color: var(--a-surface-action);
+  background-color: var(--a-surface-action-subtle);
+}
+
+.ikonFargeIkkeTilgang {
+  background-color: var(--a-surface-neutral-subtle);
+}
+
 .ikkeTilgang {
   color: var(--a-text-subtle);
 }
 
+.titteltekst {
+  text-decoration: none;
+}
+
 .dokumentKanIkkeVises {
   margin-top: 0.5rem;
+  margin-left: 3.75rem;
   font-size: 1rem;
   font-weight: 600;
+  color: var(--a-text-subtle);
+}
+
+.datoOgInnsender {
+  margin-top: 0.125rem;
+  color: var(--a-text-subtle);
 }
 
 .border {

@@ -32,7 +32,7 @@ const Journalpost = ({
 
     return (
       <a href={fullstendigDokumentUrl} className={`${styles.dokumentElement} ${styles.hover}`}>
-        <div className={styles.ikonWrapper}>
+        <div className={`${styles.ikonWrapper} ${styles.ikonFarge}`}>
           <FilePdfIcon fontSize="1.75rem" />
         </div>
         <div className={styles.textWrapper}>
@@ -49,21 +49,23 @@ const Journalpost = ({
 
   const DokumentUtenTilgang = ({ tittel, sisteEndret }: { tittel: string; sisteEndret: string }) => {
     return (
-      <div className={`${styles.dokumentElement} ${styles.ikkeTilgang}`}>
-        <div className={styles.ikonWrapper}>
-          <EyeSlashIcon fontSize="1.75rem" />
+      <div>
+        <div className={`${styles.dokumentElement} ${styles.ikkeTilgang}`}>
+          <div className={`${styles.ikonWrapper} ${styles.ikonFargeIkkeTilgang}`}>
+            <EyeSlashIcon fontSize="1.75rem" />
+          </div>
+          <div className={styles.textWrapper}>
+            <BodyShort size="medium" className={styles.titteltekst}>
+              {tittel}
+            </BodyShort>
+            <BodyShort size="small" className={styles.datoOgInnsender}>
+              {format(new Date(sisteEndret), "dd.MM.yyyy")}
+            </BodyShort>
+          </div>
         </div>
-        <div className={styles.textWrapper}>
-          <BodyShort size="medium" className={styles.lenketekst}>
-            {tittel}
-          </BodyShort>
-          <BodyShort size="small" className={styles.datoOgInnsender}>
-            {format(new Date(sisteEndret), "dd.MM.yyyy")}
-          </BodyShort>
-          <BodyShort size="small" className={styles.dokumentKanIkkeVises}>
-            {text.dokumentKanIkkeVises[language]}
-          </BodyShort>
-        </div>
+        <BodyShort size="small" className={styles.dokumentKanIkkeVises}>
+          {text.dokumentKanIkkeVises[language]}
+        </BodyShort>
       </div>
     );
   };

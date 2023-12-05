@@ -3,12 +3,12 @@
   flex-direction: row;
   align-items: center;
   color: var(--a-text-default);
-  text-decoration: none;
+  text-decoration: underline;
   padding-top: 0.75rem;
 }
 
 .vedlegg:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .vedleggIngenTilgang {
