@@ -14,7 +14,7 @@ const Journalpost = ({
 }: {
   journalpost: JournalpostProps;
   language: TextLanguages;
-  border: boolean;
+  border: boolean | undefined;
 }) => {
   const baseDokumentUrlForJournalpost = `${dokumentUrl}/${journalpost.journalpostId}`;
   const hasVedlegg = journalpost.dokumenter.length > 1;
