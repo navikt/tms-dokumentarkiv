@@ -247,4 +247,9 @@ export const text = {
     nn: "Kan ikke vise dokument",
     en: "Document can not be viewed",
   },
+  vedleggKanIkkeVises: {
+    nb: " (kan ikke vises)",
+    nn: " (kan ikkje visast)",
+    en: " (can not show)",
+  },
 };

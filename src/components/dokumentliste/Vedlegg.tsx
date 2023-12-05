@@ -36,7 +36,7 @@ const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
         {tittelMedPdfTag}
       </a>
     ) : (
-      <div className={styles.vedleggIngenTilgang}>{tittelMedPdfTag + " (Kan ikke vises)"}</div>
+      <div className={styles.vedleggIngenTilgang}>{tittelMedPdfTag + text.vedleggKanIkkeVises[language]}</div>
     );
   };
 
