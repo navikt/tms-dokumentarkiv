@@ -33,9 +33,7 @@ const Dokumentliste = () => {
     return null;
   }
 
-  const sistEndret =
-    journalpostListe?.journalposter.length > 0 &&
-    format(new Date(journalpostListe?.journalposter[0].sisteEndret), "dd.MM.yyyy");
+  const sistEndret = journalpostListe && format(new Date(journalpostListe?.journalposter[0].sisteEndret), "dd.MM.yyyy");
 
   return (
     <div className={styles.container}>

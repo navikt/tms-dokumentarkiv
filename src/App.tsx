@@ -1,7 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import styles from "./App.module.css";
 import DokumentUtlisting from "./components/pages/dokumentutlisting/DokumentUtlisting";
-import EnkeltDokument from "./components/pages/enkeltdokument/EnkeltDokument";
 import Landingsside from "./components/pages/landingsside/Landingsside";
 import { useLanguage } from "./hooks/useLanguage";
 import { initializeAmplitude } from "./utils/amplitude";
