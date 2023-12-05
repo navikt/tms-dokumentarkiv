@@ -4,7 +4,6 @@ import styles from "./TemaLenke.module.css";
 import { useStore } from "@nanostores/react";
 import { languageAtom } from "../../store/store";
 import { text } from "../../language/text";
-import { ChevronRightCircleFillIcon } from "@navikt/aksel-icons";
 import { logNavigereEvent } from "../../utils/amplitude";
 
 export type Temakode = "DAG" | "HJE" | "FOR" | "KOM" | "AAP" | "SYK" | "SYM" | "PEN" | "UFO" | "OMS";

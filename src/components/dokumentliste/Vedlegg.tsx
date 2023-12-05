@@ -1,4 +1,4 @@
-import { ChevronDownIcon, ChevronUpIcon, EyeSlashIcon, PaperclipIcon } from "@navikt/aksel-icons";
+import { ChevronDownIcon, ChevronUpIcon } from "@navikt/aksel-icons";
 import { BodyShort, Button } from "@navikt/ds-react";
 import { useState } from "react";
 import { TextLanguages, text } from "../../language/text";
