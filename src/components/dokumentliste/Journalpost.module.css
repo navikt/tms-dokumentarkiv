@@ -38,6 +38,7 @@
 }
 
 .border {
+  margin-top: 1.25rem;
   margin-left: 3.75rem;
   border-bottom: 1px solid var(--a-border-divider);
 }
