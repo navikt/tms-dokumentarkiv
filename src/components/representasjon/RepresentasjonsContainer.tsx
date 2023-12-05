@@ -77,7 +77,7 @@ const RepresentasjonsContainer = ({
         </a>
       </div>
       {viserRepresentertesData && (
-        <Heading size="large" level="2" className={styles.heading}>
+        <Heading size="large" level="2" className={styles.heading} aria-live="polite">
           {text.representasjonValgtBruker[language] + user.navn}
         </Heading>
       )}

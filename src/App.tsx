@@ -13,7 +13,7 @@ const App = () => {
   initializeAmplitude();
 
   return (
-    <div className={styles.pageContainer}>
+    <main className={styles.pageContainer}>
       <section className={styles.contentContainer}>
         <Router>
           <Routes>
@@ -32,7 +32,7 @@ const App = () => {
           </Routes>
         </Router>
       </section>
-    </div>
+    </main>
   );
 };
 

@@ -63,7 +63,7 @@ const DokumentUtlisting = () => {
       </Heading>
       {isContent ? (
         <div>
-          <BodyLong size="medium" className={styles.ingress}>
+          <BodyLong size="medium" className={styles.ingress} aria-live="polite">
             {text.dokumentArkivIngress[language] + " " + temaNavn}
             {fullmaktInfo?.viserRepresentertesData ? (
               <span>{" for " + fullmaktInfo.representertNavn + ". "}</span>

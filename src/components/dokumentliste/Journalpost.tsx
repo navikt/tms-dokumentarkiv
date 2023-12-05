@@ -33,7 +33,7 @@ const Journalpost = ({
     return (
       <a href={fullstendigDokumentUrl} className={`${styles.dokumentElement} ${styles.hover}`}>
         <div className={`${styles.ikonWrapper} ${styles.ikonFarge}`}>
-          <FilePdfIcon fontSize="1.75rem" />
+          <FilePdfIcon fontSize="1.75rem" title="pdf" />
         </div>
         <div className={styles.textWrapper}>
           <Heading level="3" size="xsmall" className={styles.lenketekst}>
@@ -52,7 +52,7 @@ const Journalpost = ({
       <div>
         <div className={`${styles.dokumentElement} ${styles.ikkeTilgang}`}>
           <div className={`${styles.ikonWrapper} ${styles.ikonFargeIkkeTilgang}`}>
-            <EyeSlashIcon fontSize="1.75rem" />
+            <EyeSlashIcon fontSize="1.75rem" title={text.dokumentKanIkkeVises[language]} />
           </div>
           <div className={styles.textWrapper}>
             <BodyShort size="medium" className={styles.titteltekst}>

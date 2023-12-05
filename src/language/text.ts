@@ -138,19 +138,14 @@ export const text = {
     en: "For contribution matters, we are only able to present documents starting from 2022",
   },
   landingssideDisclaimerTekstDel1: {
-    nb: "Ta ",
-    nn: "Ta ",
-    en: "",
-  },
-  landingssideDisclaimerLenketekst: {
-    nb: "kontakt",
-    nn: "kontakt",
-    en: "Contact",
+    nb: "Kontakt oss",
+    nn: "Kontakt oss",
+    en: "Contact us",
   },
   landingssideDisclaimerTekstDel2: {
     nb: " dersom det er noe du lurer på.",
     nn: " dersom det er noko du lurar på.",
-    en: " us if you have any questions.",
+    en: " if you have any questions.",
   },
   ingenSakerTittel: {
     nb: "Ingen saker eller dokumenter å vise",
