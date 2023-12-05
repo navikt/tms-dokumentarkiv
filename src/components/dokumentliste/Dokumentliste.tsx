@@ -1,6 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { BodyShort, Heading } from "@navikt/ds-react";
-import { format } from "date-fns";
+import { Heading } from "@navikt/ds-react";
 import { useParams } from "react-router-dom";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
@@ -33,7 +32,6 @@ const Dokumentliste = () => {
     return null;
   }
 
-  const sistEndret = journalpostListe && format(new Date(journalpostListe?.journalposter[0].sisteEndret), "dd.MM.yyyy");
   const hasBorder = journalpostListe && journalpostListe.journalposter.length > 1;
 
   return (
@@ -41,9 +39,6 @@ const Dokumentliste = () => {
       <Heading level="2" size="medium" className={styles.heading}>
         {text.dokumentListeTittel[language]}
       </Heading>
-      <BodyShort size="small" className={styles.dato}>
-        {text.sistEndret[language] + " " + sistEndret}
-      </BodyShort>
       <ul className={styles.dokumentliste}>
         {journalpostListe?.journalposter.map((journalpost) => {
           return (

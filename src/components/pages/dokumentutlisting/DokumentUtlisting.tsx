@@ -1,5 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { BodyLong, Heading } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
 import useSWRImmutable from "swr/immutable";
@@ -8,6 +8,7 @@ import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, setIsError } from "../../../store/store";
 import { getFullmaktInfoUrl, mineSakerApiUrl } from "../../../urls";
+import { format } from "date-fns";
 import styles from "./DokumentUtlisting.module.css";
 import IngenDokumenter from "./IngenDokumenter";
 import Disclaimer from "./disclaimer/Disclaimer";
@@ -53,6 +54,7 @@ const DokumentUtlisting = () => {
   }
 
   const temaNavn = isContent && dokumentliste?.navn;
+  const dato = isContent && format(new Date(dokumentliste?.journalposter[0].sisteEndret), "dd.MM.yyyy");
 
   return (
     <>
@@ -68,6 +70,7 @@ const DokumentUtlisting = () => {
             ) : null}
             <TemaLenke lenketekst={temaNavn} />
           </BodyLong>
+          <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
           <Dokumentliste />
           <Lenkepanel />
         </div>
