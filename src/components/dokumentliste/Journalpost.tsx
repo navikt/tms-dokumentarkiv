@@ -7,7 +7,15 @@ import { JournalpostProps } from "./DokumentInterfaces";
 import styles from "./Journalpost.module.css";
 import Vedlegg from "./Vedlegg";
 
-const Journalpost = ({ journalpost, language }: { journalpost: JournalpostProps; language: TextLanguages }) => {
+const Journalpost = ({
+  journalpost,
+  language,
+  border,
+}: {
+  journalpost: JournalpostProps;
+  language: TextLanguages;
+  border: boolean;
+}) => {
   const baseDokumentUrlForJournalpost = `${dokumentUrl}/${journalpost.journalpostId}`;
   const hasVedlegg = journalpost.dokumenter.length > 1;
 
@@ -78,7 +86,7 @@ const Journalpost = ({ journalpost, language }: { journalpost: JournalpostProps;
       {hasVedlegg && (
         <Vedlegg dokumenter={journalpost.dokumenter} language={language} baseUrl={baseDokumentUrlForJournalpost} />
       )}
-      <div className={styles.border} />
+      {border ? <div className={styles.border} /> : null}
     </li>
   );
 };

@@ -34,6 +34,7 @@ const Dokumentliste = () => {
   }
 
   const sistEndret = journalpostListe && format(new Date(journalpostListe?.journalposter[0].sisteEndret), "dd.MM.yyyy");
+  const hasBorder = journalpostListe && journalpostListe.journalposter.length > 1;
 
   return (
     <div className={styles.container}>
@@ -45,7 +46,14 @@ const Dokumentliste = () => {
       </BodyShort>
       <ul className={styles.dokumentliste}>
         {journalpostListe?.journalposter.map((journalpost) => {
-          return <Journalpost key={journalpost.journalpostId} journalpost={journalpost} language={language} />;
+          return (
+            <Journalpost
+              key={journalpost.journalpostId}
+              journalpost={journalpost}
+              language={language}
+              border={hasBorder}
+            />
+          );
         })}
       </ul>
     </div>
