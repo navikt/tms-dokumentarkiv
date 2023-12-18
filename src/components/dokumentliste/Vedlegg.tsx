@@ -1,13 +1,13 @@
-import { ChevronDownIcon, ChevronUpIcon, EyeSlashIcon, PaperclipIcon } from "@navikt/aksel-icons";
+import { ChevronDownIcon, ChevronUpIcon } from "@navikt/aksel-icons";
 import { BodyShort, Button } from "@navikt/ds-react";
 import { useState } from "react";
 import { TextLanguages, text } from "../../language/text";
 import { logNavigereEvent } from "../../utils/amplitude";
-import { dokumentProps } from "./Dokument";
+import { DokumentProps } from "./DokumentInterfaces";
 import styles from "./Vedlegg.module.css";
 
 interface Props {
-  dokumenter: Array<dokumentProps>;
+  dokumenter: Array<DokumentProps>;
   language: TextLanguages;
   baseUrl: string;
 }
@@ -22,23 +22,21 @@ const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
   const [hideVedlegg, setHideVedlegg] = useState(true);
   const antallVedlegg = dokumenter.length - 1;
   const vedleggsListe = dokumenter.filter((d) => d.dokumenttype === "VEDLEGG");
-  const grupperVedlegg = antallVedlegg > 1;
+  const grupperVedlegg = antallVedlegg > 4;
 
   const handleOnClick = () => {
     setHideVedlegg(!hideVedlegg);
   };
 
   const VedleggsLenke = ({ url, tittel, brukerHarTilgang }: VedleggslenkeProps) => {
+    const tittelMedPdfTag = tittel + ".pdf";
+
     return brukerHarTilgang ? (
       <a href={url} className={styles.vedlegg} onClick={() => logNavigereEvent("Dokumentlenke", "Vedlegg")}>
-        <PaperclipIcon fontSize="1.5rem" />
-        {tittel}
+        {tittelMedPdfTag}
       </a>
     ) : (
-      <div className={styles.vedleggIngenTilgang}>
-        <EyeSlashIcon fontSize="1.5rem" />
-        {tittel}
-      </div>
+      <div className={styles.vedleggIngenTilgang}>{tittelMedPdfTag + text.vedleggKanIkkeVises[language]}</div>
     );
   };
 
@@ -62,7 +60,7 @@ const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
           {hideVedlegg ? text.visVedlegg[language] : text.skjulVedlegg[language]}
         </Button>
         <div className={hideVedlegg ? styles.visuallyHidden : null}>
-          {vedleggsListe.map((vedlegg: dokumentProps) => (
+          {vedleggsListe.map((vedlegg: DokumentProps) => (
             <VedleggsLenke
               url={`${baseUrl}/${vedlegg.dokumentInfoId}`}
               tittel={vedlegg.tittel}
@@ -78,7 +76,7 @@ const Vedlegg = ({ dokumenter, language, baseUrl }: Props) => {
   return (
     <div className={styles.veddleggsListe}>
       <BodyShort className={styles.tittel}>{text.antallVedlegg[language](antallVedlegg)}</BodyShort>
-      {vedleggsListe.map((vedlegg: dokumentProps) => (
+      {vedleggsListe.map((vedlegg: DokumentProps) => (
         <VedleggsLenke
           url={`${baseUrl}/${vedlegg.dokumentInfoId}`}
           tittel={vedlegg.tittel}

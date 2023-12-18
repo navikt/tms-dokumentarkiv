@@ -1,25 +1,4 @@
-.wrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--a-text-default);
-  margin-top: 1.75rem;
-}
-
-.intro {
-  font-weight: 600;
-}
-
-.lenke {
-  font-weight: 400;
-  color: var(--a-text-default);
-}
-
 .lenke:hover {
   text-decoration: none;
   cursor: pointer;
-}
-
-.ikon {
-  color: var(--a-icon-action);
 }

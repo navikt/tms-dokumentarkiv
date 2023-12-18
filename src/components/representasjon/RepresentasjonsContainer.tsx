@@ -44,11 +44,6 @@ const RepresentasjonsContainer = ({
 
   const nedtrekksliste = genererListe();
 
-  /*const log = (user: {navn: string, ident: string}) => {
-    const isInnloggetBruker = user.ident === fullmakter.ident;
-    logNavigereEvent("Option", "Nedtrekksliste", isInnloggetBruker ? "Representant" : "Representert");
-  }*/
-
   return (
     <>
       <div className={styles.container}>
@@ -77,7 +72,7 @@ const RepresentasjonsContainer = ({
         </a>
       </div>
       {viserRepresentertesData && (
-        <Heading size="large" level="2" className={styles.heading}>
+        <Heading size="large" level="2" className={styles.heading} aria-live="polite">
           {text.representasjonValgtBruker[language] + user.navn}
         </Heading>
       )}
