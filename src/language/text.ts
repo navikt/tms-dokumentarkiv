@@ -12,6 +12,11 @@ export const text = {
     nn: "Dokumentarkiv",
     en: "Document archive",
   },
+  minSide: {
+    nb: "Min side",
+    nn: "Mi side",
+    en: "My page",
+  },
   antallVedlegg: {
     nb: (antall: number) => `Dokumentet har ${antall} vedlegg`,
     nn: (antall: number) => `Dokumentet har ${antall} vedlegg`,
@@ -239,7 +244,7 @@ export const text = {
   },
   dokumentKanIkkeVises: {
     nb: "Dokumentet kan ikke vises",
-    nn: "Kan ikke vise dokument",
+    nn: "Kan ikkje vise dokument",
     en: "Document can not be viewed",
   },
   vedleggKanIkkeVises: {
