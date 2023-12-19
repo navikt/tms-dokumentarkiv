@@ -239,7 +239,7 @@ export const text = {
   },
   dokumentKanIkkeVises: {
     nb: "Dokumentet kan ikke vises",
-    nn: "Kan ikke vise dokument",
+    nn: "Kan ikkje vise dokument",
     en: "Document can not be viewed",
   },
   vedleggKanIkkeVises: {
