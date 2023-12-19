@@ -12,6 +12,11 @@ export const text = {
     nn: "Dokumentarkiv",
     en: "Document archive",
   },
+  minSide: {
+    nb: "Min side",
+    nn: "Mi side",
+    en: "My page",
+  },
   antallVedlegg: {
     nb: (antall: number) => `Dokumentet har ${antall} vedlegg`,
     nn: (antall: number) => `Dokumentet har ${antall} vedlegg`,

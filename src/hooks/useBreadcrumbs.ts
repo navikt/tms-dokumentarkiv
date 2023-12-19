@@ -12,7 +12,6 @@ type Breadcrumb = {
   handleInApp: boolean;
 };
 
-
 const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,19 +22,18 @@ const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   });
 
   useEffect(() => {
-  const baseBreadcrumbs: Breadcrumb[] = [
-    {
-      url: minSideUrl,
-      title: "Min side",
-      handleInApp: false,
-    },
-    {
-      url: "/dokumentarkiv",
-      title: text.dokumentarkiv[language],
-      handleInApp: true,
-    },
-  ];
-
+    const baseBreadcrumbs: Breadcrumb[] = [
+      {
+        url: minSideUrl,
+        title: text.minSide[language],
+        handleInApp: false,
+      },
+      {
+        url: "/dokumentarkiv",
+        title: text.dokumentarkiv[language],
+        handleInApp: true,
+      },
+    ];
 
     const breadcrumbs = breadcrumb ? baseBreadcrumbs.concat(breadcrumb) : baseBreadcrumbs;
     setBreadcrumbs(breadcrumbs);
