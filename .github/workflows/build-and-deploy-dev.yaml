@@ -36,8 +36,11 @@ jobs:
           cdn-team-name: min-side
           source: ./dist/assets
           destination: 'tms-dokumentarkiv'
-      - run: echo uploaded file ${{ steps.cdn-upload.outputs.uploaded }}
-        shell: bash
+      - name: "Extract manifest url"
+        id: extract-manifest-url
+        run: |
+          files="${{ steps.cdn-upload.outputs.uploaded }}"
+          echo "$files"
       - name: "Build and push"
         uses: nais/docker-build-push@v0
         id: docker-build-push
