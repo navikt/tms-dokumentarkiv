@@ -31,6 +31,7 @@ jobs:
       - name: "Build application"
         run: "npm run build"
       - name: cdn-upload
+        id: cdn-upload
         uses: navikt/frontend/actions/cdn-upload/v1@main
         with:
           cdn-team-name: min-side
@@ -40,7 +41,7 @@ jobs:
         id: extract-manifest-url
         run: |
           files="${{ steps.cdn-upload.outputs.uploaded }}"
-          echo "$files"
+          echo $files
       - name: "Build and push"
         uses: nais/docker-build-push@v0
         id: docker-build-push
