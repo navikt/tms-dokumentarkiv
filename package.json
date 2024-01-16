@@ -23,7 +23,8 @@
     "amplitude-js": "^8.21.9",
     "react-router": "6.17.0",
     "react-router-dom": "6.17.0",
-    "swr": "2.2.4"
+    "swr": "2.2.4",
+    "vite-plugin-css-injected-by-js": "3.3.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
@@ -32,12 +33,12 @@
     "@types/react-dom": "18.2.13",
     "@types/react-modal": "3.16.1",
     "@typescript-eslint/eslint-plugin": "6.8.0",
-    "@vitejs/plugin-react": "4.1.0",
+    "@typescript-eslint/parser": "6.8.0",
+    "@vitejs/plugin-react": "4.2.1",
     "eslint": "8.51.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-react": "7.33.2",
-    "@typescript-eslint/parser": "6.8.0",
     "husky": "8.0.3",
     "jsdom": "^22.1.0",
     "lint-staged": "15.0.1",
@@ -48,7 +49,7 @@
     "rollup-plugin-import-map": "3.0.0",
     "rollup-plugin-terser": "7.0.2",
     "typescript": "5.2.2",
-    "vite": "4.4.11",
+    "vite": "5.0.11",
     "vite-plugin-mock": "3.0.0",
     "vitest": "^0.34.6"
   },
