@@ -8,7 +8,7 @@ const journalpostHandler = () => {
         ctx.status(200),
         ctx.json({
           navn: "Arbeidsavklaringspenger",
-          kode: "AAP",
+          kode: "STO",
           journalposter: [
             {
               tittel: "Søknad om å beholde arbeidsavklaringspenger under opphold i innlandet ",
@@ -131,7 +131,7 @@ const sakstemaHandler = () => {
         ctx.json([
           {
             navn: "Arbeidsavklaringspenger",
-            kode: "AAP",
+            kode: "STO",
             sistEndret: "2023-04-13T14:36:13Z",
             detaljvisningUrl: "https://www.intern.dev.nav.no/mine-saker/tema/AAP",
           },
