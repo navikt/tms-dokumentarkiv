@@ -54,12 +54,17 @@ const DokumentUtlisting = () => {
   }
 
   const temaNavn = isContent && dokumentliste?.navn;
+  const isAarsoppgaveTema = temakode === "STO";
   const dato = isContent && format(new Date(dokumentliste?.journalposter[0].sisteEndret), "dd.MM.yyyy");
 
   return (
     <>
       <Heading level="1" size="xlarge">
-        {isContent ? dokumentliste?.navn : text.dokumentArkivTittel[language]}
+        {isContent
+          ? isAarsoppgaveTema
+            ? text.aarsoppgaveTittel[language]
+            : dokumentliste?.navn
+          : text.dokumentArkivTittel[language]}
       </Heading>
       {isContent ? (
         <div>
