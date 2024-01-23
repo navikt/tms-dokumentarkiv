@@ -252,9 +252,4 @@ export const text = {
     nn: " (kan ikkje visast)",
     en: " (can not show)",
   },
-  aarsoppgaveTittel: {
-    nb: "Regnskap/utbetaling/årsoppgave",
-    nn: "Regnskap/utbetaling/årsoppgave",
-    en: "Regnskap/utbetaling/årsoppgave",
-  },
 };

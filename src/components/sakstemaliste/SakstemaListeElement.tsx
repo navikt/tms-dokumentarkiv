@@ -13,7 +13,6 @@ const SakstemaListeElement = ({ sakstema }: { sakstema: SakstemaElement }) => {
   const language = useStore(languageAtom);
 
   const isDigisosRedirect = sakstema.kode === "KOM";
-  const isAarsoppgaveTema = sakstema.kode === "STO";
   const url = isDigisosRedirect ? digisosRedirectUrl : `/dokumentarkiv/tema/${sakstema.kode}`;
 
   return (
@@ -24,7 +23,7 @@ const SakstemaListeElement = ({ sakstema }: { sakstema: SakstemaElement }) => {
         onClick={() => logNavigereEvent("Sakstemalenke", "Sakstemaliste", sakstema.navn)}
       >
         <Heading level="3" size="small" className={styles.tittel}>
-          {isAarsoppgaveTema ? text.aarsoppgaveTittel[language] : sakstema.navn}
+          {sakstema.navn}
         </Heading>
         <BodyLong className={styles.ingress}>{`${text.sistEndret[language]} ${format(
           new Date(sakstema.sistEndret),
