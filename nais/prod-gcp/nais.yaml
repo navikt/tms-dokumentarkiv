@@ -28,7 +28,6 @@ spec:
         - host: "www.nav.no"
   resources:
     limits:
-      cpu: "3"
       memory: 768Mi
     requests:
       cpu: "50m"
