@@ -1,0 +1,71 @@
+.dokumentElement {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  color: var(--a-text-default);
+  text-decoration: none;
+  margin-top: 1.25rem;
+}
+
+.lenketekst {
+  text-decoration: underline;
+}
+
+.hover:hover .lenketekst {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hover:hover .ikonWrapper {
+  background-color: var(--a-surface-active);
+}
+
+.hover:hover .ikonFarge {
+  background-color: var(--a-surface-action-subtle-hover);
+}
+
+.ikonWrapper {
+  display: flex;
+  border-radius: 0.25rem;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.ikonFarge {
+  color: var(--a-surface-action);
+  background-color: var(--a-surface-action-subtle);
+}
+
+.ikonFargeIkkeTilgang {
+  background-color: var(--a-surface-neutral-subtle);
+}
+
+.ikkeTilgang {
+  color: var(--a-text-subtle);
+}
+
+.titteltekst {
+  text-decoration: none;
+}
+
+.dokumentKanIkkeVises {
+  margin-top: 0.5rem;
+  margin-left: 3.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--a-text-subtle);
+}
+
+.datoOgInnsender {
+  margin-top: 0.125rem;
+  color: var(--a-text-subtle);
+}
+
+.border {
+  margin-top: 1.25rem;
+  margin-left: 3.75rem;
+  border-bottom: 1px solid var(--a-border-divider);
+}

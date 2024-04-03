@@ -15,7 +15,7 @@ const setDocumentLanguage = (language: Locale) => {
 const updateState = (newLanguage: Locale, currentLanguage: Locale) => {
   const replacementUrl = window.location.href.replace(
     baseUrlWithLanguage[currentLanguage],
-    baseUrlWithLanguage[newLanguage]
+    baseUrlWithLanguage[newLanguage],
   );
   window.history.replaceState(window.history.state, "", replacementUrl);
 };

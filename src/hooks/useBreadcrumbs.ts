@@ -24,7 +24,6 @@ const spraakTilpassetUrl = (url: string) => {
   return url;
 }
 
-
 const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -35,6 +34,7 @@ const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   });
 
   useEffect(() => {
+    
   const baseBreadcrumbs: Breadcrumb[] = [
     {
       url: spraakTilpassetUrl(minSideUrl),
@@ -47,7 +47,6 @@ const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
       handleInApp: true,
     },
   ];
-
 
     const breadcrumbs = breadcrumb ? baseBreadcrumbs.concat(breadcrumb) : baseBreadcrumbs;
     setBreadcrumbs(breadcrumbs);

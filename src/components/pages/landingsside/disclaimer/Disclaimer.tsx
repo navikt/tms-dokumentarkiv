@@ -11,7 +11,7 @@ const Disclaimer = () => {
 
   return (
     <div className={styles.container}>
-      <Heading level="3" size="small">
+      <Heading level="2" size="small">
         {text.landingssideDisclaimerTittel[language]}
       </Heading>
       <ul>
@@ -23,13 +23,12 @@ const Disclaimer = () => {
         </li>
       </ul>
       <BodyLong>
-        {text.landingssideDisclaimerTekstDel1[language]}
         <span>
           <a
             href={kontaktOssUrl}
-            onClick={() => logNavigereEvent("Lenke", "Disclaimer", text.landingssideDisclaimerTekstDel2["nb"])}
+            onClick={() => logNavigereEvent("Lenke", "Disclaimer", text.landingssideDisclaimerTekstDel1["nb"])}
           >
-            {text.landingssideDisclaimerLenketekst[language]}
+            {text.landingssideDisclaimerTekstDel1[language]}
           </a>
         </span>
         {text.landingssideDisclaimerTekstDel2[language]}
