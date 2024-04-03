@@ -12,16 +12,16 @@ type Breadcrumb = {
   handleInApp: boolean;
 };
 
-const spraakTilpassetMinsideUrl = () => {
+const spraakTilpassetUrl = (url: string) => {
   const language = useStore(languageAtom);
 
   if(language === "en") {
-    return minSideUrl + "/en";
+    return url + "/en";
   }
   if(language === "nn") {
-    return minSideUrl + "/nn";
+    return url + "/nn";
   }
-  return minSideUrl;
+  return url;
 }
 
 
@@ -37,12 +37,12 @@ const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   useEffect(() => {
   const baseBreadcrumbs: Breadcrumb[] = [
     {
-      url: spraakTilpassetMinsideUrl(),
+      url: spraakTilpassetUrl(minSideUrl),
       title: "Min side",
       handleInApp: false,
     },
     {
-      url: "/dokumentarkiv",
+      url: spraakTilpassetUrl("/dokumentarkiv"),
       title: text.dokumentarkiv[language],
       handleInApp: true,
     },
