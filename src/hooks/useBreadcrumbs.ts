@@ -12,6 +12,18 @@ type Breadcrumb = {
   handleInApp: boolean;
 };
 
+const spraakTilpassetMinsideUrl = () => {
+  const language = useStore(languageAtom);
+
+  if(language === "en") {
+    return minSideUrl + "/en";
+  }
+  if(language === "nn") {
+    return minSideUrl + "/nn";
+  }
+  return minSideUrl;
+}
+
 
 const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   const location = useLocation();
@@ -25,7 +37,7 @@ const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   useEffect(() => {
   const baseBreadcrumbs: Breadcrumb[] = [
     {
-      url: minSideUrl,
+      url: spraakTilpassetMinsideUrl(),
       title: "Min side",
       handleInApp: false,
     },
