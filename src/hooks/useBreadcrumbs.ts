@@ -12,6 +12,18 @@ type Breadcrumb = {
   handleInApp: boolean;
 };
 
+const spraakTilpassetUrl = (url: string) => {
+  const language = useStore(languageAtom);
+
+  if (language === "en") {
+    return url + "/en";
+  }
+  if (language === "nn") {
+    return url + "/nn";
+  }
+  return url;
+};
+
 const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -24,12 +36,12 @@ const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
   useEffect(() => {
     const baseBreadcrumbs: Breadcrumb[] = [
       {
-        url: minSideUrl,
+        url: spraakTilpassetUrl(minSideUrl),
         title: text.minSide[language],
         handleInApp: false,
       },
       {
-        url: "/dokumentarkiv",
+        url: spraakTilpassetUrl("/dokumentarkiv"),
         title: text.dokumentarkiv[language],
         handleInApp: true,
       },
