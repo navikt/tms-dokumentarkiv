@@ -1,6 +1,5 @@
 import { useStore } from "@nanostores/react";
-import { FolderFillIcon } from "@navikt/aksel-icons";
-import { BodyLong, BodyShort, Heading } from "@navikt/ds-react";
+import { BodyLong, Heading } from "@navikt/ds-react";
 import { format } from "date-fns";
 import { text } from "../../language/text";
 import { languageAtom } from "../../store/store";
@@ -23,7 +22,9 @@ const SakstemaListeElement = ({ sakstema }: { sakstema: SakstemaElement }) => {
         className={styles.lenke}
         onClick={() => logNavigereEvent("Sakstemalenke", "Sakstemaliste", sakstema.navn)}
       >
-        <Heading level="3" size="small" className={styles.tittel}>{sakstema.navn}</Heading>
+        <Heading level="3" size="small" className={styles.tittel}>
+          {sakstema.navn}
+        </Heading>
         <BodyLong className={styles.ingress}>{`${text.sistEndret[language]} ${format(
           new Date(sakstema.sistEndret),
           "dd.MM.yyyy"

@@ -5,7 +5,7 @@ import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../../api/api";
 import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
-import { languageAtom, setIsError, setSelectedUser } from "../../../store/store";
+import { languageAtom, setIsError } from "../../../store/store";
 import { getFullmaktForhold, getFullmaktInfoUrl, getSakstemaerUrl } from "../../../urls";
 import ContentLoader from "../../loader/ContentLoader";
 import RepresentasjonsContainer from "../../representasjon/RepresentasjonsContainer";

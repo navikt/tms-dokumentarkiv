@@ -2,7 +2,6 @@ import { Heading, Select } from "@navikt/ds-react";
 import { ChangeEvent } from "react";
 import { postUser } from "../../api/api";
 import { TextLanguages, text } from "../../language/text";
-import {  setSelectedUser } from "../../store/store";
 import { Fullmakter } from "../pages/landingsside/Landingsside";
 import styles from "./RepresentasjonsContainer.module.css";
 import { pdlFullmaktUrl } from "../../urls";
@@ -25,9 +24,7 @@ const RepresentasjonsContainer = ({
   viserRepresentertesData,
   user,
 }: RepresentasjonsContainerProps) => {
-
   const handleSelectChange = async (event: ChangeEvent<HTMLSelectElement>) => {
-    setSelectedUser(event.target.options[event.target.selectedIndex].text, event.target.value);
     await postUser({ ident: event.target.value });
     mutateSakstemaer();
     mutateUser();
@@ -47,11 +44,6 @@ const RepresentasjonsContainer = ({
 
   const nedtrekksliste = genererListe();
 
-  /*const log = (user: {navn: string, ident: string}) => {
-    const isInnloggetBruker = user.ident === fullmakter.ident;
-    logNavigereEvent("Option", "Nedtrekksliste", isInnloggetBruker ? "Representant" : "Representert");
-  }*/
-
   return (
     <>
       <div className={styles.container}>
@@ -64,15 +56,23 @@ const RepresentasjonsContainer = ({
         >
           {fullmakter &&
             nedtrekksliste?.map((user) => (
-              <option value={user.ident}>{user.navn}</option>
+              <option key={user.ident} value={user.ident}>
+                {user.navn}
+              </option>
             ))}
         </Select>
-        <a href={pdlFullmaktUrl} className={styles.lenke} onClick={() => logNavigereEvent("Lenke", "Digital fullmakt innsynslenke", text.representasjonLenkeTekst["nb"])}>
+        <a
+          href={pdlFullmaktUrl}
+          className={styles.lenke}
+          onClick={() =>
+            logNavigereEvent("Lenke", "Digital fullmakt innsynslenke", text.representasjonLenkeTekst["nb"])
+          }
+        >
           {text.representasjonLenkeTekst[language]}
         </a>
       </div>
       {viserRepresentertesData && (
-        <Heading size="large" level="2" className={styles.heading}>
+        <Heading size="large" level="2" className={styles.heading} aria-live="polite">
           {text.representasjonValgtBruker[language] + user.navn}
         </Heading>
       )}

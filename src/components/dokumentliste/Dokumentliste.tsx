@@ -1,45 +1,55 @@
 import { useStore } from "@nanostores/react";
+import { Heading } from "@navikt/ds-react";
 import { useParams } from "react-router-dom";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../api/api";
-import { languageAtom, setIsError } from "../../store/store";
-import { getJournalposterUrl } from "../../urls";
-import { CreateListElement, journalposterProps } from "./CreateListElement";
-import styles from "./Dokumentliste.module.css";
-import { Heading } from "@navikt/ds-react";
 import { text } from "../../language/text";
-
-interface Props extends Array<journalposterProps>{
-  navn: string,
-  kode: string, 
-  journalposter: Array<journalposterProps>
-}
-
+import { languageAtom, setIsError } from "../../store/store";
+import { mineSakerApiUrl } from "../../urls";
+import { DokumentlisteProps } from "./DokumentInterfaces";
+import styles from "./Dokumentliste.module.css";
+import Journalpost from "./Journalpost";
 
 const Dokumentliste = () => {
-  const { temakode } = useParams();
-  const dokumentlisteUrl = `${getJournalposterUrl}?sakstemakode=${temakode}`;
+  const { temakode, journalpostId } = useParams();
 
-  const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
-    shouldRetryOnError: false,
-    onError: setIsError,
-  });
+  const journalposterUrl = journalpostId
+    ? `${mineSakerApiUrl}/sakstema/${temakode}/journalpost/${journalpostId}`
+    : `${mineSakerApiUrl}/sakstema/${temakode}/journalposter`;
+
+  const { data: journalpostListe, isLoading } = useSWRImmutable<DokumentlisteProps>(
+    { path: journalposterUrl },
+    fetcher,
+    {
+      shouldRetryOnError: false,
+      onError: setIsError,
+    }
+  );
 
   const language = useStore(languageAtom);
 
-  if(isLoading) {
+  if (isLoading) {
     return null;
   }
 
+  const hasBorder = journalpostListe && journalpostListe.journalposter.length > 1;
+
   return (
     <div className={styles.container}>
-      <Heading level="2" size="medium" className={styles.heading}>{text.dokumentTittel[language]}</Heading>
+      <Heading level="2" size="medium" className={styles.heading}>
+        {text.dokumentListeTittel[language]}
+      </Heading>
       <ul className={styles.dokumentliste}>
-        {dokumentliste?.map(({ journalposter }: Props) =>
-          journalposter.map((journalpost) => {
-            return CreateListElement(journalpost, language);
-          })
-        )}
+        {journalpostListe?.journalposter.map((journalpost) => {
+          return (
+            <Journalpost
+              key={journalpost.journalpostId}
+              journalpost={journalpost}
+              language={language}
+              border={hasBorder}
+            />
+          );
+        })}
       </ul>
     </div>
   );
