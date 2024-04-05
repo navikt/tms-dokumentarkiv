@@ -47,7 +47,7 @@ const useBreadcrumbs = (breadcrumb?: Breadcrumb) => {
 
     const breadcrumbs = breadcrumb ? baseBreadcrumbs.concat(breadcrumb) : baseBreadcrumbs;
     setBreadcrumbs(breadcrumbs);
-  }, [location, breadcrumb]);
+  }, [location, breadcrumb, language]);
 };
 
 export default useBreadcrumbs;
