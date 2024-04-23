@@ -32,6 +32,11 @@ export const text = {
     nn: "Dokument",
     en: "Document",
   },
+  sykepengerTittel: {
+    nb: "Sykepenger",
+    nn: "Sjukefråvær",
+    en: "Sickness benefit",
+  },
   seAlleDokumenter: {
     nb: "Se alle dokumenter",
     nn: "Sjå alle dokument",
