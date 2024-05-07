@@ -18,12 +18,12 @@ const Dokumentliste = () => {
     : `${mineSakerApiUrl}/sakstema/${temakode}/journalposter`;
 
   const { data: journalpostListe, isLoading } = useSWRImmutable<DokumentlisteProps>(
-    { path: journalposterUrl },
+    { path: journalposterUrl, handleNotFound: true },
     fetcher,
     {
       shouldRetryOnError: false,
       onError: setIsError,
-    },
+    }
   );
 
   const language = useStore(languageAtom);

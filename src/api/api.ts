@@ -1,8 +1,10 @@
-import { postUserUrl } from "../urls";
+import { dokumentArkivUrl, postUserUrl } from "../urls";
+import { redirectToIdPorten, redirectToLandingsside } from "./redirect.ts";
 
 interface Props {
   path: string;
   options?: object;
+  handleNotFound?: boolean;
   eventObj?: object;
 }
 
@@ -14,7 +16,7 @@ export const include = {
   credentials: "include",
 };
 
-export const fetcher = async ({ path, options }: Props) => {
+export const fetcher = async ({ path, options, handleNotFound }: Props) => {
   const response = await fetch(path, {
     method: "GET",
     credentials: "include",
@@ -22,21 +24,28 @@ export const fetcher = async ({ path, options }: Props) => {
   });
 
   if (!response.ok) {
+    if (response.status === 401) {
+      redirectToIdPorten(`${dokumentArkivUrl}`);
+    }
+    if (handleNotFound && response.status === 404) {
+      redirectToLandingsside();
+    }
+
     throw new Error("Fetch request failed");
   }
 
   return await response.json();
 };
 
-export const postUser = async (ident : eventObjectProps) => {
+export const postUser = async (ident: eventObjectProps) => {
   const response = await fetch(postUserUrl, {
     method: "POST",
     credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(ident),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(ident),
   });
 
   if (!response.ok) {

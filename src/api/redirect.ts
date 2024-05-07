@@ -1,7 +1,9 @@
-import { mineSakerApiUrl } from "../urls";
+import { dokumentArkivUrl, mineSakerApiUrl } from "../urls";
 
-const redirectToIdPorten = (redirectUrl: string) => {
+export const redirectToIdPorten = (redirectUrl: string) => {
   window.location.assign(`${mineSakerApiUrl}/login?level=Level4&redirect_uri=${redirectUrl}${window.location.search}`);
 };
 
-export default redirectToIdPorten;
+export const redirectToLandingsside = () => {
+  window.location.assign(dokumentArkivUrl);
+};
