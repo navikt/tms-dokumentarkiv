@@ -26,8 +26,7 @@ export const fetcher = async ({ path, options, handleNotFound }: Props) => {
   if (!response.ok) {
     if (response.status === 401) {
       redirectToIdPorten(`${dokumentArkivUrl}`);
-    }
-    if (handleNotFound && response.status === 404) {
+    } else if (handleNotFound && response.status === 404) {
       redirectToLandingsside();
     }
 
