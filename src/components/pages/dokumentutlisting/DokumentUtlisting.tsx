@@ -29,10 +29,14 @@ const DokumentUtlisting = () => {
     ? `${mineSakerApiUrl}/sakstema/${temakode}/journalpost/${journalpostId}`
     : `${mineSakerApiUrl}/sakstema/${temakode}/journalposter`;
 
-  const { data: dokumentliste, isLoading } = useSWRImmutable({ path: dokumentlisteUrl }, fetcher, {
-    shouldRetryOnError: false,
-    onError: setIsError,
-  });
+  const { data: dokumentliste, isLoading } = useSWRImmutable(
+    { path: dokumentlisteUrl, handleNotFound: true },
+    fetcher,
+    {
+      shouldRetryOnError: false,
+      onError: setIsError,
+    }
+  );
 
   const { data: fullmaktInfo } = useSWR<FullmaktInfoProps>({ path: getFullmaktInfoUrl }, fetcher, {
     shouldRetryOnError: false,

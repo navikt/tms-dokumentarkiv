@@ -1,9 +1,9 @@
 import React from "react";
 import { fetcher, include } from "../../api/api";
-import redirectToIdPorten from "../../api/redirect";
+import { redirectToIdPorten } from "../../api/redirect";
 import { authenticationUrl } from "../../urls";
 import ContentLoader from "../loader/ContentLoader";
-import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 
 type Props = {
   children?: React.ReactNode;
@@ -16,7 +16,7 @@ interface AuthenticationProps {
 }
 
 const Authentication = ({ children }: Props) => {
-  const { data, isLoading, error } = useSWR<AuthenticationProps>(
+  const { data, isLoading, error } = useSWRImmutable<AuthenticationProps>(
     { path: authenticationUrl, options: include },
     fetcher,
     {

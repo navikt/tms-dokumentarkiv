@@ -4,6 +4,7 @@ import DokumentUtlisting from "./components/pages/dokumentutlisting/DokumentUtli
 import Landingsside from "./components/pages/landingsside/Landingsside";
 import { useLanguage } from "./hooks/useLanguage";
 import { initializeAmplitude } from "./utils/amplitude";
+import { reloadOnPageshow } from "./utils/reloadContentOnPageshow.ts";
 
 const App = () => {
   const BASEPATH = "/dokumentarkiv";
@@ -11,6 +12,7 @@ const App = () => {
 
   useLanguage();
   initializeAmplitude();
+  reloadOnPageshow();
 
   return (
     <main className={styles.pageContainer}>
