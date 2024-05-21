@@ -26,8 +26,8 @@ const DokumentUtlisting = () => {
   const { temakode, journalpostId } = useParams();
 
   const dokumentlisteUrl = journalpostId
-    ? `${mineSakerApiUrl}/sakstema/${temakode}/journalpost/${journalpostId}`
-    : `${mineSakerApiUrl}/sakstema/${temakode}/journalposter`;
+      ? `${mineSakerApiUrl}/sakstema/${temakode}/journalpost/${journalpostId}`
+      : `${mineSakerApiUrl}/sakstema/${temakode}/journalposter`;
 
   const { data: dokumentliste, isLoading } = useSWRImmutable(
     { path: dokumentlisteUrl, handleNotFound: true },
@@ -61,28 +61,28 @@ const DokumentUtlisting = () => {
   const dato = isContent && format(new Date(dokumentliste?.journalposter[0].sisteEndret), "dd.MM.yyyy");
 
   return (
-    <>
-      <Heading level="1" size="xlarge">
-        {isContent ? dokumentliste?.navn : text.dokumentArkivTittel[language]}
-      </Heading>
-      {isContent ? (
-        <div>
-          <BodyLong size="medium" className={styles.ingress} aria-live="polite">
-            {text.dokumentArkivIngress[language] + " " + temaNavn}
-            {fullmaktInfo?.viserRepresentertesData ? (
-              <span>{" for " + fullmaktInfo.representertNavn + ". "}</span>
-            ) : null}
-            <TemaLenke lenketekst={temaNavn} />
-          </BodyLong>
-          <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
-          <Dokumentliste />
-          <Lenkepanel />
-        </div>
-      ) : (
-        <IngenDokumenter />
-      )}
-      <Disclaimer />
-    </>
+      <>
+        <Heading level="1" size="xlarge">
+          {isContent ? text.sykepengerTittel[language] : text.dokumentArkivTittel[language]}
+        </Heading>
+        {isContent ? (
+            <div>
+              <BodyLong size="medium" className={styles.ingress} aria-live="polite">
+                {`${text.dokumentArkivIngress[language]} ${text.sykepengerTittel[language]}. `} temanavn er feil
+                {fullmaktInfo?.viserRepresentertesData ? (
+                    <span>{" for " + fullmaktInfo.representertNavn + ". "}</span>
+                ) : null}
+                <TemaLenke lenketekst={temaNavn} />
+              </BodyLong>
+              <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
+              <Dokumentliste />
+              <Lenkepanel />
+            </div>
+        ) : (
+            <IngenDokumenter />
+        )}
+        <Disclaimer />
+      </>
   );
 };
 
