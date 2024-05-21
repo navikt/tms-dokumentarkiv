@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM gcr.io/distroless/nodejs20-debian12
 ENV NODE_ENV production
 
 WORKDIR usr/src/app
