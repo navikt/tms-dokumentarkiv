@@ -7,7 +7,7 @@ COPY dist dist/
 
 WORKDIR server
 
-CMD ["node", "./server.js"]
+CMD ["./server.js"]
 
 ENV PORT=8080
 EXPOSE $PORT
