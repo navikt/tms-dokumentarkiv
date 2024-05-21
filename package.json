@@ -48,7 +48,7 @@
     "rollup-plugin-import-map": "3.0.0",
     "rollup-plugin-terser": "7.0.2",
     "typescript": "5.2.2",
-    "vite": "4.5.2",
+    "vite": "4.5.3",
     "vite-plugin-mock": "3.0.0",
     "vitest": "^0.34.6"
   },
