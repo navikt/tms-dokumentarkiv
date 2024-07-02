@@ -140,7 +140,7 @@ export const text = {
   landingssideDisclaimerListepunktTo: {
     nb: "For bidragssaker kan du kun se dokumenter fra starten av 2022.",
     nn: "For saker knytt til bidrag kan du berre sjå dokumenter frå starten av 2022.",
-    en: "For contribution matters, we are only able to present documents starting from 2022",
+    en: "For contribution matters, we are only able to present documents starting from 2022.",
   },
   landingssideDisclaimerTekstDel1: {
     nb: "Kontakt oss",
