@@ -23,6 +23,11 @@ spec:
     - "https://person.nav.no/dokumentarkiv"
   accessPolicy:
     outbound:
+      rules:
+        - application: nav-dekoratoren
+          namespace: personbruker
+        - application: decorator-next
+          namespace: personbruker
       external:
         - host: "person.nav.no"
         - host: "www.nav.no"
