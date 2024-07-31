@@ -21,6 +21,7 @@ spec:
     - "https://www.intern.dev.nav.no/dokumentarkiv"
     - "https://www.intern.dev.nav.no/mine-saker"
     - "https://www.ansatt.dev.nav.no/mine-saker"
+    - "https://www.ansatt.dev.nav.no/dokumentarkiv"
   accessPolicy:
     outbound:
       external:
