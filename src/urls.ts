@@ -2,24 +2,28 @@ import { getEnvironment } from "./api/environment";
 
 const MINE_SAKER_API_URL = {
   local: "http://localhost:3000/mine-saker-api",
+  ansatt: "https://www.ansatt.dev.nav.no/mine-saker-api",
   development: "https://www.intern.dev.nav.no/mine-saker-api",
   production: "https://person.nav.no/mine-saker-api",
 };
 
 const BASE_URL = {
   local: "http://localhost:3000",
+  ansatt: "https://www.ansatt.dev.nav.no",
   development: "https://www.intern.dev.nav.no",
   production: "https://www.nav.no",
 };
 
 const BASE_URL_INTERN = {
   local: "http://localhost:3000",
+  ansatt: "https://www.ansatt.dev.nav.no",
   development: "https://www.intern.dev.nav.no",
   production: "https://www.intern.nav.no",
 };
 
 const DIGISOS_REDIRECT_URL = {
   local: "http://localhost:3000/sosialhjelp/innsyn",
+  ansatt: "https://www-q0.dev.nav.no/sosialhjelp/innsyn/",
   development: "https://www-q0.dev.nav.no/sosialhjelp/innsyn/",
   production: "https://www.nav.no/sosialhjelp/innsyn/",
 };
