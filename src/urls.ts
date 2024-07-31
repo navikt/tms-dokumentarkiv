@@ -2,7 +2,7 @@ import { getEnvironment } from "./api/environment";
 
 const MINE_SAKER_API_URL = {
   local: "http://localhost:3000/mine-saker-api",
-  ansatt: "https://www.intern.dev.nav.no/mine-saker-api",
+  ansatt: "https://www.ansatt.dev.nav.no/mine-saker-api",
   development: "https://www.intern.dev.nav.no/mine-saker-api",
   production: "https://person.nav.no/mine-saker-api",
 };
