@@ -35,7 +35,7 @@ const DokumentUtlisting = () => {
     {
       shouldRetryOnError: false,
       onError: setIsError,
-    }
+    },
   );
 
   const { data: fullmaktInfo } = useSWR<FullmaktInfoProps>({ path: getFullmaktInfoUrl }, fetcher, {
@@ -68,7 +68,7 @@ const DokumentUtlisting = () => {
       {isContent ? (
         <div>
           <BodyLong size="medium" className={styles.ingress} aria-live="polite">
-            {text.dokumentArkivIngress[language] + " " + temaNavn}
+            {text.dokumentArkivIngress[language] + " " + temaNavn + ". "}
             {fullmaktInfo?.viserRepresentertesData ? (
               <span>{" for " + fullmaktInfo.representertNavn + ". "}</span>
             ) : null}
