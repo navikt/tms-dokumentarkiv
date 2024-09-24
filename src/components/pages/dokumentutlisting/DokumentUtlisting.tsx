@@ -68,10 +68,12 @@ const DokumentUtlisting = () => {
       {isContent ? (
         <div>
           <BodyLong size="medium" className={styles.ingress} aria-live="polite">
-            {text.dokumentArkivIngress[language] + " " + temaNavn + ". "}
+            {text.dokumentArkivIngress[language] + " " + temaNavn}
             {fullmaktInfo?.viserRepresentertesData ? (
               <span>{" for " + fullmaktInfo.representertNavn + ". "}</span>
-            ) : null}
+            ) : (
+              ". "
+            )}
             <TemaLenke lenketekst={temaNavn} />
           </BodyLong>
           <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
