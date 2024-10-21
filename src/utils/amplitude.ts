@@ -1,5 +1,5 @@
 import amplitude from "amplitude-js";
-
+import { isProduction } from "../api/environment.ts";
 
 export const initializeAmplitude = () => {
   amplitude.getInstance().init("default", "", {
@@ -18,4 +18,15 @@ export function logNavigereEvent(komponent: string, kategori?: string, lenketeks
     kategori: kategori,
     lenketekst: lenketekst,
   });
+}
+
+export function logEvent(event: string, antall: number) {
+  if (isProduction) {
+    amplitude.getInstance().logEvent(event, {
+      app: "tms-dokumentarkiv",
+      antall: antall,
+    });
+  }
+
+  return null;
 }

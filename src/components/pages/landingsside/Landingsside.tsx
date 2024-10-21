@@ -6,11 +6,14 @@ import { fetcher } from "../../../api/api";
 import useBreadcrumbs from "../../../hooks/useBreadcrumbs";
 import { text } from "../../../language/text";
 import { languageAtom, setIsError } from "../../../store/store";
-import { getFullmaktForhold, getFullmaktInfoUrl, getSakstemaerUrl } from "../../../urls";
+import { getAlleJournalposterUrl, getFullmaktForhold, getFullmaktInfoUrl, getSakstemaerUrl } from "../../../urls";
 import ContentLoader from "../../loader/ContentLoader";
 import RepresentasjonsContainer from "../../representasjon/RepresentasjonsContainer";
 import SakstemaListe, { SakstemaElement } from "../../sakstemaliste/SakstemaListe";
 import { FullmaktInfoProps } from "../dokumentutlisting/DokumentUtlisting";
+import { logAmplitudeEvent } from "@navikt/nav-dekoratoren-moduler";
+import { logDokumenterEvent, logEvent, logSakstemaEvent } from "../../../utils/amplitude.ts";
+import { isProduction } from "../../../api/environment.ts";
 
 type fullmaktsGiverConfig = {
   navn: string;
@@ -30,7 +33,7 @@ const Landingsside = () => {
     {
       shouldRetryOnError: false,
       onError: setIsError,
-    }
+    },
   );
 
   const {
@@ -48,6 +51,10 @@ const Landingsside = () => {
     onError: setIsError,
   });
 
+  const { data: alleJournalPoster } = useSWR({ path: getAlleJournalposterUrl }, fetcher, {
+    shouldRetryOnError: false,
+  });
+
   const language = useStore(languageAtom);
 
   useBreadcrumbs();
@@ -55,7 +62,19 @@ const Landingsside = () => {
   if (isLoadingFullmakter) {
     return null;
   }
-  
+
+  if (sakstemaer) {
+    logEvent("sakstemaer", sakstemaer.length);
+  }
+
+  if (alleJournalPoster) {
+    const antallDokumenter = alleJournalPoster.reduce(
+      (acc: number, jp: any) => (jp?.dokument?.dokumentInfoId ? acc + 1 : acc),
+      0,
+    );
+    logEvent("dokumenter", antallDokumenter);
+  }
+
   const isRepresentant = fullmakter && fullmakter.fullmaktsGivere.length > 0;
 
   const user = fullmaktInfo?.viserRepresentertesData

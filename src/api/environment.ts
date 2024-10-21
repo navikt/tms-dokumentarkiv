@@ -1,4 +1,5 @@
-const isProduction = window.location.href.includes("www.nav.no") || window.location.href.includes("person.nav.no");
+export const isProduction =
+  window.location.href.includes("www.nav.no") || window.location.href.includes("person.nav.no");
 const isDevelopment = window.location.href.includes("www.intern.dev.nav.no");
 const isAnsatt = window.location.href.includes("www.ansatt.dev.nav.no");
 
