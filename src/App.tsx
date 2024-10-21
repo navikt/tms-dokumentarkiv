@@ -3,12 +3,37 @@ import styles from "./App.module.css";
 import DokumentUtlisting from "./components/pages/dokumentutlisting/DokumentUtlisting";
 import Landingsside from "./components/pages/landingsside/Landingsside";
 import { useLanguage } from "./hooks/useLanguage";
-import { initializeAmplitude } from "./utils/amplitude";
+import { initializeAmplitude, logEvent } from "./utils/amplitude";
 import { reloadOnPageshow } from "./utils/reloadContentOnPageshow.ts";
+import useSWR from "swr";
+import { SakstemaElement } from "./components/sakstemaliste/SakstemaListe.tsx";
+import { getAlleJournalposterUrl, getSakstemaerUrl } from "./urls.ts";
+import { fetcher } from "./api/api.ts";
 
 const App = () => {
   const BASEPATH = "/dokumentarkiv";
   const basePathWithLocales = [`${BASEPATH}`, `${BASEPATH}/en`, `${BASEPATH}/nn`];
+
+  const { data: sakstemaer } = useSWR<Array<SakstemaElement>>({ path: getSakstemaerUrl }, fetcher, {
+    shouldRetryOnError: false,
+  });
+
+  const { data: alleJournalPoster } = useSWR({ path: getAlleJournalposterUrl }, fetcher, {
+    shouldRetryOnError: false,
+  });
+
+  if (sakstemaer) {
+    logEvent("sakstemaer", sakstemaer.length);
+  }
+
+  if (alleJournalPoster) {
+    const antallDokumenter = alleJournalPoster.reduce(
+      (acc: number, jp: any) => (jp?.dokument?.dokumentInfoId ? acc + 1 : acc),
+      0,
+    );
+
+    logEvent("dokumenter", antallDokumenter);
+  }
 
   useLanguage();
   initializeAmplitude();
