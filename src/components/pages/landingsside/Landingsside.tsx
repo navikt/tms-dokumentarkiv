@@ -11,9 +11,7 @@ import ContentLoader from "../../loader/ContentLoader";
 import RepresentasjonsContainer from "../../representasjon/RepresentasjonsContainer";
 import SakstemaListe, { SakstemaElement } from "../../sakstemaliste/SakstemaListe";
 import { FullmaktInfoProps } from "../dokumentutlisting/DokumentUtlisting";
-import { logAmplitudeEvent } from "@navikt/nav-dekoratoren-moduler";
-import { logDokumenterEvent, logEvent, logSakstemaEvent } from "../../../utils/amplitude.ts";
-import { isProduction } from "../../../api/environment.ts";
+import { logEvent } from "../../../utils/amplitude.ts";
 
 type fullmaktsGiverConfig = {
   navn: string;
