@@ -5,7 +5,7 @@ import Landingsside from "./components/pages/landingsside/Landingsside";
 import { useLanguage } from "./hooks/useLanguage";
 import { initializeAmplitude, logEvent } from "./utils/amplitude";
 import { reloadOnPageshow } from "./utils/reloadContentOnPageshow.ts";
-import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 import { SakstemaElement } from "./components/sakstemaliste/SakstemaListe.tsx";
 import { getAlleJournalposterUrl, getSakstemaerUrl } from "./urls.ts";
 import { fetcher } from "./api/api.ts";
@@ -14,11 +14,11 @@ const App = () => {
   const BASEPATH = "/dokumentarkiv";
   const basePathWithLocales = [`${BASEPATH}`, `${BASEPATH}/en`, `${BASEPATH}/nn`];
 
-  const { data: sakstemaer } = useSWR<Array<SakstemaElement>>({ path: getSakstemaerUrl }, fetcher, {
+  const { data: sakstemaer } = useSWRImmutable<Array<SakstemaElement>>({ path: getSakstemaerUrl }, fetcher, {
     shouldRetryOnError: false,
   });
 
-  const { data: alleJournalPoster } = useSWR({ path: getAlleJournalposterUrl }, fetcher, {
+  const { data: alleJournalPoster } = useSWRImmutable({ path: getAlleJournalposterUrl }, fetcher, {
     shouldRetryOnError: false,
   });
 
