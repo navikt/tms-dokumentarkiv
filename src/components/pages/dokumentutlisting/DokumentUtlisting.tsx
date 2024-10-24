@@ -48,11 +48,11 @@ const DokumentUtlisting = () => {
   useEffect(() => {
     if (dokumentliste) {
       const antallDokumenter = dokumentliste.journalposter.reduce((acc: number, jp: any) => {
-        const hoveddokument = jp.dokumenter.filter((d: any) => d.dokumenttype === "HOVED");
-        return acc + hoveddokument.length;
+        const hoveddokumenter = jp.dokumenter.filter((d: any) => d.dokumenttype === "HOVED");
+        return acc + hoveddokumenter.length;
       }, 0);
 
-      logSakstemaEvent("sakstema", dokumentliste.kode, antallDokumenter);
+      logSakstemaEvent(dokumentliste.kode, antallDokumenter);
     }
   }, [isLoading]);
 
