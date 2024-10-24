@@ -15,6 +15,8 @@ import Disclaimer from "./disclaimer/Disclaimer";
 import Lenkepanel from "../../nyttig-og-vite/Lenkepanel";
 import TemaLenke from "../../temaside-lenke/TemaLenke";
 import Dokumentliste from "../../dokumentliste/Dokumentliste";
+import { logSakstemaEvent } from "../../../utils/amplitude.ts";
+import { useEffect } from "react";
 
 export interface FullmaktInfoProps {
   viserRepresentertesData: boolean;
@@ -42,6 +44,17 @@ const DokumentUtlisting = () => {
     shouldRetryOnError: false,
     onError: setIsError,
   });
+
+  useEffect(() => {
+    if (dokumentliste) {
+      const antallDokumenter = dokumentliste.journalposter.reduce((acc: number, jp: any) => {
+        const hoveddokumenter = jp.dokumenter.filter((d: any) => d.dokumenttype === "HOVED");
+        return acc + hoveddokumenter.length;
+      }, 0);
+
+      logSakstemaEvent(dokumentliste.kode, antallDokumenter);
+    }
+  }, [isLoading]);
 
   const language = useStore(languageAtom);
 

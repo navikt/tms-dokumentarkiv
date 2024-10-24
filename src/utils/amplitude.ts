@@ -30,3 +30,16 @@ export function logEvent(event: string, antall: number) {
 
   return null;
 }
+
+export function logSakstemaEvent(kode: string, antall: number) {
+  if (isProduction) {
+    amplitude.getInstance().logEvent("sakstema", {
+      app: "tms-dokumentarkiv",
+      type: "dokumenter",
+      sakstema: kode,
+      antall: antall,
+    });
+  }
+
+  return null;
+}
