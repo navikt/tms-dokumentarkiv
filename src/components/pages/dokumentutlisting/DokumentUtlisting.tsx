@@ -52,7 +52,7 @@ const DokumentUtlisting = () => {
         return acc + hoveddokument.length;
       }, 0);
 
-      logSakstemaEvent("sakstema-dokumenter", dokumentliste.kode, antallDokumenter);
+      logSakstemaEvent("sakstema", dokumentliste.kode, antallDokumenter);
     }
   }, [isLoading]);
 
