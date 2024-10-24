@@ -48,7 +48,7 @@ const DokumentUtlisting = () => {
   useEffect(() => {
     if (dokumentliste) {
       const antallDokumenter = dokumentliste.journalposter.reduce((acc: number, jp: any) => {
-        const hoveddokument = jp.dokumenter.filter((d) => d.dokumenttype === "HOVED");
+        const hoveddokument = jp.dokumenter.filter((d: any) => d.dokumenttype === "HOVED");
         return acc + hoveddokument.length;
       }, 0);
 
