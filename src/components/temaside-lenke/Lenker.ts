@@ -30,9 +30,11 @@ const SOSIALHJELP = {
 
 const PENSJON = {
   local: "https://localhost:3000/dinpensjon",
-  ansatt: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/dinpensjon.jsf?execution=e1s1",
-  development: "https://pensjon-pselv-q1.dev.nav.no/pselv/publisering/dinpensjon.jsf?execution=e1s1",
-  production: "https://www.nav.no/pselv/publisering/dinpensjon.jsf?execution=e1s1",
+  ansatt:
+    "https://pensjon-selvbetjening-dinpensjon-frontend-borger-q2.intern.dev.nav.no/pensjon/selvbetjening/dinpensjon",
+  development:
+    "https://pensjon-selvbetjening-dinpensjon-frontend-borger-q2.intern.dev.nav.no/pensjon/selvbetjening/dinpensjon",
+  production: "https://www.nav.no/pensjon/selvbetjening/dinpensjon",
 };
 
 const UFORETRYGD = {
@@ -49,7 +51,7 @@ export const sosialhjelpUrl = SOSIALHJELP[getEnvironment()];
 export const pensjonsUrl = PENSJON[getEnvironment()];
 export const uforetrygdUrl = UFORETRYGD[getEnvironment()];
 export const arbeidsavklaringspengerUrl = "https://www.nav.no/aap/mine-aap/";
-export const sykefravaerUrl = "https://www.nav.no/syk/sykefravaer"
+export const sykefravaerUrl = "https://www.nav.no/syk/sykefravaer";
 export const omsorgspengerUrl = "https://www.nav.no/familie/sykdom-i-familien/soknad/innsyn";
 
 export const lenker = {
@@ -62,5 +64,5 @@ export const lenker = {
   SYM: sykefravaerUrl,
   PEN: pensjonsUrl,
   UFO: uforetrygdUrl,
-  OMS: omsorgspengerUrl
+  OMS: omsorgspengerUrl,
 };
