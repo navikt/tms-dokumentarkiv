@@ -44,7 +44,7 @@ export const minSideUrl = `${BASE_URL[getEnvironment()]}/minside`;
 export const dokumentArkivUrl = `${BASE_URL[getEnvironment()]}/dokumentarkiv`;
 export const kontaktOssUrl = `${BASE_URL[getEnvironment()]}/kontaktoss`;
 export const pdlFullmaktUrl = `${BASE_URL[getEnvironment()]}/person/pdl-fullmakt-ui/`;
-export const saksbehandlingstiderUrl = "https://www.nav.no/no/nav-og-samfunn/om-nav/saksbehandlingstider-i-nav";
+export const saksbehandlingstiderUrl = "https://www.nav.no/saksbehandlingstider";
 export const tilbakemeldingerUrl = "https://www.nav.no/person/kontakt-oss/tilbakemeldinger";
 export const digisosRedirectUrl = DIGISOS_REDIRECT_URL[getEnvironment()];
 
