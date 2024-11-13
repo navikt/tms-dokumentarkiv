@@ -79,7 +79,6 @@ const DokumentUtlisting = () => {
       <Heading level="1" size="xlarge">
         {isContent ? dokumentliste?.navn : text.dokumentArkivTittel[language]}
       </Heading>
-      {temakode === "TSO" && <UXSignals />}
       {isContent ? (
         <div>
           <BodyLong size="medium" className={styles.ingress} aria-live="polite">
@@ -93,6 +92,7 @@ const DokumentUtlisting = () => {
           </BodyLong>
           <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
           <Dokumentliste />
+          {temakode === "TSO" && <UXSignals />}
           <Lenkepanel />
         </div>
       ) : (
