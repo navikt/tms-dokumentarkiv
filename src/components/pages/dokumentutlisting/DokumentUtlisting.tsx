@@ -17,6 +17,7 @@ import TemaLenke from "../../temaside-lenke/TemaLenke";
 import Dokumentliste from "../../dokumentliste/Dokumentliste";
 import { logSakstemaEvent } from "../../../utils/amplitude.ts";
 import { useEffect } from "react";
+import UXSignals from "../../UXSignals/UXSignals.tsx";
 
 export interface FullmaktInfoProps {
   viserRepresentertesData: boolean;
@@ -78,6 +79,7 @@ const DokumentUtlisting = () => {
       <Heading level="1" size="xlarge">
         {isContent ? dokumentliste?.navn : text.dokumentArkivTittel[language]}
       </Heading>
+      {temakode === "TSO" && <UXSignals />}
       {isContent ? (
         <div>
           <BodyLong size="medium" className={styles.ingress} aria-live="polite">
