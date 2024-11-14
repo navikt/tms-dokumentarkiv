@@ -1,14 +1,9 @@
 import useUXSignalScript from "./useUXSignals";
-import styles from "./UXSignals.module.css";
 
 const UXSignals = () => {
   useUXSignalScript(true);
 
-  return (
-    <div className={styles.wrapper}>
-      <div data-uxsignals-embed="panel-ce74lzpks7" style={{ maxWidth: "620px" }} />
-    </div>
-  );
+  return <div data-uxsignals-embed="panel-ce74lzpks7" style={{ maxWidth: "620px" }} />;
 };
 
 export default UXSignals;
