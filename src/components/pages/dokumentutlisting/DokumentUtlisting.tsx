@@ -17,6 +17,7 @@ import TemaLenke from "../../temaside-lenke/TemaLenke";
 import Dokumentliste from "../../dokumentliste/Dokumentliste";
 import { logSakstemaEvent } from "../../../utils/amplitude.ts";
 import { useEffect } from "react";
+import UXSignals from "../../UXSignals/UXSignals.tsx";
 
 export interface FullmaktInfoProps {
   viserRepresentertesData: boolean;
@@ -91,6 +92,7 @@ const DokumentUtlisting = () => {
           </BodyLong>
           <BodyShort className={styles.sistEndret}>{text.sistEndret[language] + " " + dato}</BodyShort>
           <Dokumentliste />
+          {temakode === "TSO" && <UXSignals />}
           <Lenkepanel />
         </div>
       ) : (
